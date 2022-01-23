@@ -1,0 +1,20 @@
+header > p > a.active{
+    color: palevioletred;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+.error{
+    color: #D8000C;
+    background-color: #FFBABA;
+    margin: 5px 0;
+    text-align: left;
+    display: inline-block;
+    animation: error .10s 2;
+}
+
+@keyframes error {
+    from {transform: translateX(3px);}
+    to {transform: translateX(-3px);} 
+  }
