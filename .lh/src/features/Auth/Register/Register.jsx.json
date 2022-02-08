@@ -1,0 +1,350 @@
+{
+    "sourceFile": "src/features/Auth/Register/Register.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 83,
+            "patches": [
+                {
+                    "date": 1643271837074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643276565306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,16 @@\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n \n \n-const Register = () => {\n+const Register = ({toggle}) => {\n     const handlesubmit = (value) =>{\n         console.log('handle',value)\n     }\n     return ( \n-        <RegisterForm onSubmit={handlesubmit}/>\n+    <>\n+        <RegisterForm toggle={toggle} onSubmit={handlesubmit}/>\n+        <button >Cancel</button>\n+    </>        \n      );\n }\n  \n export default Register;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643276579959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     }\n     return ( \n     <>\n         <RegisterForm toggle={toggle} onSubmit={handlesubmit}/>\n-        <button >Cancel</button>\n+        <button className=\"btn\">Cancel</button>\n     </>        \n      );\n }\n  \n"
+                },
+                {
+                    "date": 1643276588860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     }\n     return ( \n     <>\n         <RegisterForm toggle={toggle} onSubmit={handlesubmit}/>\n-        <button className=\"btn\">Cancel</button>\n+        <button className=\"btn btn-warning\">Cancel</button>\n     </>        \n      );\n }\n  \n"
+                },
+                {
+                    "date": 1643276638503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n         console.log('handle',value)\n     }\n     return ( \n     <>\n-        <RegisterForm toggle={toggle} onSubmit={handlesubmit}/>\n-        <button className=\"btn btn-warning\">Cancel</button>\n+        <RegisterForm onSubmit={handlesubmit}/>\n+        <button onClick={toggle} className=\"btn btn-warning\">Cancel</button>\n     </>        \n      );\n }\n  \n"
+                },
+                {
+                    "date": 1643276709762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     }\n     return ( \n     <>\n         <RegisterForm onSubmit={handlesubmit}/>\n-        <button onClick={toggle} className=\"btn btn-warning\">Cancel</button>\n+        <button onClick={()=>toggle(false)} className=\"btn btn-warning\">Cancel</button>\n     </>        \n      );\n }\n  \n"
+                },
+                {
+                    "date": 1643276789027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n const Register = ({toggle}) => {\n     const handlesubmit = (value) =>{\n         console.log('handle',value)\n     }\n+    console.log(toggle)\n     return ( \n     <>\n         <RegisterForm onSubmit={handlesubmit}/>\n         <button onClick={()=>toggle(false)} className=\"btn btn-warning\">Cancel</button>\n"
+                },
+                {
+                    "date": 1643276853912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     console.log(toggle)\n     return ( \n     <>\n         <RegisterForm onSubmit={handlesubmit}/>\n-        <button onClick={()=>toggle(false)} className=\"btn btn-warning\">Cancel</button>\n+        <button onClick={()=>toggle()} className=\"btn btn-warning\">Cancel</button>\n     </>        \n      );\n }\n  \n"
+                },
+                {
+                    "date": 1643276959655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,16 @@\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n \n \n-const Register = ({toggle}) => {\n+const Register = ({setModal}) => {\n     const handlesubmit = (value) =>{\n         console.log('handle',value)\n     }\n-    console.log(toggle)\n+    console.log(setModal)\n     return ( \n     <>\n-        <RegisterForm onSubmit={handlesubmit}/>\n-        <button onClick={()=>toggle()} className=\"btn btn-warning\">Cancel</button>\n+        <RegisterForm onSubmit={se}/>\n+        <button className=\"btn btn-warning\">Cancel</button>\n     </>        \n      );\n }\n  \n"
+                },
+                {
+                    "date": 1643276976949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     }\n     console.log(setModal)\n     return ( \n     <>\n-        <RegisterForm onSubmit={se}/>\n+        <RegisterForm onSubmit={handlesubmit}/>\n         <button className=\"btn btn-warning\">Cancel</button>\n     </>        \n      );\n }\n"
+                },
+                {
+                    "date": 1643277031164,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     console.log(setModal)\n     return ( \n     <>\n         <RegisterForm onSubmit={handlesubmit}/>\n-        <button className=\"btn btn-warning\">Cancel</button>\n+        <button onClick={setModal(false)} className=\"btn btn-warning\">Cancel</button>\n     </>        \n      );\n }\n  \n"
+                },
+                {
+                    "date": 1643277053629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     console.log(setModal)\n     return ( \n     <>\n         <RegisterForm onSubmit={handlesubmit}/>\n-        <button onClick={setModal(false)} className=\"btn btn-warning\">Cancel</button>\n+        <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n      );\n }\n  \n"
+                },
+                {
+                    "date": 1643277398954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const Register = ({setModal}) => {\n     const handlesubmit = (value) =>{\n         console.log('handle',value)\n     }\n-    console.log(setModal)\n+\n     return ( \n     <>\n         <RegisterForm onSubmit={handlesubmit}/>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n"
+                },
+                {
+                    "date": 1643279727345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,16 @@\n+import { useState } from \"react\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n \n \n const Register = ({setModal}) => {\n+    const [show,setShow] = useState()\n     const handlesubmit = (value) =>{\n         console.log('handle',value)\n     }\n-\n     return ( \n-    <>\n-        <RegisterForm onSubmit={handlesubmit}/>\n+    <>  \n+        <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n      );\n }\n"
+                },
+                {
+                    "date": 1643279969339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,15 +2,16 @@\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n \n \n const Register = ({setModal}) => {\n-    const [show,setShow] = useState()\n+    const [show,setShow] = useState(false)\n     const handlesubmit = (value) =>{\n         console.log('handle',value)\n     }\n     return ( \n     <>  \n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n+        <input id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n      );\n }\n"
+                },
+                {
+                    "date": 1643280074733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,12 +6,13 @@\n     const [show,setShow] = useState(false)\n     const handlesubmit = (value) =>{\n         console.log('handle',value)\n     }\n+    console.log(show)\n     return ( \n     <>  \n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n-        <input id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n+        <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n      );\n }\n"
+                },
+                {
+                    "date": 1643456827195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,10 @@\n const Register = ({setModal}) => {\n     const [show,setShow] = useState(false)\n     const handlesubmit = (value) =>{\n         console.log('handle',value)\n+        \n     }\n-    console.log(show)\n     return ( \n     <>  \n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n"
+                },
+                {
+                    "date": 1643457117489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,17 @@\n import { useState } from \"react\";\n+import { useDispatch } from \"react-redux\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n+import { register } from \"../userSlice\";\n \n \n const Register = ({setModal}) => {\n     const [show,setShow] = useState(false)\n+    const dispatch = useDispatch()\n+\n     const handlesubmit = (value) =>{\n-        console.log('handle',value)\n-        \n+        const action = register(value)\n+        console.log(action)\n     }\n     return ( \n     <>  \n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n"
+                },
+                {
+                    "date": 1643457235565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     const dispatch = useDispatch()\n \n     const handlesubmit = (value) =>{\n         const action = register(value)\n-        console.log(action)\n+        // console.log(action)\n     }\n     return ( \n     <>  \n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n"
+                },
+                {
+                    "date": 1643457241589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     const [show,setShow] = useState(false)\n     const dispatch = useDispatch()\n \n     const handlesubmit = (value) =>{\n-        const action = register(value)\n+        // const action = register(value)\n         // console.log(action)\n     }\n     return ( \n     <>  \n"
+                },
+                {
+                    "date": 1643457491384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,21 @@\n import { useState } from \"react\";\n import { useDispatch } from \"react-redux\";\n+import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n \n \n const Register = ({setModal}) => {\n     const [show,setShow] = useState(false)\n     const dispatch = useDispatch()\n \n-    const handlesubmit = (value) =>{\n-        // const action = register(value)\n-        // console.log(action)\n+    const handlesubmit = async (values) =>{\n+        values.username = values.email\n+        const action = register(values)\n+        const resultAction = await dispatch(action)\n+        const user = unwrapResult(resultAction)\n+        console.log('newUser',user)\n     }\n     return ( \n     <>  \n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n"
+                },
+                {
+                    "date": 1643457893475,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,13 +9,17 @@\n     const [show,setShow] = useState(false)\n     const dispatch = useDispatch()\n \n     const handlesubmit = async (values) =>{\n-        values.username = values.email\n-        const action = register(values)\n-        const resultAction = await dispatch(action)\n-        const user = unwrapResult(resultAction)\n-        console.log('newUser',user)\n+        try {\n+            values.username = values.email\n+            const action = register(values)\n+            const resultAction = await dispatch(action)\n+            const user = unwrapResult(resultAction)\n+            console.log('newUser',user)\n+        } catch (error) {\n+            console.log('Err,',error)\n+        }\n     }\n     return ( \n     <>  \n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n"
+                },
+                {
+                    "date": 1643457965835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n+            setModal(false)\n         } catch (error) {\n             console.log('Err,',error)\n         }\n     }\n"
+                },
+                {
+                    "date": 1643538905712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import { useDispatch } from \"react-redux\";\n import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n+import Toasts from 'components/Toasts/Toast';\n \n \n const Register = ({setModal}) => {\n     const [show,setShow] = useState(false)\n@@ -22,8 +23,9 @@\n         }\n     }\n     return ( \n     <>  \n+        <Toasts/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643538914037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,8 @@\n         }\n     }\n     return ( \n     <>  \n-        <Toasts/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643539041425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,9 @@\n         }\n     }\n     return ( \n     <>  \n+        <Toasts/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643539051713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,8 @@\n         }\n     }\n     return ( \n     <>  \n-        <Toasts/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643539372051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,9 @@\n         }\n     }\n     return ( \n     <>  \n+        <Toasts/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643539387191,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         }\n     }\n     return ( \n     <>  \n-        <Toasts/>\n+        \n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643539676173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,12 +3,14 @@\n import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n import Toasts from 'components/Toasts/Toast';\n+import { Toast } from \"bootstrap\";\n \n \n const Register = ({setModal}) => {\n     const [show,setShow] = useState(false)\n+    const [toast,setToast] = useState(false)\n     const dispatch = useDispatch()\n \n     const handlesubmit = async (values) =>{\n         try {\n@@ -16,16 +18,17 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n+\n             setModal(false)\n         } catch (error) {\n             console.log('Err,',error)\n         }\n     }\n     return ( \n     <>  \n-        \n+        <Toasts toast={toast}/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643539781983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n-\n+            setToast(true)\n             setModal(false)\n         } catch (error) {\n             console.log('Err,',error)\n         }\n"
+                },
+                {
+                    "date": 1643539807147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n-            setToast(true)\n+            // setToast(true)\n             setModal(false)\n         } catch (error) {\n             console.log('Err,',error)\n         }\n"
+                },
+                {
+                    "date": 1643539820315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,8 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n-            // setToast(true)\n             setModal(false)\n         } catch (error) {\n             console.log('Err,',error)\n         }\n"
+                },
+                {
+                    "date": 1643539831037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n         }\n     }\n     return ( \n     <>  \n-        <Toasts toast={toast}/>\n+\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643540535249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,9 @@\n import { useDispatch } from \"react-redux\";\n import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n-import Toasts from 'components/Toasts/Toast';\n-import { Toast } from \"bootstrap\";\n+import Toasts from \"components/Toasts/Toast\";\n \n \n const Register = ({setModal}) => {\n     const [show,setShow] = useState(false)\n@@ -25,9 +24,9 @@\n         }\n     }\n     return ( \n     <>  \n-\n+        <Toasts toast={toast} setToast={setToast}/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643540677600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,16 +17,20 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n+            setToast(true)\n+            if(user){\n+                <Toasts toast={toast} setToast={setToast}/>\n+            }\n             setModal(false)\n+\n         } catch (error) {\n             console.log('Err,',error)\n         }\n     }\n     return ( \n     <>  \n-        <Toasts toast={toast} setToast={setToast}/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643540799897,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,13 +17,11 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n-            setToast(true)\n-            if(user){\n-                <Toasts toast={toast} setToast={setToast}/>\n-            }\n-            setModal(false)\n+            setToast(true) && <Toasts toast={toast} setToast={setToast}/>\n+                \n+            // setModal(false)\n \n         } catch (error) {\n             console.log('Err,',error)\n         }\n"
+                },
+                {
+                    "date": 1643540856497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n-            setToast(true) && <Toasts toast={toast} setToast={setToast}/>\n+            setToast(true) \n                 \n             // setModal(false)\n \n         } catch (error) {\n"
+                },
+                {
+                    "date": 1643540958843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,11 +17,11 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n-            setToast(true) \n+            // setToast(true) \n                 \n-            // setModal(false)\n+            setModal(false)\n \n         } catch (error) {\n             console.log('Err,',error)\n         }\n"
+                },
+                {
+                    "date": 1643543395034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { useDispatch } from \"react-redux\";\n import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n-import Toasts from \"components/Toasts/Toast\";\n+// import Toasts from \"components/Toasts/Toast\";\n \n \n const Register = ({setModal}) => {\n     const [show,setShow] = useState(false)\n"
+                },
+                {
+                    "date": 1643612186348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import { useDispatch } from \"react-redux\";\n import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n+import Toasts from \"components/Toasts/Toast\";\n // import Toasts from \"components/Toasts/Toast\";\n \n \n const Register = ({setModal}) => {\n@@ -16,10 +17,11 @@\n             values.username = values.email\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n+            setToast(true) \n+            {<Toasts open={toast}/>}\n             console.log('newUser',user)\n-            // setToast(true) \n                 \n             setModal(false)\n \n         } catch (error) {\n"
+                },
+                {
+                    "date": 1643612329251,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,8 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             setToast(true) \n-            {<Toasts open={toast}/>}\n             console.log('newUser',user)\n                 \n             setModal(false)\n \n@@ -29,8 +28,9 @@\n         }\n     }\n     return ( \n     <>  \n+        <Toasts open={toast}/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643612383016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n         } catch (error) {\n             console.log('Err,',error)\n         }\n     }\n+    console.log(toast)\n     return ( \n     <>  \n         <Toasts open={toast}/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n"
+                },
+                {
+                    "date": 1643612819862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,36 +2,31 @@\n import { useDispatch } from \"react-redux\";\n import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n-import Toasts from \"components/Toasts/Toast\";\n-// import Toasts from \"components/Toasts/Toast\";\n \n \n+\n const Register = ({setModal}) => {\n     const [show,setShow] = useState(false)\n-    const [toast,setToast] = useState(false)\n     const dispatch = useDispatch()\n \n     const handlesubmit = async (values) =>{\n         try {\n             values.username = values.email\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n-            setToast(true) \n             console.log('newUser',user)\n                 \n-            setModal(false)\n+            // setModal(false)\n \n         } catch (error) {\n             console.log('Err,',error)\n         }\n     }\n-    console.log(toast)\n     return ( \n     <>  \n-        <Toasts open={toast}/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643613033660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import { register } from \"../userSlice\";\n \n \n \n-const Register = ({setModal}) => {\n+const Register = ({setModal,toast,setToast}) => {\n     const [show,setShow] = useState(false)\n     const dispatch = useDispatch()\n \n     const handlesubmit = async (values) =>{\n@@ -15,8 +15,9 @@\n             values.username = values.email\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n+            setToast(true)\n             console.log('newUser',user)\n                 \n             // setModal(false)\n \n"
+                },
+                {
+                    "date": 1643613075770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n             const user = unwrapResult(resultAction)\n             setToast(true)\n             console.log('newUser',user)\n                 \n-            // setModal(false)\n+            setModal(false)\n \n         } catch (error) {\n             console.log('Err,',error)\n         }\n"
+                },
+                {
+                    "date": 1643613098974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import { register } from \"../userSlice\";\n \n \n \n-const Register = ({setModal,toast,setToast}) => {\n+const Register = ({setModal,setToast}) => {\n     const [show,setShow] = useState(false)\n     const dispatch = useDispatch()\n \n     const handlesubmit = async (values) =>{\n"
+                },
+                {
+                    "date": 1643614623886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,30 @@\n-import { useState } from \"react\";\n+import { useState,useEffect} from \"react\";\n import { useDispatch } from \"react-redux\";\n import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n \n \n \n-const Register = ({setModal,setToast}) => {\n+const Register = ({setModal,toast,setToast}) => {\n     const [show,setShow] = useState(false)\n     const dispatch = useDispatch()\n \n+    const handleOpenShown = () => {\n+        setToast(true)\n+        setTimeout(() => {\n+            setToast(false)\n+        }, 2000);\n+    }\n+    useEffect(() => {\n+      first;\n+    \n+      return () => {\n+        second;\n+      };\n+    }, [toast]);\n+    \n     const handlesubmit = async (values) =>{\n         try {\n             values.username = values.email\n             const action = register(values)\n"
+                },
+                {
+                    "date": 1643615024769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,19 +9,15 @@\n const Register = ({setModal,toast,setToast}) => {\n     const [show,setShow] = useState(false)\n     const dispatch = useDispatch()\n \n-    const handleOpenShown = () => {\n-        setToast(true)\n-        setTimeout(() => {\n+    useEffect(() => {    \n+       const timeToast = setTimeout(() => {\n             setToast(false)\n         }, 2000);\n-    }\n-    useEffect(() => {\n-      first;\n-    \n+\n       return () => {\n-        second;\n+        clearTimeout(timeToast)\n       };\n     }, [toast]);\n     \n     const handlesubmit = async (values) =>{\n"
+                },
+                {
+                    "date": 1643615223213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       return () => {\n         clearTimeout(timeToast)\n       };\n     }, [toast]);\n-    \n+    console.log(toast)\n     const handlesubmit = async (values) =>{\n         try {\n             values.username = values.email\n             const action = register(values)\n"
+                },
+                {
+                    "date": 1643615353814,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { useState,useEffect} from \"react\";\n+import { useState} from \"react\";\n import { useDispatch } from \"react-redux\";\n import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n@@ -8,19 +8,8 @@\n \n const Register = ({setModal,toast,setToast}) => {\n     const [show,setShow] = useState(false)\n     const dispatch = useDispatch()\n-\n-    useEffect(() => {    \n-       const timeToast = setTimeout(() => {\n-            setToast(false)\n-        }, 2000);\n-\n-      return () => {\n-        clearTimeout(timeToast)\n-      };\n-    }, [toast]);\n-    console.log(toast)\n     const handlesubmit = async (values) =>{\n         try {\n             values.username = values.email\n             const action = register(values)\n"
+                },
+                {
+                    "date": 1643616139394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,12 +14,11 @@\n             values.username = values.email\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n-            setToast(true)\n             console.log('newUser',user)\n-                \n             setModal(false)\n+            setToast(true)\n \n         } catch (error) {\n             console.log('Err,',error)\n         }\n"
+                },
+                {
+                    "date": 1643630771931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,26 @@\n-import { useState} from \"react\";\n+import { useEffect, useState} from \"react\";\n import { useDispatch } from \"react-redux\";\n import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n+import Toasts from \"components/Toasts/Toast\";\n \n \n-\n const Register = ({setModal,toast,setToast}) => {\n     const [show,setShow] = useState(false)\n     const dispatch = useDispatch()\n+\n+    useEffect(() => {    \n+        const timeToast = setTimeout(() => {\n+             setToast(false)\n+         }, 2000);\n+ \n+       return () => {\n+         clearTimeout(timeToast)\n+       };\n+     }, [toast]);\n+\n     const handlesubmit = async (values) =>{\n         try {\n             values.username = values.email\n             const action = register(values)\n@@ -24,8 +35,9 @@\n         }\n     }\n     return ( \n     <>  \n+        <Toasts open={toast}/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643631637595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,11 @@\n import { register } from \"../userSlice\";\n import Toasts from \"components/Toasts/Toast\";\n \n \n-const Register = ({setModal,toast,setToast}) => {\n+const Register = ({setModal}) => {\n     const [show,setShow] = useState(false)\n+    const [toast,setToast] = useState(false);\n     const dispatch = useDispatch()\n \n     useEffect(() => {    \n         const timeToast = setTimeout(() => {\n"
+                },
+                {
+                    "date": 1643631891358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,12 +36,12 @@\n         }\n     }\n     return ( \n     <>  \n-        <Toasts open={toast}/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n+        <Toasts open={toast}/>\n     </>        \n      );\n }\n  \n"
+                },
+                {
+                    "date": 1643631964716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,12 +36,12 @@\n         }\n     }\n     return ( \n     <>  \n+        <Toasts open={toast}/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n-        <Toasts open={toast}/>\n     </>        \n      );\n }\n  \n"
+                },
+                {
+                    "date": 1643685693479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n         }\n     }\n     return ( \n     <>  \n-        <Toasts open={toast}/>\n+        {/* <Toasts open={toast}/> */}\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643685710100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n         }\n     }\n     return ( \n     <>  \n-        {/* <Toasts open={toast}/> */}\n+        <Toasts open={toast}/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643687106900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,10 +27,10 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n-            setModal(false)\n             setToast(true)\n+            // setModal(false)\n \n         } catch (error) {\n             console.log('Err,',error)\n         }\n"
+                },
+                {
+                    "date": 1643687326226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,11 @@\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n             setToast(true)\n-            // setModal(false)\n+            if(toast){\n+                setModal(false)\n+            }\n \n         } catch (error) {\n             console.log('Err,',error)\n         }\n"
+                },
+                {
+                    "date": 1643687354399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,11 +28,9 @@\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n             setToast(true)\n-            if(toast){\n                 setModal(false)\n-            }\n \n         } catch (error) {\n             console.log('Err,',error)\n         }\n"
+                },
+                {
+                    "date": 1643790332016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,15 @@\n-import { useEffect, useState} from \"react\";\n+import { useEffect, useState,useContext} from \"react\";\n import { useDispatch } from \"react-redux\";\n import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n-import Toasts from \"components/Toasts/Toast\";\n \n-\n-const Register = ({setModal}) => {\n+const Register = ({setModal,toastContext}) => {\n     const [show,setShow] = useState(false)\n-    const [toast,setToast] = useState(false);\n     const dispatch = useDispatch()\n-\n+    const toast = useContext(toastContext)\n+    console.log(toast)\n     useEffect(() => {    \n         const timeToast = setTimeout(() => {\n              setToast(false)\n          }, 2000);\n@@ -36,9 +34,8 @@\n         }\n     }\n     return ( \n     <>  \n-        <Toasts open={toast}/>\n         <RegisterForm show={show} onSubmit={handlesubmit}/>\n         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor=\"show\">Show Password</label>\n         <button onClick={()=>{setModal(false)}} className=\"btn btn-warning\">Cancel</button>\n     </>        \n"
+                },
+                {
+                    "date": 1643790356278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     const toast = useContext(toastContext)\n     console.log(toast)\n     useEffect(() => {    \n         const timeToast = setTimeout(() => {\n-             setToast(false)\n+            //  setToast(false)\n          }, 2000);\n  \n        return () => {\n          clearTimeout(timeToast)\n@@ -25,9 +25,9 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n-            setToast(true)\n+            // setToast(true)\n                 setModal(false)\n \n         } catch (error) {\n             console.log('Err,',error)\n"
+                },
+                {
+                    "date": 1643790448785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,12 +7,12 @@\n const Register = ({setModal,toastContext}) => {\n     const [show,setShow] = useState(false)\n     const dispatch = useDispatch()\n     const toast = useContext(toastContext)\n-    console.log(toast)\n+\n     useEffect(() => {    \n         const timeToast = setTimeout(() => {\n-            //  setToast(false)\n+             toast.setToast(false)\n          }, 2000);\n  \n        return () => {\n          clearTimeout(timeToast)\n@@ -25,9 +25,9 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n-            // setToast(true)\n+            toast.setToast(true)\n                 setModal(false)\n \n         } catch (error) {\n             console.log('Err,',error)\n"
+                },
+                {
+                    "date": 1643790648316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n  \n        return () => {\n          clearTimeout(timeToast)\n        };\n-     }, [toast]);\n+     }, [toast.toast]);\n \n     const handlesubmit = async (values) =>{\n         try {\n             values.username = values.email\n"
+                },
+                {
+                    "date": 1643790798506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { useEffect, useState,useContext} from \"react\";\n+import { useState,useContext} from \"react\";\n import { useDispatch } from \"react-redux\";\n import { unwrapResult } from \"@reduxjs/toolkit\";\n import RegisterForm from \"../RegisterForm/RegisterForm\";\n import { register } from \"../userSlice\";\n@@ -8,27 +8,17 @@\n     const [show,setShow] = useState(false)\n     const dispatch = useDispatch()\n     const toast = useContext(toastContext)\n \n-    useEffect(() => {    \n-        const timeToast = setTimeout(() => {\n-             toast.setToast(false)\n-         }, 2000);\n- \n-       return () => {\n-         clearTimeout(timeToast)\n-       };\n-     }, [toast.toast]);\n-\n     const handlesubmit = async (values) =>{\n         try {\n             values.username = values.email\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n             toast.setToast(true)\n-                setModal(false)\n+            setModal(false)\n \n         } catch (error) {\n             console.log('Err,',error)\n         }\n"
+                },
+                {
+                    "date": 1643791409812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,11 +16,14 @@\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n             toast.setToast(true)\n+            toast.setBackground('success')\n             setModal(false)\n \n         } catch (error) {\n+            toast.setToast(true)\n+            toast.setBackground('error')\n             console.log('Err,',error)\n         }\n     }\n     return ( \n"
+                },
+                {
+                    "date": 1643791478123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,10 @@\n             toast.setBackground('success')\n             setModal(false)\n \n         } catch (error) {\n+            toast.setBackground('error')\n             toast.setToast(true)\n-            toast.setBackground('error')\n             console.log('Err,',error)\n         }\n     }\n     return ( \n"
+                },
+                {
+                    "date": 1643791593593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n             toast.setBackground('success')\n             setModal(false)\n \n         } catch (error) {\n-            toast.setBackground('error')\n+            toast.setBackground('danger')\n             toast.setToast(true)\n             console.log('Err,',error)\n         }\n     }\n"
+                },
+                {
+                    "date": 1643791766821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,13 +17,15 @@\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n             toast.setToast(true)\n             toast.setBackground('success')\n+            toast.setMess('Chúc mừng bạn đã đăng ký thành công!!')\n             setModal(false)\n \n         } catch (error) {\n             toast.setBackground('danger')\n             toast.setToast(true)\n+            toast.setMess('Đăng ký thất bại !!')\n             console.log('Err,',error)\n         }\n     }\n     return ( \n"
+                },
+                {
+                    "date": 1643792449657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,14 +17,16 @@\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n             toast.setToast(true)\n             toast.setBackground('success')\n+            toast.setMessHead('Register Success Fully')\n             toast.setMess('Chúc mừng bạn đã đăng ký thành công!!')\n             setModal(false)\n \n         } catch (error) {\n             toast.setBackground('danger')\n             toast.setToast(true)\n+            toast.setMessHead('Register Error')\n             toast.setMess('Đăng ký thất bại !!')\n             console.log('Err,',error)\n         }\n     }\n"
+                },
+                {
+                    "date": 1643792543510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n \n         } catch (error) {\n             toast.setBackground('danger')\n             toast.setToast(true)\n-            toast.setMessHead('Register Error')\n+            toast.setMessHead('Register Error !')\n             toast.setMess('Đăng ký thất bại !!')\n             console.log('Err,',error)\n         }\n     }\n"
+                },
+                {
+                    "date": 1643792553529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n             toast.setToast(true)\n             toast.setBackground('success')\n-            toast.setMessHead('Register Success Fully')\n+            toast.setMessHead('Register Success Full!')\n             toast.setMess('Chúc mừng bạn đã đăng ký thành công!!')\n             setModal(false)\n \n         } catch (error) {\n"
+                },
+                {
+                    "date": 1643967304481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n             toast.setToast(true)\n             toast.setBackground('success')\n             toast.setMessHead('Register Success Full!')\n             toast.setMess('Chúc mừng bạn đã đăng ký thành công!!')\n-            setModal(false)\n+            // setModal(false)\n \n         } catch (error) {\n             toast.setBackground('danger')\n             toast.setToast(true)\n"
+                },
+                {
+                    "date": 1643967337789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n             toast.setToast(true)\n             toast.setBackground('success')\n             toast.setMessHead('Register Success Full!')\n             toast.setMess('Chúc mừng bạn đã đăng ký thành công!!')\n-            // setModal(false)\n+            setModal(false)\n \n         } catch (error) {\n             toast.setBackground('danger')\n             toast.setToast(true)\n"
+                },
+                {
+                    "date": 1643967530483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n             toast.setBackground('danger')\n             toast.setToast(true)\n             toast.setMessHead('Register Error !')\n             toast.setMess('Đăng ký thất bại !!')\n+            setModal(true)\n             console.log('Err,',error)\n         }\n     }\n     return ( \n"
+                },
+                {
+                    "date": 1643967572837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             toast.setBackground('danger')\n             toast.setToast(true)\n             toast.setMessHead('Register Error !')\n             toast.setMess('Đăng ký thất bại !!')\n-            setModal(true)\n+            // setModal(true)s\n             console.log('Err,',error)\n         }\n     }\n     return ( \n"
+                },
+                {
+                    "date": 1643967627958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,16 +19,16 @@\n             toast.setToast(true)\n             toast.setBackground('success')\n             toast.setMessHead('Register Success Full!')\n             toast.setMess('Chúc mừng bạn đã đăng ký thành công!!')\n-            setModal(false)\n+            // setModal(false)\n \n         } catch (error) {\n             toast.setBackground('danger')\n             toast.setToast(true)\n             toast.setMessHead('Register Error !')\n             toast.setMess('Đăng ký thất bại !!')\n-            // setModal(true)s\n+            // setModal(true)\n             console.log('Err,',error)\n         }\n     }\n     return ( \n"
+                },
+                {
+                    "date": 1643967816775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,20 +15,20 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n+            // setModal(false)\n             toast.setToast(true)\n             toast.setBackground('success')\n             toast.setMessHead('Register Success Full!')\n             toast.setMess('Chúc mừng bạn đã đăng ký thành công!!')\n-            // setModal(false)\n \n         } catch (error) {\n+            setModal(false)\n             toast.setBackground('danger')\n             toast.setToast(true)\n             toast.setMessHead('Register Error !')\n             toast.setMess('Đăng ký thất bại !!')\n-            // setModal(true)\n             console.log('Err,',error)\n         }\n     }\n     return ( \n"
+                },
+                {
+                    "date": 1643968001137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             toast.setMessHead('Register Success Full!')\n             toast.setMess('Chúc mừng bạn đã đăng ký thành công!!')\n \n         } catch (error) {\n-            setModal(false)\n+            setModal(true)\n             toast.setBackground('danger')\n             toast.setToast(true)\n             toast.setMessHead('Register Error !')\n             toast.setMess('Đăng ký thất bại !!')\n"
+                },
+                {
+                    "date": 1643968185775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             toast.setMessHead('Register Success Full!')\n             toast.setMess('Chúc mừng bạn đã đăng ký thành công!!')\n \n         } catch (error) {\n-            setModal(true)\n+            // setModal(true)\n             toast.setBackground('danger')\n             toast.setToast(true)\n             toast.setMessHead('Register Error !')\n             toast.setMess('Đăng ký thất bại !!')\n"
+                },
+                {
+                    "date": 1644143918758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             toast.setMessHead('Register Success Full!')\n             toast.setMess('Chúc mừng bạn đã đăng ký thành công!!')\n \n         } catch (error) {\n-            // setModal(true)\n+            setModal(true)\n             toast.setBackground('danger')\n             toast.setToast(true)\n             toast.setMessHead('Register Error !')\n             toast.setMess('Đăng ký thất bại !!')\n"
+                },
+                {
+                    "date": 1644144001239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             const action = register(values)\n             const resultAction = await dispatch(action)\n             const user = unwrapResult(resultAction)\n             console.log('newUser',user)\n-            // setModal(false)\n+            setModal(true)\n             toast.setToast(true)\n             toast.setBackground('success')\n             toast.setMessHead('Register Success Full!')\n             toast.setMess('Chúc mừng bạn đã đăng ký thành công!!')\n"
+                },
+                {
+                    "date": 1644222593601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             setModal(true)\n             toast.setBackground('danger')\n             toast.setToast(true)\n             toast.setMessHead('Register Error !')\n-            toast.setMess('Đăng ký thất bại !!')\n+            toast.setMess(error.message)\n             console.log('Err,',error)\n         }\n     }\n     return ( \n"
+                }
+            ],
+            "date": 1643271837074,
+            "name": "Commit-0",
+            "content": "import RegisterForm from \"../RegisterForm/RegisterForm\";\n\n\nconst Register = () => {\n    const handlesubmit = (value) =>{\n        console.log('handle',value)\n    }\n    return ( \n        <RegisterForm onSubmit={handlesubmit}/>\n     );\n}\n \nexport default Register;"
+        }
+    ]
+}

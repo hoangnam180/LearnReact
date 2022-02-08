@@ -1,9 +1,7 @@
 const InputField = (props) => {
-    const {register,name,type,defaultValue} = props
+    const {register,name,type,defaultValue,id} = props
     return (  
-        <div>
-            <input defaultValue={defaultValue} {...register(name)} name={name} type={type}/>
-        </div>
+            <input id={id} defaultValue={defaultValue} {...register(name)} name={name} type={type}/>
     );
 }
  

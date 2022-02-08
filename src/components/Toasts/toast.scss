@@ -1,0 +1,14 @@
+.toast-container{
+    position: absolute;
+    right: 0;
+    padding: 5px;
+    top: 0;
+    transform: translateX(100%);
+    transition: linear .35s;
+    &.open{
+        transform: translateX(0);
+    }
+}
+
+
+

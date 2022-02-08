@@ -1,0 +1,174 @@
+{
+    "sourceFile": "src/App.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 39,
+            "patches": [
+                {
+                    "date": 1643207291528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643278769489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,8 @@\n \n     useEffect(() => {\n      const  fetchProducts = async ()=>{\n         const productList = await products.getAll({_limit:10})\n-        console.log(productList)\n       }\n       fetchProducts()\n     }, [])\n \n"
+                },
+                {
+                    "date": 1643524908160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n import AlbumFeature from \"./features/Album/pages\";\n import NotFound from './components/NotFound/NotFound';\n import ListPage from './features/Todo/pages/ListPage/ListPage';\n import DetialPage from './features/Todo/pages/DetailPage/DetailPage';\n+import { Toast } from './components/Toasts/Toast';\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n function App() {\n@@ -18,9 +19,11 @@\n       fetchProducts()\n     }, [])\n \n   return (\n+\n     <div className=\"App\">\n+      <Toast/>\n         <Header/>\n         <Routes>\n            <Route path=\"/\"/>\n             \n"
+                },
+                {
+                    "date": 1643538321048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,9 @@\n   return (\n \n     <div className=\"App\">\n       <Toast/>\n+      <button>show</button>\n         <Header/>\n         <Routes>\n            <Route path=\"/\"/>\n             \n"
+                },
+                {
+                    "date": 1643538613255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import AlbumFeature from \"./features/Album/pages\";\n import NotFound from './components/NotFound/NotFound';\n import ListPage from './features/Todo/pages/ListPage/ListPage';\n import DetialPage from './features/Todo/pages/DetailPage/DetailPage';\n-import { Toast } from './components/Toasts/Toast';\n+import Toasts from 'components/Toasts/Toast';\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n function App() {\n@@ -21,9 +21,9 @@\n \n   return (\n \n     <div className=\"App\">\n-      <Toast/>\n+      <Toasts/>\n       <button>show</button>\n         <Header/>\n         <Routes>\n            <Route path=\"/\"/>\n"
+                },
+                {
+                    "date": 1643538728155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,9 @@\n \n   return (\n \n     <div className=\"App\">\n+      \n       <Toasts/>\n       <button>show</button>\n         <Header/>\n         <Routes>\n"
+                },
+                {
+                    "date": 1643538734477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n \n   return (\n \n     <div className=\"App\">\n-      \n-      <Toasts/>\n-      <button>show</button>\n+\n+      {/* <Toasts/>\n+      <button>show</button> */}\n         <Header/>\n         <Routes>\n            <Route path=\"/\"/>\n             \n"
+                },
+                {
+                    "date": 1643538783987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,8 @@\n \n   return (\n \n     <div className=\"App\">\n-\n-      {/* <Toasts/>\n-      <button>show</button> */}\n         <Header/>\n         <Routes>\n            <Route path=\"/\"/>\n             \n"
+                },
+                {
+                    "date": 1643538838763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,9 @@\n   return (\n \n     <div className=\"App\">\n         <Header/>\n+        <Toasts/>\n         <Routes>\n            <Route path=\"/\"/>\n             \n            <Route path=\"/todos/*\" element={<TodoFeature />}>\n"
+                },
+                {
+                    "date": 1643538845463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n   return (\n \n     <div className=\"App\">\n         <Header/>\n-        <Toasts/>\n+        {/* <Toasts/> */}\n         <Routes>\n            <Route path=\"/\"/>\n             \n            <Route path=\"/todos/*\" element={<TodoFeature />}>\n"
+                },
+                {
+                    "date": 1643538866694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,11 @@\n \n   return (\n \n     <div className=\"App\">\n+        <Toasts/>\n+\n         <Header/>\n-        {/* <Toasts/> */}\n         <Routes>\n            <Route path=\"/\"/>\n             \n            <Route path=\"/todos/*\" element={<TodoFeature />}>\n"
+                },
+                {
+                    "date": 1643538874934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,8 @@\n \n   return (\n \n     <div className=\"App\">\n-        <Toasts/>\n-\n         <Header/>\n         <Routes>\n            <Route path=\"/\"/>\n             \n"
+                },
+                {
+                    "date": 1643539903332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,9 @@\n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n         </Routes>\n+        <Toasts/>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643540151409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n import AlbumFeature from \"./features/Album/pages\";\n import NotFound from './components/NotFound/NotFound';\n import ListPage from './features/Todo/pages/ListPage/ListPage';\n import DetialPage from './features/Todo/pages/DetailPage/DetailPage';\n-import Toasts from 'components/Toasts/Toast';\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n+import Toasts from 'components/Toasts/Toast';\n function App() {\n \n     useEffect(() => {\n      const  fetchProducts = async ()=>{\n"
+                },
+                {
+                    "date": 1643540190276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,8 @@\n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n         </Routes>\n-        <Toasts/>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643541186970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import {Route,Routes} from 'react-router-dom'\n-import { useEffect } from 'react';\n+import { useEffect, useState } from 'react';\n import products from './API/products';\n import TodoFeature from \"./features/Todo/pages\";\n import AlbumFeature from \"./features/Album/pages\";\n import NotFound from './components/NotFound/NotFound';\n@@ -9,16 +9,18 @@\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n import Toasts from 'components/Toasts/Toast';\n+import Example from 'components/Toasts/Toast';\n function App() {\n \n     useEffect(() => {\n      const  fetchProducts = async ()=>{\n         const productList = await products.getAll({_limit:10})\n       }\n       fetchProducts()\n     }, [])\n+    const [show, setShow] = useState(false);\n \n   return (\n \n     <div className=\"App\">\n@@ -36,8 +38,9 @@\n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n         </Routes>\n+        <Example show={show} setShow={setShow}/>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643541207550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \n   return (\n \n     <div className=\"App\">\n-        <Header/>\n+        {/* <Header/>\n         <Routes>\n            <Route path=\"/\"/>\n             \n            <Route path=\"/todos/*\" element={<TodoFeature />}>\n@@ -37,9 +37,9 @@\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n-        </Routes>\n+        </Routes> */}\n         <Example show={show} setShow={setShow}/>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1643541391097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,9 @@\n import DetialPage from './features/Todo/pages/DetailPage/DetailPage';\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n-import Toasts from 'components/Toasts/Toast';\n-import Example from 'components/Toasts/Toast';\n+\n function App() {\n \n     useEffect(() => {\n      const  fetchProducts = async ()=>{\n@@ -38,9 +37,9 @@\n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n         </Routes> */}\n-        <Example show={show} setShow={setShow}/>\n+        <\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643541412194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n import DetialPage from './features/Todo/pages/DetailPage/DetailPage';\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n+import Toasts from 'components/Toasts/Toast';\n \n function App() {\n \n     useEffect(() => {\n@@ -37,9 +38,9 @@\n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n         </Routes> */}\n-        <\n+        <Toasts/>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643608919443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \n   return (\n \n     <div className=\"App\">\n-        {/* <Header/>\n+        <Header/>\n         <Routes>\n            <Route path=\"/\"/>\n             \n            <Route path=\"/todos/*\" element={<TodoFeature />}>\n@@ -37,10 +37,10 @@\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n-        </Routes> */}\n-        <Toasts/>\n+        </Routes>\n+\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643609159123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \n   return (\n \n     <div className=\"App\">\n-        <Header/>\n+        {/* <Header/>\n         <Routes>\n            <Route path=\"/\"/>\n             \n            <Route path=\"/todos/*\" element={<TodoFeature />}>\n@@ -37,10 +37,10 @@\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n-        </Routes>\n-\n+        </Routes> */}\n+      <Toasts/>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643610943553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n import Toasts from 'components/Toasts/Toast';\n+import { Button } from 'reactstrap';\n \n function App() {\n \n     useEffect(() => {\n@@ -39,8 +40,9 @@\n            \n           <Route path=\"*\" element={<NotFound />} />\n         </Routes> */}\n       <Toasts/>\n+      <Button/>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643610957353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n            \n           <Route path=\"*\" element={<NotFound />} />\n         </Routes> */}\n       <Toasts/>\n-      <Button/>\n+      <Button>show</Button>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643610973809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n            \n           <Route path=\"*\" element={<NotFound />} />\n         </Routes> */}\n       <Toasts/>\n-      <Button>show</Button>\n+      <Button className='bg-primary'>show</Button>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643610980119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n            \n           <Route path=\"*\" element={<NotFound />} />\n         </Routes> */}\n       <Toasts/>\n-      <Button className='bg-primary'>show</Button>\n+      <Button className='p-3 bg-primary'>show</Button>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643610991167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n            \n           <Route path=\"*\" element={<NotFound />} />\n         </Routes> */}\n       <Toasts/>\n-      <Button className='p-3 bg-primary'>show</Button>\n+      <Button className='pr-3 bg-primary'>show</Button>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643611074840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,8 @@\n       }\n       fetchProducts()\n     }, [])\n     const [show, setShow] = useState(false);\n-\n   return (\n \n     <div className=\"App\">\n         {/* <Header/>\n@@ -39,10 +38,10 @@\n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n         </Routes> */}\n-      <Toasts/>\n-      <Button className='pr-3 bg-primary'>show</Button>\n+      <Toasts open={show}/>\n+      <Button onClick={()=>{setShow(!show)}} className='pr-5 bg-primary'>show</Button>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643611718539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,8 @@\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n import Toasts from 'components/Toasts/Toast';\n-import { Button } from 'reactstrap';\n \n function App() {\n \n     useEffect(() => {\n@@ -19,13 +18,12 @@\n         const productList = await products.getAll({_limit:10})\n       }\n       fetchProducts()\n     }, [])\n-    const [show, setShow] = useState(false);\n   return (\n \n     <div className=\"App\">\n-        {/* <Header/>\n+        <Header/>\n         <Routes>\n            <Route path=\"/\"/>\n             \n            <Route path=\"/todos/*\" element={<TodoFeature />}>\n@@ -37,11 +35,9 @@\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n-        </Routes> */}\n-      <Toasts open={show}/>\n-      <Button onClick={()=>{setShow(!show)}} className='pr-5 bg-primary'>show</Button>\n+        </Routes>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1643612066100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n import DetialPage from './features/Todo/pages/DetailPage/DetailPage';\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n-import Toasts from 'components/Toasts/Toast';\n \n function App() {\n \n     useEffect(() => {\n"
+                },
+                {
+                    "date": 1643788490283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,28 +1,33 @@\n import {Route,Routes} from 'react-router-dom'\n-import { useEffect, useState } from 'react';\n+import { createContext, useEffect, useState } from 'react';\n import products from './API/products';\n import TodoFeature from \"./features/Todo/pages\";\n import AlbumFeature from \"./features/Album/pages\";\n import NotFound from './components/NotFound/NotFound';\n import ListPage from './features/Todo/pages/ListPage/ListPage';\n import DetialPage from './features/Todo/pages/DetailPage/DetailPage';\n+\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n \n function App() {\n \n-    useEffect(() => {\n-     const  fetchProducts = async ()=>{\n-        const productList = await products.getAll({_limit:10})\n-      }\n-      fetchProducts()\n-    }, [])\n+  useEffect(() => {\n+    const  fetchProducts = async ()=>{\n+      const productList = await products.getAll({_limit:10})\n+    }\n+    fetchProducts()\n+  }, [])\n+\n+  const useContext = createContext()\n   return (\n \n     <div className=\"App\">\n-        <Header/>\n+       <useContext.Provider>\n+            <Header/>\n+        </useContext.Provider> \n         <Routes>\n            <Route path=\"/\"/>\n             \n            <Route path=\"/todos/*\" element={<TodoFeature />}>\n"
+                },
+                {
+                    "date": 1643788605668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n import AlbumFeature from \"./features/Album/pages\";\n import NotFound from './components/NotFound/NotFound';\n import ListPage from './features/Todo/pages/ListPage/ListPage';\n import DetialPage from './features/Todo/pages/DetailPage/DetailPage';\n-\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n \n@@ -19,13 +18,15 @@\n     }\n     fetchProducts()\n   }, [])\n \n+  const [toast,setToast] = useState(false);\n+\n   const useContext = createContext()\n   return (\n \n     <div className=\"App\">\n-       <useContext.Provider>\n+       <useContext.Provider value={toast}>\n             <Header/>\n         </useContext.Provider> \n         <Routes>\n            <Route path=\"/\"/>\n"
+                },
+                {
+                    "date": 1643788791139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,12 +21,13 @@\n \n   const [toast,setToast] = useState(false);\n \n   const useContext = createContext()\n+  const value = {toast,setToast}\n   return (\n \n     <div className=\"App\">\n-       <useContext.Provider value={toast}>\n+       <useContext.Provider value={value}>\n             <Header/>\n         </useContext.Provider> \n         <Routes>\n            <Route path=\"/\"/>\n"
+                },
+                {
+                    "date": 1643789791685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,17 +19,17 @@\n     fetchProducts()\n   }, [])\n \n   const [toast,setToast] = useState(false);\n+  const value = {toast,setToast}\n \n-  const useContext = createContext()\n-  const value = {toast,setToast}\n+   const toastContext = createContext()\n   return (\n \n     <div className=\"App\">\n-       <useContext.Provider value={value}>\n+       <toastContext.Provider value={value}>\n             <Header/>\n-        </useContext.Provider> \n+        </toastContext.Provider> \n         <Routes>\n            <Route path=\"/\"/>\n             \n            <Route path=\"/todos/*\" element={<TodoFeature />}>\n@@ -46,5 +46,6 @@\n     </div>\n   );\n }\n \n+export {toastContext}\n export default App;\n"
+                },
+                {
+                    "date": 1643789966337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n   return (\n \n     <div className=\"App\">\n        <toastContext.Provider value={value}>\n-            <Header/>\n+            <Header toastContext={toastContext}/>\n         </toastContext.Provider> \n         <Routes>\n            <Route path=\"/\"/>\n             \n@@ -46,6 +46,6 @@\n     </div>\n   );\n }\n \n-export {toastContext}\n+\n export default App;\n"
+                },
+                {
+                    "date": 1643791132519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,11 +17,11 @@\n       const productList = await products.getAll({_limit:10})\n     }\n     fetchProducts()\n   }, [])\n-\n+  const background = useState('success')\n   const [toast,setToast] = useState(false);\n-  const value = {toast,setToast}\n+  const value = {toast,setToast,background}\n \n    const toastContext = createContext()\n   return (\n \n"
+                },
+                {
+                    "date": 1643791309609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,11 +17,11 @@\n       const productList = await products.getAll({_limit:10})\n     }\n     fetchProducts()\n   }, [])\n-  const background = useState('success')\n+  const [background,setBackground] = useState('success')\n   const [toast,setToast] = useState(false);\n-  const value = {toast,setToast,background}\n+  const value = {toast,setToast,background,setBackground}\n \n    const toastContext = createContext()\n   return (\n \n"
+                },
+                {
+                    "date": 1643791693729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,11 +17,12 @@\n       const productList = await products.getAll({_limit:10})\n     }\n     fetchProducts()\n   }, [])\n+  const [mess,setMess] = useState('') \n   const [background,setBackground] = useState('success')\n   const [toast,setToast] = useState(false);\n-  const value = {toast,setToast,background,setBackground}\n+  const value = {toast,setToast,background,setBackground,mess,setMess}\n \n    const toastContext = createContext()\n   return (\n \n"
+                },
+                {
+                    "date": 1643792096386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,10 @@\n       const productList = await products.getAll({_limit:10})\n     }\n     fetchProducts()\n   }, [])\n-  const [mess,setMess] = useState('') \n+  const messValue = {messHead:'',messBody:''}\n+  const [mess,setMess] = useState(messValue) \n   const [background,setBackground] = useState('success')\n   const [toast,setToast] = useState(false);\n   const value = {toast,setToast,background,setBackground,mess,setMess}\n \n"
+                },
+                {
+                    "date": 1643792249672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,10 @@\n       const productList = await products.getAll({_limit:10})\n     }\n     fetchProducts()\n   }, [])\n-  const messValue = {messHead:'',messBody:''}\n-  const [mess,setMess] = useState(messValue) \n+  const [messHead,setMessHead] = useState('')\n+  const [mess,setMess] = useState('') \n   const [background,setBackground] = useState('success')\n   const [toast,setToast] = useState(false);\n   const value = {toast,setToast,background,setBackground,mess,setMess}\n \n"
+                },
+                {
+                    "date": 1643792263539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   const [messHead,setMessHead] = useState('')\n   const [mess,setMess] = useState('') \n   const [background,setBackground] = useState('success')\n   const [toast,setToast] = useState(false);\n-  const value = {toast,setToast,background,setBackground,mess,setMess}\n+  const value = {toast,setToast,background,setBackground,mess,setMess,messHead,setMessHead}\n \n    const toastContext = createContext()\n   return (\n \n"
+                }
+            ],
+            "date": 1643207291528,
+            "name": "Commit-0",
+            "content": "import {Route,Routes} from 'react-router-dom'\nimport { useEffect } from 'react';\nimport products from './API/products';\nimport TodoFeature from \"./features/Todo/pages\";\nimport AlbumFeature from \"./features/Album/pages\";\nimport NotFound from './components/NotFound/NotFound';\nimport ListPage from './features/Todo/pages/ListPage/ListPage';\nimport DetialPage from './features/Todo/pages/DetailPage/DetailPage';\nimport './app.scss'\nimport CouterFeature from './features/Counter/Counter';\nimport Header from 'components/Header/Header';\nfunction App() {\n\n    useEffect(() => {\n     const  fetchProducts = async ()=>{\n        const productList = await products.getAll({_limit:10})\n        console.log(productList)\n      }\n      fetchProducts()\n    }, [])\n\n  return (\n    <div className=\"App\">\n        <Header/>\n        <Routes>\n           <Route path=\"/\"/>\n            \n           <Route path=\"/todos/*\" element={<TodoFeature />}>\n              <Route path=\"todo\" element={<ListPage/>}/>\n              <Route path=\":todoid\" element={<DetialPage/>}/>\n           </Route>\n\n           <Route path=\"/albums/*\" element={<AlbumFeature />}/>\n           \n           <Route path=\"/counter/*\" element={<CouterFeature />}/>\n           \n          <Route path=\"*\" element={<NotFound />} />\n        </Routes>\n    </div>\n  );\n}\n\nexport default App;\n"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "sourceFile": "jsconfig.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1643021793815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643021965962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n {\n     \"compilerOptions\": {\n       \"module\": \"commonjs\",\n-      \"target\": \"es6\",\n-      \"baseUrl\":\"src\"\n+      \"target\": \"es6\"\n     },\n-      \"include\": [\"src/**/*\"]\n+    \"include\": [\"src/**/*\"]\n   }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643022021994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n {\n     \"compilerOptions\": {\n       \"module\": \"commonjs\",\n-      \"target\": \"es6\"\n+      \"target\": \"es6\",\n+      \"baseUrl\":\"src\"\n     },\n     \"include\": [\"src/**/*\"]\n   }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643444110704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {\n     \"compilerOptions\": {\n-      \"module\": \"commonjs\",\n+      \"module\": \"ES6\",\n       \"target\": \"es6\",\n       \"baseUrl\":\"src\"\n     },\n     \"include\": [\"src/**/*\"]\n"
+                },
+                {
+                    "date": 1643444705911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {\n     \"compilerOptions\": {\n-      \"module\": \"ES6\",\n+      \"module\": \"es6\",\n       \"target\": \"es6\",\n       \"baseUrl\":\"src\"\n     },\n     \"include\": [\"src/**/*\"]\n"
+                },
+                {
+                    "date": 1643458423392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n {\n     \"compilerOptions\": {\n       \"module\": \"es6\",\n       \"target\": \"es6\",\n-      \"baseUrl\":\"src\"\n+      \"baseUrl\":\"src\",\n+      \"moduleResolution\": \"node\"\n     },\n     \"include\": [\"src/**/*\"]\n   }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643789510413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n-{\n-    \"compilerOptions\": {\n-      \"module\": \"es6\",\n-      \"target\": \"es6\",\n-      \"baseUrl\":\"src\",\n-      \"moduleResolution\": \"node\"\n-    },\n-    \"include\": [\"src/**/*\"]\n-  }\n\\ No newline at end of file\n+// {\n+//     \"compilerOptions\": {\n+//       \"module\": \"es6\",\n+//       \"target\": \"es6\",\n+//       \"baseUrl\":\"src\",\n+//       \"moduleResolution\": \"node\"\n+//     },\n+//     \"include\": [\"src/**/*\"]\n+//   }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643789532418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n-// {\n-//     \"compilerOptions\": {\n-//       \"module\": \"es6\",\n-//       \"target\": \"es6\",\n-//       \"baseUrl\":\"src\",\n-//       \"moduleResolution\": \"node\"\n-//     },\n-//     \"include\": [\"src/**/*\"]\n-//   }\n\\ No newline at end of file\n+{\n+    \"compilerOptions\": {\n+      \"module\": \"es6\",\n+      \"target\": \"es6\",\n+      \"baseUrl\":\"src\",\n+      \"moduleResolution\": \"node\"\n+    },\n+    \"include\": [\"src/**/*\"]\n+  }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1643021793815,
+            "name": "Commit-0",
+            "content": "{\n    \"compilerOptions\": {\n      \"module\": \"commonjs\",\n      \"target\": \"es6\",\n      \"baseUrl\":\"src\"\n    },\n      \"include\": [\"src/**/*\"]\n  }"
+        }
+    ]
+}

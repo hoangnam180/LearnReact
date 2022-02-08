@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/app.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1643207386111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643208497379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,9 @@\n+*{\n+    padding: 0;\n+    margin: 0;\n+    box-sizing: border-box;\n+}\n a{\n     text-decoration: none;\n     color: #333;\n }\n"
+                },
+                {
+                    "date": 1643262645842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     margin: 0;\n     box-sizing: border-box;\n }\n a{\n-    text-decoration: none;\n+    text-decoration: none !important;\n     color: #333;\n }\n .error{\n     color: #D8000C;\n"
+                },
+                {
+                    "date": 1643270452551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n *{\n     padding: 0;\n-    margin: 0;\n+    margin: 0 !important;\n     box-sizing: border-box;\n }\n a{\n     text-decoration: none !important;\n"
+                },
+                {
+                    "date": 1643270799874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,5 @@\n-*{\n-    padding: 0;\n-    margin: 0 !important;\n-    box-sizing: border-box;\n-}\n+\n a{\n     text-decoration: none !important;\n     color: #333;\n }\n"
+                },
+                {
+                    "date": 1643270903269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,9 @@\n-\n+*{\n+    padding: 0;\n+    margin: 0 !important;\n+    box-sizing: border-box;\n+}\n a{\n     text-decoration: none !important;\n     color: #333;\n }\n"
+                },
+                {
+                    "date": 1643270928335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n *{\n     padding: 0;\n-    margin: 0 !important;\n+    margin: 0 ;\n     box-sizing: border-box;\n }\n a{\n     text-decoration: none !important;\n"
+                }
+            ],
+            "date": 1643207386111,
+            "name": "Commit-0",
+            "content": "a{\n    text-decoration: none;\n    color: #333;\n}\n.error{\n    color: #D8000C;\n    background-color: #FFBABA;\n    margin: 5px 0;\n    text-align: left;\n    display: inline-block;\n    animation: error .10s 2;\n}\n\n@keyframes error {\n    from {transform: translateX(3px);}\n    to {transform: translateX(-3px);} \n  }"
+        }
+    ]
+}

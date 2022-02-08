@@ -1,0 +1,41 @@
+header > p > a.active{
+    color: palevioletred;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: #DAF0D5;
+    align-items: center;
+
+    &__category{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        color: #666;
+        a{
+            color:#666;
+        }
+        p{
+            margin: 0;
+        }
+    }
+    &__logo{
+    a{
+        color: #333;
+    }
+    padding: 4px;
+       i{
+           font-size: 50px;
+       }
+    }
+    &__register{
+        cursor: pointer;
+    }
+    .modal-content {
+        position: relative;
+        transform: translate(-50%,50%);
+        left: 50%;
+        top: 50%;
+    }
+}

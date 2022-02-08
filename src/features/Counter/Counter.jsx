@@ -12,6 +12,7 @@ const handleDecrease = ()=>{
 }
 return ( 
         <div>
+
            <h1>count : {counter}</h1>
            <button 
            onClick={handleIncrease}

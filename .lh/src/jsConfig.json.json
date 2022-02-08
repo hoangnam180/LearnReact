@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/jsConfig.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1643021674989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643021682209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,6 +3,6 @@\n       \"module\": \"commonjs\",\n       \"target\": \"es6\",\n       \"baseUrl\":\"src\"\n     },\n-    \"include\": [\"src/**/*\"]\n+      \"include\": [\"src/**/*\"]\n   }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1643021674989,
+            "name": "Commit-0",
+            "content": "{\n    \"compilerOptions\": {\n      \"module\": \"commonjs\",\n      \"target\": \"es6\",\n      \"baseUrl\":\"src\"\n    },\n    \"include\": [\"src/**/*\"]\n  }"
+        }
+    ]
+}

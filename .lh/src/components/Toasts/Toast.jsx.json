@@ -1,0 +1,446 @@
+{
+    "sourceFile": "src/components/Toasts/Toast.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 107,
+            "patches": [
+                {
+                    "date": 1643524823763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643538583245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,23 +1,28 @@\n import { Toast } from \"reactstrap\";\n \n-[\n-    'Primary',\n-    'Secondary',\n-    'Success',\n-    'Danger',\n-    'Warning',\n-    'Info',\n-    'Light',\n-    'Dark',\n-  ].map((variant, idx) => (\n-    <Toast className=\"d-inline-block m-1\" bg={variant.toLowerCase()} key={idx}>\n-      <Toast.Header>\n-        <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n-        <strong className=\"me-auto\">Bootstrap</strong>\n-        <small>11 mins ago</small>\n-      </Toast.Header>\n-      <Toast.Body className={variant === 'Dark' && 'text-white'}>\n-        Hello, world! This is a toast message.\n-      </Toast.Body>\n-    </Toast>\n-  ));\n\\ No newline at end of file\n+const Toasts = () => {\n+    return (  \n+        [\n+            'Primary',\n+            'Secondary',\n+            'Success',\n+            'Danger',\n+            'Warning',\n+            'Info',\n+            'Light',\n+            'Dark',\n+          ].map((variant, idx) => (\n+            <Toast className=\"d-inline-block m-1\" bg={variant.toLowerCase()} key={idx}>\n+              <Toast.Header>\n+                <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n+                <strong className=\"me-auto\">Bootstrap</strong>\n+                <small>11 mins ago</small>\n+              </Toast.Header>\n+              <Toast.Body className={variant === 'Dark' && 'text-white'}>\n+                Hello, world! This is a toast message.\n+              </Toast.Body>\n+            </Toast>\n+          )))\n+}\n+ \n+export default Toasts;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643539015601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,28 +1,18 @@\n import { Toast } from \"reactstrap\";\n \n const Toasts = () => {\n     return (  \n-        [\n-            'Primary',\n-            'Secondary',\n-            'Success',\n-            'Danger',\n-            'Warning',\n-            'Info',\n-            'Light',\n-            'Dark',\n-          ].map((variant, idx) => (\n-            <Toast className=\"d-inline-block m-1\" bg={variant.toLowerCase()} key={idx}>\n+            <Toast className=\"d-inline-block m-1\" bg={'PRIMARY'}>\n               <Toast.Header>\n                 <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n                 <strong className=\"me-auto\">Bootstrap</strong>\n                 <small>11 mins ago</small>\n               </Toast.Header>\n-              <Toast.Body className={variant === 'Dark' && 'text-white'}>\n+              <Toast.Body className={'text-white'}>\n                 Hello, world! This is a toast message.\n               </Toast.Body>\n             </Toast>\n-          )))\n+          )\n }\n  \n export default Toasts;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643539271898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,25 @@\n-import { Toast } from \"reactstrap\";\n+import { Toast,ToastContainer } from \"reactstrap\";\n \n const Toasts = () => {\n     return (  \n-            <Toast className=\"d-inline-block m-1\" bg={'PRIMARY'}>\n-              <Toast.Header>\n+        <div\n+        aria-live=\"polite\"\n+        aria-atomic=\"true\"\n+        className=\"bg-dark position-relative\"\n+        style={{ minHeight: '240px' }}\n+        >\n+        <ToastContainer position=\"top-end\" className=\"p-3\">\n+            <Toast>\n+            <Toast.Header>\n                 <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n                 <strong className=\"me-auto\">Bootstrap</strong>\n-                <small>11 mins ago</small>\n-              </Toast.Header>\n-              <Toast.Body className={'text-white'}>\n-                Hello, world! This is a toast message.\n-              </Toast.Body>\n+                <small className=\"text-muted\">just now</small>\n+            </Toast.Header>\n+            <Toast.Body>See? Just like this.</Toast.Body>\n             </Toast>\n+        </ToastContainer>\n+</div>\n           )\n }\n  \n export default Toasts;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643539285363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { Toast,ToastContainer } from \"reactstrap\";\n+import { Toast } from \"reactstrap\";\n \n const Toasts = () => {\n     return (  \n         <div\n"
+                },
+                {
+                    "date": 1643539293118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,18 +7,18 @@\n         aria-atomic=\"true\"\n         className=\"bg-dark position-relative\"\n         style={{ minHeight: '240px' }}\n         >\n-        <ToastContainer position=\"top-end\" className=\"p-3\">\n+\n             <Toast>\n             <Toast.Header>\n                 <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n                 <strong className=\"me-auto\">Bootstrap</strong>\n                 <small className=\"text-muted\">just now</small>\n             </Toast.Header>\n             <Toast.Body>See? Just like this.</Toast.Body>\n             </Toast>\n-        </ToastContainer>\n+\n </div>\n           )\n }\n  \n"
+                },
+                {
+                    "date": 1643539346468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,25 +1,16 @@\n import { Toast } from \"reactstrap\";\n \n const Toasts = () => {\n     return (  \n-        <div\n-        aria-live=\"polite\"\n-        aria-atomic=\"true\"\n-        className=\"bg-dark position-relative\"\n-        style={{ minHeight: '240px' }}\n-        >\n-\n-            <Toast>\n-            <Toast.Header>\n-                <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n-                <strong className=\"me-auto\">Bootstrap</strong>\n-                <small className=\"text-muted\">just now</small>\n-            </Toast.Header>\n-            <Toast.Body>See? Just like this.</Toast.Body>\n-            </Toast>\n-\n-</div>\n-          )\n+        <Toast>\n+        <Toast.Header>\n+            <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n+            <strong className=\"me-auto\">Bootstrap</strong>\n+            <small>11 mins ago</small>\n+        </Toast.Header>\n+        <Toast.Body>Hello, world! This is a toast message.</Toast.Body>\n+        </Toast>\n+    )\n }\n  \n export default Toasts;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643539713427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n import { Toast } from \"reactstrap\";\n \n-const Toasts = () => {\n+const Toasts = ({toast}) => {\n+    console.log(toast)\n     return (  \n-        <Toast>\n+        <Toast show={toast}>\n         <Toast.Header>\n             <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n             <strong className=\"me-auto\">Bootstrap</strong>\n             <small>11 mins ago</small>\n"
+                },
+                {
+                    "date": 1643539863140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n import { Toast } from \"reactstrap\";\n \n const Toasts = ({toast}) => {\n-    console.log(toast)\n+\n     return (  \n-        <Toast show={toast}>\n+        <Toast show={true}>\n         <Toast.Header>\n             <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n             <strong className=\"me-auto\">Bootstrap</strong>\n             <small>11 mins ago</small>\n"
+                },
+                {
+                    "date": 1643540043786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,34 @@\n-import { Toast } from \"reactstrap\";\n+import { Toast,ToastContainer} from \"reactstrap\";\n \n const Toasts = ({toast}) => {\n \n     return (  \n-        <Toast show={true}>\n-        <Toast.Header>\n-            <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n-            <strong className=\"me-auto\">Bootstrap</strong>\n-            <small>11 mins ago</small>\n-        </Toast.Header>\n-        <Toast.Body>Hello, world! This is a toast message.</Toast.Body>\n-        </Toast>\n+<div\n+  aria-live=\"polite\"\n+  aria-atomic=\"true\"\n+  className=\"bg-dark position-relative\"\n+  style={{ minHeight: '240px' }}\n+>\n+        <ToastContainer position=\"top-end\" className=\"p-3\">\n+            <Toast>\n+            <Toast.Header>\n+                <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n+                <strong className=\"me-auto\">Bootstrap</strong>\n+                <small className=\"text-muted\">just now</small>\n+            </Toast.Header>\n+            <Toast.Body>See? Just like this.</Toast.Body>\n+            </Toast>\n+            <Toast>\n+            <Toast.Header>\n+                <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n+                <strong className=\"me-auto\">Bootstrap</strong>\n+                <small className=\"text-muted\">2 seconds ago</small>\n+            </Toast.Header>\n+            <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>\n+            </Toast>\n+        </ToastContainer>\n+</div>\n     )\n }\n  \n export default Toasts;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643540050087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { Toast,ToastContainer} from \"reactstrap\";\n+import { Toast} from \"reactstrap\";\n \n const Toasts = ({toast}) => {\n \n     return (  \n"
+                },
+                {
+                    "date": 1643540061159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   aria-atomic=\"true\"\n   className=\"bg-dark position-relative\"\n   style={{ minHeight: '240px' }}\n >\n-        <ToastContainer position=\"top-end\" className=\"p-3\">\n+\n             <Toast>\n             <Toast.Header>\n                 <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n                 <strong className=\"me-auto\">Bootstrap</strong>\n@@ -25,9 +25,10 @@\n                 <small className=\"text-muted\">2 seconds ago</small>\n             </Toast.Header>\n             <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>\n             </Toast>\n-        </ToastContainer>\n+\n+        \n </div>\n     )\n }\n  \n"
+                },
+                {
+                    "date": 1643540095674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,32 +2,22 @@\n \n const Toasts = ({toast}) => {\n \n     return (  \n-<div\n-  aria-live=\"polite\"\n-  aria-atomic=\"true\"\n-  className=\"bg-dark position-relative\"\n-  style={{ minHeight: '240px' }}\n->\n-\n+            <div\n+            aria-live=\"polite\"\n+            aria-atomic=\"true\"\n+            className=\"bg-dark position-relative\"\n+            style={{ minHeight: '240px' }}\n+            >\n             <Toast>\n             <Toast.Header>\n                 <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n                 <strong className=\"me-auto\">Bootstrap</strong>\n                 <small className=\"text-muted\">just now</small>\n             </Toast.Header>\n             <Toast.Body>See? Just like this.</Toast.Body>\n             </Toast>\n-            <Toast>\n-            <Toast.Header>\n-                <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n-                <strong className=\"me-auto\">Bootstrap</strong>\n-                <small className=\"text-muted\">2 seconds ago</small>\n-            </Toast.Header>\n-            <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>\n-            </Toast>\n-\n         \n </div>\n     )\n }\n"
+                },
+                {
+                    "date": 1643540171128,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n             aria-atomic=\"true\"\n             className=\"bg-dark position-relative\"\n             style={{ minHeight: '240px' }}\n             >\n-            <Toast>\n+            <Toast show={true}>\n             <Toast.Header>\n                 <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n                 <strong className=\"me-auto\">Bootstrap</strong>\n                 <small className=\"text-muted\">just now</small>\n"
+                },
+                {
+                    "date": 1643540533203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,25 +1,25 @@\n-import { Toast} from \"reactstrap\";\n+import { Button, Col, Row, Toast} from \"reactstrap\";\n \n-const Toasts = ({toast}) => {\n+const Toasts = ({toast,setToast}) => {\n \n     return (  \n-            <div\n-            aria-live=\"polite\"\n-            aria-atomic=\"true\"\n-            className=\"bg-dark position-relative\"\n-            style={{ minHeight: '240px' }}\n-            >\n-            <Toast show={true}>\n+        <Row>\n+        <Col xs={6}>\n+          <Toast onClose={() => setToast(false)} show={toast} delay={1000} autohide>\n             <Toast.Header>\n-                <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n-                <strong className=\"me-auto\">Bootstrap</strong>\n-                <small className=\"text-muted\">just now</small>\n+              <img\n+                src=\"holder.js/20x20?text=%20\"\n+                className=\"rounded me-2\"\n+                alt=\"\"\n\\ No newline at end of file\n+              />\n+              <strong className=\"me-auto\">Bootstrap</strong>\n+              <small>11 mins ago</small>\n             </Toast.Header>\n-            <Toast.Body>See? Just like this.</Toast.Body>\n-            </Toast>\n-        \n-</div>\n+            <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>\n+          </Toast>\n+        </Col>\n+      </Row>\n     )\n }\n  \n-export default Toasts;\n+export default Toasts;\n"
+                },
+                {
+                    "date": 1643540684928,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,5 +21,5 @@\n       </Row>\n     )\n }\n  \n-export default Toasts;\n\\ No newline at end of file\n+export default Toasts;\n"
+                },
+                {
+                    "date": 1643541096624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,14 @@\n-import { Button, Col, Row, Toast} from \"reactstrap\";\n+import { useState } from \"react\";\n+import { Button, Col, Row, Toast } from \"reactstrap\";\n \n-const Toasts = ({toast,setToast}) => {\n-\n-    return (  \n-        <Row>\n+function Example() {\n+    const [show, setShow] = useState(false);\n+  \n+    return (\n+      <Row>\n         <Col xs={6}>\n-          <Toast onClose={() => setToast(false)} show={toast} delay={1000} autohide>\n+          <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>\n             <Toast.Header>\n               <img\n                 src=\"holder.js/20x20?text=%20\"\n                 className=\"rounded me-2\"\n@@ -17,9 +19,12 @@\n             </Toast.Header>\n             <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>\n           </Toast>\n         </Col>\n+        <Col xs={6}>\n+          <Button onClick={() => setShow(true)}>Show Toast</Button>\n+        </Col>\n       </Row>\n-    )\n-}\n- \n-export default Toasts;\n+    );\n+  }\n+  \n+export default Example\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643541116282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import { useState } from \"react\";\n import { Button, Col, Row, Toast } from \"reactstrap\";\n \n-function Example() {\n-    const [show, setShow] = useState(false);\n+function Example({show,setShow}) {\n   \n     return (\n       <Row>\n         <Col xs={6}>\n"
+                },
+                {
+                    "date": 1643541372501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,29 +1,23 @@\n-import { useState } from \"react\";\n-import { Button, Col, Row, Toast } from \"reactstrap\";\n+import React from 'react'\n+import 'bootstrap/dist/css/bootstrap.min.css';\n+import { Toast, ToastBody, ToastHeader } from \"reactstrap\"\n \n-function Example({show,setShow}) {\n-  \n-    return (\n-      <Row>\n-        <Col xs={6}>\n-          <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>\n-            <Toast.Header>\n-              <img\n-                src=\"holder.js/20x20?text=%20\"\n-                className=\"rounded me-2\"\n-                alt=\"\"\n-              />\n-              <strong className=\"me-auto\">Bootstrap</strong>\n-              <small>11 mins ago</small>\n-            </Toast.Header>\n-            <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>\n-          </Toast>\n-        </Col>\n-        <Col xs={6}>\n-          <Button onClick={() => setShow(true)}>Show Toast</Button>\n-        </Col>\n-      </Row>\n-    );\n\\ No newline at end of file\n-  }\n-  \n-export default Example\n+function Toasts() {\n+\treturn (\n+\t\t<div style={{\n+\t\t\tdisplay: 'block', width: 700, padding: 30\n+\t\t}}>\n+\t\t\t<h4>ReactJS Reactstrap Toast Component</h4>\n+\t\t\t<Toast className=\"p-3 bg-secondary my-2\">\n+\t\t\t\t<ToastHeader>\n+\t\t\t\t\tSample Toast Header\n+\t\t\t\t</ToastHeader>\n+\t\t\t\t<ToastBody>\n+\t\t\t\t\tSample Toast Body Text\n+\t\t\t\t</ToastBody>\n+\t\t\t</Toast>\n+\t\t</div>\n+\t);\n+}\n+\n+export default Toasts;\n"
+                },
+                {
+                    "date": 1643541437231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n \treturn (\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<h4>ReactJS Reactstrap Toast Component</h4>\n \t\t\t<Toast className=\"p-3 bg-secondary my-2\">\n \t\t\t\t<ToastHeader>\n \t\t\t\t\tSample Toast Header\n \t\t\t\t</ToastHeader>\n"
+                },
+                {
+                    "date": 1643541553182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \treturn (\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<Toast className=\"p-3 bg-secondary my-2\">\n+\t\t\t<Toast className=\"p-3 bg-secondary my-2\" autohide>\n \t\t\t\t<ToastHeader>\n \t\t\t\t\tSample Toast Header\n \t\t\t\t</ToastHeader>\n \t\t\t\t<ToastBody>\n"
+                },
+                {
+                    "date": 1643541588887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \treturn (\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<Toast className=\"p-3 bg-secondary my-2\" autohide>\n+\t\t\t<Toast className=\"p-3 bg-primary my-2\" >\n \t\t\t\t<ToastHeader>\n \t\t\t\t\tSample Toast Header\n \t\t\t\t</ToastHeader>\n \t\t\t\t<ToastBody>\n"
+                },
+                {
+                    "date": 1643541606528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \treturn (\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<Toast className=\"p-3 bg-primary my-2\" >\n+\t\t\t<Toast className=\"p-3 bg-primary my-3\" >\n \t\t\t\t<ToastHeader>\n \t\t\t\t\tSample Toast Header\n \t\t\t\t</ToastHeader>\n \t\t\t\t<ToastBody>\n"
+                },
+                {
+                    "date": 1643541613543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \treturn (\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<Toast className=\"p-3 bg-primary my-3\" >\n+\t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastHeader>\n \t\t\t\t\tSample Toast Header\n \t\t\t\t</ToastHeader>\n \t\t\t\t<ToastBody>\n"
+                },
+                {
+                    "date": 1643541627602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,8 @@\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n \t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n-\t\t\t\t<ToastHeader>\n-\t\t\t\t\tSample Toast Header\n-\t\t\t\t</ToastHeader>\n \t\t\t\t<ToastBody>\n \t\t\t\t\tSample Toast Body Text\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n"
+                },
+                {
+                    "date": 1643541661964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n \t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody>\n-\t\t\t\t\tSample Toast Body Text\n+\t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n \t\t</div>\n \t);\n"
+                },
+                {
+                    "date": 1643541678667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n \t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n-\t\t\t\t<ToastBody>\n+\t\t\t\t<ToastBody className='text-white' >\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n \t\t</div>\n"
+                },
+                {
+                    "date": 1643541693962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n \t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n-\t\t\t\t<ToastBody className='text-white' >\n+\t\t\t\t<ToastBody className='text-white full-width' >\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n \t\t</div>\n"
+                },
+                {
+                    "date": 1643541704355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n \t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n-\t\t\t\t<ToastBody className='text-white full-width' >\n+\t\t\t\t<ToastBody className='text-white fz-2 >\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n \t\t</div>\n"
+                },
+                {
+                    "date": 1643541709549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n \t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n-\t\t\t\t<ToastBody className='text-white fz-2 >\n+\t\t\t\t<ToastBody className='text-white ¥>\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n \t\t</div>\n"
+                },
+                {
+                    "date": 1643541716735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n \t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n-\t\t\t\t<ToastBody className='text-white ¥>\n+\t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n \t\t</div>\n"
+                },
+                {
+                    "date": 1643541739473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \treturn (\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n+\t\t\t<Toast Show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n"
+                },
+                {
+                    "date": 1643541744889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \treturn (\n \t\t<div style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<Toast Show={false} className=\"p-9 bg-primary my-2\" >\n+\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n"
+                },
+                {
+                    "date": 1643541824110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { Toast, ToastBody, ToastHeader } from \"reactstrap\"\n \n function Toasts() {\n \treturn (\n-\t\t<div style={{\n+\t\t<div className='position-relative' style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n \t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n"
+                },
+                {
+                    "date": 1643541840332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \treturn (\n \t\t<div className='position-relative' style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n+\t\t\t<Toast position=\"top-end\" show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n"
+                },
+                {
+                    "date": 1643541874462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \treturn (\n \t\t<div className='position-relative' style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<Toast position=\"top-end\" show={false} className=\"p-9 bg-primary my-2\" >\n+\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2 position-absolute top-end\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n"
+                },
+                {
+                    "date": 1643541960929,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \treturn (\n \t\t<div className='position-relative' style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2 position-absolute top-end\" >\n+\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2 position-absolute left-0\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n"
+                },
+                {
+                    "date": 1643541970431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \treturn (\n \t\t<div className='position-relative' style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2 position-absolute left-0\" >\n+\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2 position-absolute right-0\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n"
+                },
+                {
+                    "date": 1643541978732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \treturn (\n \t\t<div className='position-relative' style={{\n \t\t\tdisplay: 'block', width: 700, padding: 30\n \t\t}}>\n-\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2 position-absolute right-0\" >\n+\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n"
+                },
+                {
+                    "date": 1643542051192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,10 @@\n \n function Toasts() {\n \treturn (\n \t\t<div className='position-relative' style={{\n-\t\t\tdisplay: 'block', width: 700, padding: 30\n+\t\t\tdisplay: 'block', width: 700, padding: 30,\n+            transform: 'translateX(100%)'\n \t\t}}>\n \t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n"
+                },
+                {
+                    "date": 1643542123981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n \n function Toasts() {\n \treturn (\n \t\t<div className='position-relative' style={{\n-\t\t\tdisplay: 'block', width: 700, padding: 30,\n-            transform: 'translateX(100%)'\n+\t\t\tdisplay: 'block', padding: 30,\n+            transform: 'translateX(50%)'\n \t\t}}>\n \t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n"
+                },
+                {
+                    "date": 1643542130866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n function Toasts() {\n \treturn (\n \t\t<div className='position-relative' style={{\n \t\t\tdisplay: 'block', padding: 30,\n-            transform: 'translateX(50%)'\n+            transform: 'translateX(100%)'\n \t\t}}>\n \t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n"
+                },
+                {
+                    "date": 1643542482692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,14 @@\n import React from 'react'\n import 'bootstrap/dist/css/bootstrap.min.css';\n import { Toast, ToastBody, ToastHeader } from \"reactstrap\"\n \n-function Toasts() {\n+function Toasts({toast,setToast}) {\n \treturn (\n \t\t<div className='position-relative' style={{\n \t\t\tdisplay: 'block', padding: 30,\n-            transform: 'translateX(100%)'\n \t\t}}>\n-\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n+\t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n"
+                },
+                {
+                    "date": 1643542501005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { Toast, ToastBody, ToastHeader } from \"reactstrap\"\n \n function Toasts({toast,setToast}) {\n \treturn (\n-\t\t<div className='position-relative' style={{\n+\t\t<div className='toast position-relative' style={{\n \t\t\tdisplay: 'block', padding: 30,\n \t\t}}>\n \t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n"
+                },
+                {
+                    "date": 1643542568355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from 'react'\n import 'bootstrap/dist/css/bootstrap.min.css';\n import { Toast, ToastBody, ToastHeader } from \"reactstrap\"\n-\n+import 'toast.scss'\n function Toasts({toast,setToast}) {\n \treturn (\n \t\t<div className='toast position-relative' style={{\n \t\t\tdisplay: 'block', padding: 30,\n"
+                },
+                {
+                    "date": 1643542574512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from 'react'\n import 'bootstrap/dist/css/bootstrap.min.css';\n import { Toast, ToastBody, ToastHeader } from \"reactstrap\"\n-import 'toast.scss'\n+import './toast.scss'\n function Toasts({toast,setToast}) {\n \treturn (\n \t\t<div className='toast position-relative' style={{\n \t\t\tdisplay: 'block', padding: 30,\n"
+                },
+                {
+                    "date": 1643542597218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,14 @@\n import React from 'react'\n import 'bootstrap/dist/css/bootstrap.min.css';\n import { Toast, ToastBody, ToastHeader } from \"reactstrap\"\n-import './toast.scss'\n-function Toasts({toast,setToast}) {\n+\n+function Toasts() {\n \treturn (\n-\t\t<div className='toast position-relative' style={{\n-\t\t\tdisplay: 'block', padding: 30,\n+\t\t<div className='position-relative' style={{\n+\t\t\tdisplay: 'block', width: 700, padding: 30,\n \t\t}}>\n-\t\t\t<Toast className=\"p-9 bg-primary my-2\" >\n+\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n \t\t\t\t</ToastBody>\n \t\t\t</Toast>\n"
+                },
+                {
+                    "date": 1643542619017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n function Toasts() {\n \treturn (\n \t\t<div className='position-relative' style={{\n-\t\t\tdisplay: 'block', width: 700, padding: 30,\n+\t\t\tdisplay: 'block', width:'100%', padding: 30,\n \t\t}}>\n \t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n"
+                },
+                {
+                    "date": 1643542639307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from 'react'\n import 'bootstrap/dist/css/bootstrap.min.css';\n import { Toast, ToastBody, ToastHeader } from \"reactstrap\"\n-\n+import './toast.scss'\n function Toasts() {\n \treturn (\n \t\t<div className='position-relative' style={{\n \t\t\tdisplay: 'block', width:'100%', padding: 30,\n"
+                },
+                {
+                    "date": 1643542647221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import './toast.scss'\n function Toasts() {\n \treturn (\n \t\t<div className='position-relative' style={{\n-\t\t\tdisplay: 'block', width:'100%', padding: 30,\n+\t\t\tdisplay: 'block', width:'700px%', padding: 30,\n \t\t}}>\n \t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n"
+                },
+                {
+                    "date": 1643542669391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import './toast.scss'\n function Toasts() {\n \treturn (\n \t\t<div className='position-relative' style={{\n-\t\t\tdisplay: 'block', width:'700px%', padding: 30,\n+\t\t\tdisplay: 'block', width:700, padding: 30,\n \t\t}}>\n \t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n"
+                },
+                {
+                    "date": 1643542727677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { Toast, ToastBody, ToastHeader } from \"reactstrap\"\n import './toast.scss'\n function Toasts() {\n \treturn (\n-\t\t<div className='position-relative' style={{\n+\t\t<div style={{\n \t\t\tdisplay: 'block', width:700, padding: 30,\n \t\t}}>\n \t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n"
+                },
+                {
+                    "date": 1643542835709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { Toast, ToastBody, ToastHeader } from \"reactstrap\"\n import './toast.scss'\n function Toasts() {\n \treturn (\n-\t\t<div style={{\n+\t\t<div className='toast' style={{\n \t\t\tdisplay: 'block', width:700, padding: 30,\n \t\t}}>\n \t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n"
+                },
+                {
+                    "date": 1643542902413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import './toast.scss'\n function Toasts() {\n \treturn (\n \t\t<div className='toast' style={{\n-\t\t\tdisplay: 'block', width:700, padding: 30,\n+\t     width:700, padding: 30,\n \t\t}}>\n \t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n \t\t\t\t<ToastBody className='text-white'>\n \t\t\t\t\tRegister Success fully\n"
+                },
+                {
+                    "date": 1643543267517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,20 @@\n import React from 'react'\n-import 'bootstrap/dist/css/bootstrap.min.css';\n-import { Toast, ToastBody, ToastHeader } from \"reactstrap\"\n+import AUIToast from '@bit/ancert.ancert-ui.aui-toast';\n+import AUIThemeProvider from '@bit/ancert.ancert-ui.aui-theme-provider';\n import './toast.scss'\n function Toasts() {\n \treturn (\n-\t\t<div className='toast' style={{\n-\t     width:700, padding: 30,\n-\t\t}}>\n-\t\t\t<Toast show={false} className=\"p-9 bg-primary my-2\" >\n-\t\t\t\t<ToastBody className='text-white'>\n-\t\t\t\t\tRegister Success fully\n-\t\t\t\t</ToastBody>\n-\t\t\t</Toast>\n-\t\t</div>\n+            <AUIThemeProvider>\n+                <div className=\"Toastes\">\n+                    <AUIToast\n+                                status=\"done\"\n+                                text=\"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el\n+                                    texto de relleno estándar de las industrias desde el año 1500, cuando un impresor.\"\n+                                display\n+                        />\n+                    </div>\n+            </AUIThemeProvider>\n \t);\n }\n \n export default Toasts;\n"
+                },
+                {
+                    "date": 1643543336726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,18 @@\n import React from 'react'\n import AUIToast from '@bit/ancert.ancert-ui.aui-toast';\n-import AUIThemeProvider from '@bit/ancert.ancert-ui.aui-theme-provider';\n import './toast.scss'\n function Toasts() {\n \treturn (\n-            <AUIThemeProvider>\n+            \n                 <div className=\"Toastes\">\n                     <AUIToast\n                                 status=\"done\"\n                                 text=\"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el\n                                     texto de relleno estándar de las industrias desde el año 1500, cuando un impresor.\"\n                                 display\n                         />\n                     </div>\n-            </AUIThemeProvider>\n \t);\n }\n \n export default Toasts;\n"
+                },
+                {
+                    "date": 1643543392259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,18 @@\n import React from 'react'\n import AUIToast from '@bit/ancert.ancert-ui.aui-toast';\n import './toast.scss'\n function Toasts() {\n-\treturn (\n-            \n-                <div className=\"Toastes\">\n-                    <AUIToast\n-                                status=\"done\"\n-                                text=\"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el\n+    return (\n+\n+        <div className=\"Toastes\">\n+            <AUIToast\n+                status=\"done\"\n+                text=\"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el\n                                     texto de relleno estándar de las industrias desde el año 1500, cuando un impresor.\"\n-                                display\n-                        />\n-                    </div>\n-\t);\n+                display\n+            />\n+        </div>\n+    );\n }\n \n export default Toasts;\n"
+                },
+                {
+                    "date": 1643543401752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         <div className=\"Toastes\">\n             <AUIToast\n                 status=\"done\"\n                 text=\"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el\n-                                    texto de relleno estándar de las industrias desde el año 1500, cuando un impresor.\"\n+                    texto de relleno estándar de las industrias desde el año 1500, cuando un impresor.\"\n                 display\n             />\n         </div>\n     );\n"
+                },
+                {
+                    "date": 1643608888558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from 'react'\n-import AUIToast from '@bit/ancert.ancert-ui.aui-toast';\n+\n import './toast.scss'\n function Toasts() {\n     return (\n \n"
+                },
+                {
+                    "date": 1643608899599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,16 +3,9 @@\n import './toast.scss'\n function Toasts() {\n     return (\n \n-        <div className=\"Toastes\">\n-            <AUIToast\n-                status=\"done\"\n-                text=\"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el\n-                    texto de relleno estándar de las industrias desde el año 1500, cuando un impresor.\"\n-                display\n-            />\n-        </div>\n+\n     );\n }\n \n export default Toasts;\n"
+                },
+                {
+                    "date": 1643609113150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,23 @@\n import React from 'react'\n+import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n \n import './toast.scss'\n function Toasts() {\n     return (\n+        <div>\n+        <div className=\"p-3 bg-success my-2 rounded\">\n+            <Toast>\n+            <ToastHeader>\n+                Reactstrap\n+            </ToastHeader>\n+            <ToastBody>\n+                This is a toast on a dark background — check it out!\n+            </ToastBody>\n+            </Toast>\n+        </div>\n+        </div>\n \n-\n     );\n }\n \n export default Toasts;\n"
+                },
+                {
+                    "date": 1643609129996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n import './toast.scss'\n function Toasts() {\n     return (\n-        <div>\n+        <>\n         <div className=\"p-3 bg-success my-2 rounded\">\n             <Toast>\n             <ToastHeader>\n                 Reactstrap\n@@ -14,9 +14,9 @@\n                 This is a toast on a dark background — check it out!\n             </ToastBody>\n             </Toast>\n         </div>\n-        </div>\n+        </>\n \n     );\n }\n \n"
+                },
+                {
+                    "date": 1643609174338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import './toast.scss'\n function Toasts() {\n     return (\n         <>\n-        <div className=\"p-3 bg-success my-2 rounded\">\n+        <div className=\"p-3 bg-success my-2 \">\n             <Toast>\n             <ToastHeader>\n                 Reactstrap\n             </ToastHeader>\n"
+                },
+                {
+                    "date": 1643609184362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import './toast.scss'\n function Toasts() {\n     return (\n         <>\n-        <div className=\"p-3 bg-success my-2 \">\n+        <div className=\"p-3 bg-success  rounded\">\n             <Toast>\n             <ToastHeader>\n                 Reactstrap\n             </ToastHeader>\n"
+                },
+                {
+                    "date": 1643609191783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import './toast.scss'\n function Toasts() {\n     return (\n         <>\n-        <div className=\"p-3 bg-success  rounded\">\n+        <div className=\"bg-success my-2 rounded\">\n             <Toast>\n             <ToastHeader>\n                 Reactstrap\n             </ToastHeader>\n"
+                },
+                {
+                    "date": 1643609208398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import './toast.scss'\n function Toasts() {\n     return (\n         <>\n-        <div className=\"bg-success my-2 rounded\">\n+        <div className=\"p-3 bg-success my-2 rounded\">\n             <Toast>\n             <ToastHeader>\n                 Reactstrap\n             </ToastHeader>\n"
+                },
+                {
+                    "date": 1643609250734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n function Toasts() {\n     return (\n         <>\n         <div className=\"p-3 bg-success my-2 rounded\">\n-            <Toast>\n+            <Toast isOpen={false}>\n             <ToastHeader>\n                 Reactstrap\n             </ToastHeader>\n             <ToastBody>\n"
+                },
+                {
+                    "date": 1643609269155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import './toast.scss'\n function Toasts() {\n     return (\n         <>\n-        <div className=\"p-3 bg-success my-2 rounded\">\n+        <div className=\"p-3 bg-success my-2 rounded d-none\">\n             <Toast isOpen={false}>\n             <ToastHeader>\n                 Reactstrap\n             </ToastHeader>\n"
+                },
+                {
+                    "date": 1643609285831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import './toast.scss'\n function Toasts() {\n     return (\n         <>\n-        <div className=\"p-3 bg-success my-2 rounded d-none\">\n+        <div className=\"p-3 bg-success my-2 rounded\">\n             <Toast isOpen={false}>\n             <ToastHeader>\n                 Reactstrap\n             </ToastHeader>\n"
+                },
+                {
+                    "date": 1643609293589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,20 +3,20 @@\n \n import './toast.scss'\n function Toasts() {\n     return (\n-        <>\n+        <div>\n         <div className=\"p-3 bg-success my-2 rounded\">\n-            <Toast isOpen={false}>\n+            <Toast >\n             <ToastHeader>\n                 Reactstrap\n             </ToastHeader>\n             <ToastBody>\n                 This is a toast on a dark background — check it out!\n             </ToastBody>\n             </Toast>\n         </div>\n-        </>\n+        </div>\n \n     );\n }\n \n"
+                },
+                {
+                    "date": 1643610322074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     return (\n         <div>\n         <div className=\"p-3 bg-success my-2 rounded\">\n             <Toast >\n-            <ToastHeader>\n+            <ToastHeader bg-success>\n                 Reactstrap\n             </ToastHeader>\n             <ToastBody>\n                 This is a toast on a dark background — check it out!\n"
+                },
+                {
+                    "date": 1643610337495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,11 @@\n import './toast.scss'\n function Toasts() {\n     return (\n         <div>\n-        <div className=\"p-3 bg-success my-2 rounded\">\n+        <div className=\"p-3  my-2 rounded\">\n             <Toast >\n-            <ToastHeader bg-success>\n+            <ToastHeader className='bg-success'>\n                 Reactstrap\n             </ToastHeader>\n             <ToastBody>\n                 This is a toast on a dark background — check it out!\n"
+                },
+                {
+                    "date": 1643610348577,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     return (\n         <div>\n         <div className=\"p-3  my-2 rounded\">\n             <Toast >\n-            <ToastHeader className='bg-success'>\n+            <ToastHeader className='bg-success text-white'>\n                 Reactstrap\n             </ToastHeader>\n             <ToastBody>\n                 This is a toast on a dark background — check it out!\n"
+                },
+                {
+                    "date": 1643610378223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n import './toast.scss'\n function Toasts() {\n     return (\n         <div>\n-        <div className=\"p-3  my-2 rounded\">\n             <Toast >\n             <ToastHeader className='bg-success text-white'>\n                 Reactstrap\n             </ToastHeader>\n@@ -14,9 +13,8 @@\n                 This is a toast on a dark background — check it out!\n             </ToastBody>\n             </Toast>\n         </div>\n-        </div>\n \n     );\n }\n \n"
+                },
+                {
+                    "date": 1643610608835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import './toast.scss'\n function Toasts() {\n     return (\n         <div>\n-            <Toast >\n+            <Toast className='toast'>\n             <ToastHeader className='bg-success text-white'>\n                 Reactstrap\n             </ToastHeader>\n             <ToastBody>\n"
+                },
+                {
+                    "date": 1643610729200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,11 @@\n import React from 'react'\n import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n-\n import './toast.scss'\n function Toasts() {\n     return (\n         <div>\n-            <Toast className='toast'>\n+            <Toast>\n             <ToastHeader className='bg-success text-white'>\n                 Reactstrap\n             </ToastHeader>\n             <ToastBody>\n"
+                },
+                {
+                    "date": 1643610798573,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n import './toast.scss'\n function Toasts() {\n     return (\n-        <div>\n+        <div className='toast-container'>\n             <Toast>\n             <ToastHeader className='bg-success text-white'>\n                 Reactstrap\n             </ToastHeader>\n"
+                },
+                {
+                    "date": 1643611105992,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n import React from 'react'\n import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n import './toast.scss'\n-function Toasts() {\n+function Toasts({open}) {\n+    console.log(open)\n     return (\n         <div className='toast-container'>\n-            <Toast>\n+            <Toast show={open}>\n             <ToastHeader className='bg-success text-white'>\n                 Reactstrap\n             </ToastHeader>\n             <ToastBody>\n"
+                },
+                {
+                    "date": 1643611123541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open}) {\n     console.log(open)\n     return (\n         <div className='toast-container'>\n-            <Toast show={open}>\n+            <Toast isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n                 Reactstrap\n             </ToastHeader>\n             <ToastBody>\n"
+                },
+                {
+                    "date": 1643611366929,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,10 @@\n import React from 'react'\n import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n import './toast.scss'\n function Toasts({open}) {\n-    console.log(open)\n     return (\n-        <div className='toast-container'>\n+        <div className={'toast-container' + open ? ' open' : ''}>\n             <Toast isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n                 Reactstrap\n             </ToastHeader>\n"
+                },
+                {
+                    "date": 1643611451108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n import './toast.scss'\n function Toasts({open}) {\n     return (\n-        <div className={'toast-container' + open ? ' open' : ''}>\n+        <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n                 Reactstrap\n             </ToastHeader>\n"
+                },
+                {
+                    "date": 1643611533634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n-                Reactstrap\n+               Register Success fullly\n             </ToastHeader>\n             <ToastBody>\n                 This is a toast on a dark background — check it out!\n             </ToastBody>\n"
+                },
+                {
+                    "date": 1643611545216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n-               Register Success fullly\n+               Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n                 This is a toast on a dark background — check it out!\n             </ToastBody>\n"
+                },
+                {
+                    "date": 1643611669310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n             <ToastHeader className='bg-success text-white'>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n-                This is a toast on a dark background — check it out!\n+               Chúc mừng bạn đã đăng ký thành công \n             </ToastBody>\n             </Toast>\n         </div>\n \n"
+                },
+                {
+                    "date": 1643611675069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n             <ToastHeader className='bg-success text-white'>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n-               Chúc mừng bạn đã đăng ký thành công \n+               Chúc mừng bạn đã đăng ký thành công!!\n             </ToastBody>\n             </Toast>\n         </div>\n \n"
+                },
+                {
+                    "date": 1643612442738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React from 'react'\n import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n import './toast.scss'\n function Toasts({open}) {\n+    console.log(open)\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n"
+                },
+                {
+                    "date": 1643613342234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import './toast.scss'\n function Toasts({open}) {\n     console.log(open)\n     return (\n-        <div className={open ? 'toast-container open' : 'toast-container'}>\n+        <div className={true ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n                Register Success Fullly\n             </ToastHeader>\n"
+                },
+                {
+                    "date": 1643613567621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open}) {\n     console.log(open)\n     return (\n         <div className={true ? 'toast-container open' : 'toast-container'}>\n-            <Toast isOpen={open}>\n+            <Toast fade={true} isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n"
+                },
+                {
+                    "date": 1643613575103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open}) {\n     console.log(open)\n     return (\n         <div className={true ? 'toast-container open' : 'toast-container'}>\n-            <Toast fade={true} isOpen={open}>\n+            <Toast fade={false} isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n"
+                },
+                {
+                    "date": 1643613582307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open}) {\n     console.log(open)\n     return (\n         <div className={true ? 'toast-container open' : 'toast-container'}>\n-            <Toast fade={false} isOpen={open}>\n+            <Toast isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n"
+                },
+                {
+                    "date": 1643613682630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open}) {\n     console.log(open)\n     return (\n         <div className={true ? 'toast-container open' : 'toast-container'}>\n-            <Toast isOpen={open}>\n+            <Toast autohide={true} isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n"
+                },
+                {
+                    "date": 1643613722982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n import './toast.scss'\n function Toasts({open}) {\n     console.log(open)\n     return (\n-        <div className={true ? 'toast-container open' : 'toast-container'}>\n-            <Toast autohide={true} isOpen={open}>\n+        <div className={open ? 'toast-container open' : 'toast-container'}>\n+            <Toast isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n"
+                },
+                {
+                    "date": 1643615172291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import React from 'react'\n import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n import './toast.scss'\n function Toasts({open}) {\n-    console.log(open)\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n             <ToastHeader className='bg-success text-white'>\n"
+                },
+                {
+                    "date": 1643616202637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import React from 'react'\n import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n import './toast.scss'\n-function Toasts({open}) {\n+function Toasts({open,bg}) {\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n-            <ToastHeader className='bg-success text-white'>\n+            <ToastHeader className={`bg-${bg} text-white`}>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n                Chúc mừng bạn đã đăng ký thành công!!\n"
+                },
+                {
+                    "date": 1643630825732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open,bg}) {\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n-            <ToastHeader className={`bg-${bg} text-white`}>\n+            <ToastHeader className={`bg-${'primary'} text-white`}>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n                Chúc mừng bạn đã đăng ký thành công!!\n"
+                },
+                {
+                    "date": 1643630837705,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open,bg}) {\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n-            <ToastHeader className={`bg-${'primary'} text-white`}>\n+            <ToastHeader className={`bg-${'succses'} text-white`}>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n                Chúc mừng bạn đã đăng ký thành công!!\n"
+                },
+                {
+                    "date": 1643630867147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open,bg}) {\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n-            <ToastHeader className={`bg-${'succses'} text-white`}>\n+            <ToastHeader className={`bg-${'succsess'} text-white`}>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n                Chúc mừng bạn đã đăng ký thành công!!\n"
+                },
+                {
+                    "date": 1643630897388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open,bg}) {\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n-            <ToastHeader className={`bg-${'succsess'} text-white`}>\n+            <ToastHeader className={`bg-${'success'} text-white`}>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n                Chúc mừng bạn đã đăng ký thành công!!\n"
+                },
+                {
+                    "date": 1643631650969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import './toast.scss'\n function Toasts({open,bg}) {\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n-            <Toast isOpen={open}>\n+            <Toast isOpen={true}>\n             <ToastHeader className={`bg-${'success'} text-white`}>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody>\n"
+                },
+                {
+                    "date": 1643686477679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n             <Toast isOpen={true}>\n             <ToastHeader className={`bg-${'success'} text-white`}>\n                Register Success Fullly\n             </ToastHeader>\n-            <ToastBody>\n+            <ToastBody className='bg-white'>\n                Chúc mừng bạn đã đăng ký thành công!!\n             </ToastBody>\n             </Toast>\n         </div>\n"
+                },
+                {
+                    "date": 1643687021587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import './toast.scss'\n function Toasts({open,bg}) {\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n-            <Toast isOpen={true}>\n+            <Toast isOpen={open}>\n             <ToastHeader className={`bg-${'success'} text-white`}>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody className='bg-white'>\n"
+                },
+                {
+                    "date": 1643687131854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React from 'react'\n import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n import './toast.scss'\n function Toasts({open,bg}) {\n+    console.log(open)\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n             <ToastHeader className={`bg-${'success'} text-white`}>\n"
+                },
+                {
+                    "date": 1643791535187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     console.log(open)\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n-            <ToastHeader className={`bg-${'success'} text-white`}>\n+            <ToastHeader className={`bg-${bg} text-white`}>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody className='bg-white'>\n                Chúc mừng bạn đã đăng ký thành công!!\n"
+                },
+                {
+                    "date": 1643791638706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,17 @@\n import React from 'react'\n import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n import './toast.scss'\n-function Toasts({open,bg}) {\n+function Toasts({open,bg,mess}) {\n     console.log(open)\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={open}>\n             <ToastHeader className={`bg-${bg} text-white`}>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody className='bg-white'>\n-               Chúc mừng bạn đã đăng ký thành công!!\n+               {mess}\n             </ToastBody>\n             </Toast>\n         </div>\n \n"
+                },
+                {
+                    "date": 1643791886931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open,bg,mess}) {\n     console.log(open)\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n-            <Toast isOpen={open}>\n+            <Toast isOpen={true}>\n             <ToastHeader className={`bg-${bg} text-white`}>\n                Register Success Fullly\n             </ToastHeader>\n             <ToastBody className='bg-white'>\n"
+                },
+                {
+                    "date": 1643792363063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,14 @@\n import React from 'react'\n import { Toast, ToastBody, ToastHeader } from 'reactstrap';\n import './toast.scss'\n-function Toasts({open,bg,mess}) {\n+function Toasts({open,bg,mess,messHead}) {\n     console.log(open)\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n             <Toast isOpen={true}>\n             <ToastHeader className={`bg-${bg} text-white`}>\n-               Register Success Fullly\n+               {messHead}\n             </ToastHeader>\n             <ToastBody className='bg-white'>\n                {mess}\n             </ToastBody>\n"
+                },
+                {
+                    "date": 1643792464778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open,bg,mess,messHead}) {\n     console.log(open)\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n-            <Toast isOpen={true}>\n+            <Toast isOpen={open}>\n             <ToastHeader className={`bg-${bg} text-white`}>\n                {messHead}\n             </ToastHeader>\n             <ToastBody className='bg-white'>\n"
+                },
+                {
+                    "date": 1643792683184,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function Toasts({open,bg,mess,messHead}) {\n     console.log(open)\n     return (\n         <div className={open ? 'toast-container open' : 'toast-container'}>\n-            <Toast isOpen={open}>\n+            <Toast isOpen={true}>\n             <ToastHeader className={`bg-${bg} text-white`}>\n                {messHead}\n             </ToastHeader>\n             <ToastBody className='bg-white'>\n"
+                }
+            ],
+            "date": 1643524823763,
+            "name": "Commit-0",
+            "content": "import { Toast } from \"reactstrap\";\n\n[\n    'Primary',\n    'Secondary',\n    'Success',\n    'Danger',\n    'Warning',\n    'Info',\n    'Light',\n    'Dark',\n  ].map((variant, idx) => (\n    <Toast className=\"d-inline-block m-1\" bg={variant.toLowerCase()} key={idx}>\n      <Toast.Header>\n        <img src=\"holder.js/20x20?text=%20\" className=\"rounded me-2\" alt=\"\" />\n        <strong className=\"me-auto\">Bootstrap</strong>\n        <small>11 mins ago</small>\n      </Toast.Header>\n      <Toast.Body className={variant === 'Dark' && 'text-white'}>\n        Hello, world! This is a toast message.\n      </Toast.Body>\n    </Toast>\n  ));"
+        }
+    ]
+}

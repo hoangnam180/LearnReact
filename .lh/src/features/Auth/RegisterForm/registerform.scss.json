@@ -1,0 +1,154 @@
+{
+    "sourceFile": "src/features/Auth/RegisterForm/registerform.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 34,
+            "patches": [
+                {
+                    "date": 1643274566856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643274796390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,15 @@\n .modal-content {\n     position: relative;\n-    transform: translate(-50%,50%);\n+    display: flex;\n+    flex-direction: column;\n+    width: 100%;\n+    pointer-events: auto;\n+    background-color: #fff;\n+    background-clip: padding-box;\n+    border: 1px solid rgba(0,0,0,.2);\n+    border-radius: 0.3rem;\n+    /* top: 50%; */\n+    outline: 0;\n     left: 50%;\n-    top: 50%;\n+    transform: translate(-50%, 100%);\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643274803940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,8 @@\n     background-color: #fff;\n     background-clip: padding-box;\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n-    /* top: 50%; */\n     outline: 0;\n     left: 50%;\n     transform: translate(-50%, 100%);\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643274835357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,8 @@\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n     transform: translate(-50%, 100%);\n+    .form-group label {\n+        display: block;\n+    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643274856382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n-    transform: translate(-50%, 100%);\n+    transform: translate(-50%, 80%);\n     .form-group label {\n         display: block;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643274867295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n-    transform: translate(-50%, 80%);\n+    transform: translate(-50%, 70%);\n     .form-group label {\n         display: block;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643274951546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n-    transform: translate(-50%, 70%);\n+    transform: translate(-50%, 50%);\n     .form-group label {\n         display: block;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643274959271,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n+    top: 50%;\n     transform: translate(-50%, 50%);\n     .form-group label {\n         display: block;\n     }\n"
+                },
+                {
+                    "date": 1643274977446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n     top: 50%;\n-    transform: translate(-50%, 50%);\n+    // transform: translate(-50%, -50%);\n     .form-group label {\n         display: block;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643274986332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,12 +7,8 @@\n     background-color: #fff;\n     background-clip: padding-box;\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n-    outline: 0;\n-    left: 50%;\n-    top: 50%;\n-    // transform: translate(-50%, -50%);\n     .form-group label {\n         display: block;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643274996231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,7 @@\n     background-clip: padding-box;\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     .form-group label {\n-        display: block;\n+        width: 100%;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275003207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,7 @@\n     background-clip: padding-box;\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     .form-group label {\n-        width: 100%;\n+        // width: 100%;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275019696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,12 @@\n     background-color: #fff;\n     background-clip: padding-box;\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n+    outline: 0;\n+    left: 50%;\n+    top: 50%;\n+    transform: translate(-50%, -50%);\n     .form-group label {\n-        // width: 100%;\n+        display: block;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275034924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n     top: 50%;\n-    transform: translate(-50%, -50%);\n+    transform: translate(-50%, 50%);\n     .form-group label {\n-        display: block;\n+        // display: block;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275040462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n     top: 50%;\n-    transform: translate(-50%, 50%);\n+    transform: translate(-50%, 70%);\n     .form-group label {\n         // display: block;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275049292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n     top: 50%;\n-    transform: translate(-50%, 70%);\n+    transform: translate(-50%, 80%);\n     .form-group label {\n         // display: block;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275055480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n-    top: 50%;\n+\n     transform: translate(-50%, 80%);\n     .form-group label {\n         // display: block;\n     }\n"
+                },
+                {
+                    "date": 1643275065617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n-\n     transform: translate(-50%, 80%);\n     .form-group label {\n-        // display: block;\n+        width: 100%;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275088508,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,8 @@\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n     transform: translate(-50%, 80%);\n-    .form-group label {\n+    .form-group input {\n         width: 100%;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275101933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n-    transform: translate(-50%, 80%);\n+    transform: translate(-50%);\n     .form-group input {\n         width: 100%;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275107327,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n-    transform: translate(-50%);\n+    transform: translate(-50%,30%);\n     .form-group input {\n         width: 100%;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275112675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n-    transform: translate(-50%,30%);\n+    transform: translate(-50%,40%);\n     .form-group input {\n         width: 100%;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275140092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,8 @@\n     transform: translate(-50%,40%);\n     .form-group input {\n         width: 100%;\n     }\n+    button{\n+        width: 30px;\n+    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275148618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,7 @@\n     .form-group input {\n         width: 100%;\n     }\n     button{\n-        width: 30px;\n+       width: 100%;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275162185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,6 +15,7 @@\n         width: 100%;\n     }\n     button{\n        width: 100%;\n+       margin-top: 15px;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643275442829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n-    transform: translate(-50%,40%);\n+    transform: translate(-50%,30%);\n     .form-group input {\n         width: 100%;\n     }\n     button{\n"
+                },
+                {
+                    "date": 1643277159186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n-    transform: translate(-50%,30%);\n+    transform: translate(-50%,10%);\n     .form-group input {\n         width: 100%;\n     }\n     button{\n"
+                },
+                {
+                    "date": 1643278636367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,11 @@\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n     transform: translate(-50%,10%);\n+    .avatar{\n+        text-align: center;\n+    }\n     .form-group input {\n         width: 100%;\n     }\n     button{\n"
+                },
+                {
+                    "date": 1643278655613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,11 @@\n     left: 50%;\n     transform: translate(-50%,10%);\n     .avatar{\n         text-align: center;\n+        i{\n+            font-size: 20px;\n+        }\n     }\n     .form-group input {\n         width: 100%;\n     }\n"
+                },
+                {
+                    "date": 1643278672834,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,11 @@\n         text-align: center;\n         i{\n             font-size: 20px;\n         }\n+        p{\n+            font-size: 17px;\n+        }\n     }\n     .form-group input {\n         width: 100%;\n     }\n"
+                },
+                {
+                    "date": 1643278682941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n             font-size: 20px;\n         }\n         p{\n             font-size: 17px;\n+            margin: 0;\n         }\n     }\n     .form-group input {\n         width: 100%;\n"
+                },
+                {
+                    "date": 1643278693676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     transform: translate(-50%,10%);\n     .avatar{\n         text-align: center;\n         i{\n-            font-size: 20px;\n+            font-size: 25px;\n         }\n         p{\n             font-size: 17px;\n             margin: 0;\n"
+                },
+                {
+                    "date": 1643278705789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n     .avatar{\n         text-align: center;\n         i{\n             font-size: 25px;\n+            color: pink;\n         }\n         p{\n             font-size: 17px;\n             margin: 0;\n"
+                },
+                {
+                    "date": 1643278728308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     .avatar{\n         text-align: center;\n         i{\n             font-size: 25px;\n-            color: pink;\n+            color: rgb(236, 87, 112);\n         }\n         p{\n             font-size: 17px;\n             margin: 0;\n"
+                },
+                {
+                    "date": 1643280569661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     border: 1px solid rgba(0,0,0,.2);\n     border-radius: 0.3rem;\n     outline: 0;\n     left: 50%;\n-    transform: translate(-50%,10%);\n+    transform: translate(-50%);\n     .avatar{\n         text-align: center;\n         i{\n             font-size: 25px;\n"
+                }
+            ],
+            "date": 1643274566856,
+            "name": "Commit-0",
+            "content": ".modal-content {\n    position: relative;\n    transform: translate(-50%,50%);\n    left: 50%;\n    top: 50%;\n}"
+        }
+    ]
+}

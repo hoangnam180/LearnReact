@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/API/userApi.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1643345456352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1643345456352,
+            "name": "Commit-0",
+            "content": "import axiosClient from \"./axiosClient\";\n\nconst userApi = {\n    register(data) {\n        const url = 'auth/local/register';\n        return axiosClient.post(url, data);\n    },\n}\n \nexport default userApi;"
+        }
+    ]
+}

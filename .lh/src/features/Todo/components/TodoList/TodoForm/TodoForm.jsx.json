@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/features/Todo/components/TodoList/TodoForm/TodoForm.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1643022049936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643022066869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import {useForm} from 'react-hook-form'\n-import InputField from \"../../../../../components/form-control/InputField/InputField\";\n+// import InputField from \"../../../../../components/form-control/InputField/InputField\";\n import { yupResolver } from \"@hookform/resolvers/yup\";\n import * as yup from \"yup\";\n \n \n"
+                },
+                {
+                    "date": 1643022076723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import {useForm} from 'react-hook-form'\n // import InputField from \"../../../../../components/form-control/InputField/InputField\";\n+import InputField from 'components/form-control/InputField/InputField';\n import { yupResolver } from \"@hookform/resolvers/yup\";\n import * as yup from \"yup\";\n \n \n"
+                },
+                {
+                    "date": 1643022120249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import {useForm} from 'react-hook-form'\n-// import InputField from \"../../../../../components/form-control/InputField/InputField\";\n import InputField from 'components/form-control/InputField/InputField';\n import { yupResolver } from \"@hookform/resolvers/yup\";\n import * as yup from \"yup\";\n \n"
+                }
+            ],
+            "date": 1643022049936,
+            "name": "Commit-0",
+            "content": "import {useForm} from 'react-hook-form'\nimport InputField from \"../../../../../components/form-control/InputField/InputField\";\nimport { yupResolver } from \"@hookform/resolvers/yup\";\nimport * as yup from \"yup\";\n\n\n\nconst schema = yup.object().shape({\n    title: yup\n      .string()\n      .required(\"Vui lòng nhập Công việc\")\n      .max(50, \"username tối đa 50 ký tự\"),\n      password: yup.string().required().min(6),\n      passwordConfirmation: yup.string()\n     .oneOf([yup.ref('password'), null], 'Passwords must match').min(6)\n});\nconst TodoForm = (props) => {\n    const {setFocus,register,handleSubmit, reset,formState: { errors } } = \n    useForm({ resolver: yupResolver(schema) })\n    const {onSubmit} = props\n\n    const handlesubmit = (value)=>{\n        if(onSubmit){\n            onSubmit(value)\n        }\n        reset()\n        setFocus('title')\n    }\n    return (  \n        <form onSubmit={handleSubmit(handlesubmit)}>\n            <InputField  defaultValue='' name=\"title\" register={register} type=\"text\"/>\n            {errors.title && \n            <p className=\"error\">{errors.title?.message}</p>}\n            <button style={{display:'block'}}>Add</button>\n            <InputField name=\"password\" register={register} type=\"password\"/>\n            {errors.password && \n            <p className=\"error\">{errors.password?.message}</p>}\n            <InputField name=\"passwordConfirmation\" register={register} type=\"password\"/>\n            {errors.passwordConfirmation && \n            <p className=\"error\">{errors.passwordConfirmation?.message}</p>}\n        </form>\n    );\n}\n \nexport default TodoForm;"
+        }
+    ]
+}

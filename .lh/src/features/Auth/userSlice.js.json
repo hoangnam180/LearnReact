@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/features/Auth/userSlice.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1643346677702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643457518382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,34 @@\n-import { createSlice } from '@reduxjs/toolkit'\n+import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'\n+import userAPI from '../../API/userApi'\n+\n+export const register = createAsyncThunk(\n+    'users/fetchByIdStatus',\n+    async (payload) => {\n+      const data = await userAPI.register(payload)\n+        //save to localstorage\n+     localStorage.setItem('access_token',data.jwt);\n+     localStorage.setItem('user',JSON.stringify(data.user))\n+    \n+      return data.user\n+    }\n+  )\n+  \n const userSlice = createSlice({\n     name : 'user',\n     initialState : {\n         current:{},\n         settings: {},\n     },\n     reducers :{\n         \n-    }\n+    },\n+    extraReducers: (builder) => {\n+        // Add reducers for additional action types here, and handle loading state as needed\n+        builder.addCase(register.fulfilled, (state, action) => {\n+          // Add user to the state array\n+          state.current = action.payload\n+        })\n+      },\n })\n \n export default userSlice.reducer\n"
+                },
+                {
+                    "date": 1643458088471,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'\n import userAPI from '../../API/userApi'\n \n export const register = createAsyncThunk(\n-    'users/fetchByIdStatus',\n+    'users/register',\n     async (payload) => {\n       const data = await userAPI.register(payload)\n         //save to localstorage\n      localStorage.setItem('access_token',data.jwt);\n@@ -11,9 +11,9 @@\n     \n       return data.user\n     }\n   )\n-  \n+\n const userSlice = createSlice({\n     name : 'user',\n     initialState : {\n         current:{},\n"
+                }
+            ],
+            "date": 1643346677702,
+            "name": "Commit-0",
+            "content": "import { createSlice } from '@reduxjs/toolkit'\nconst userSlice = createSlice({\n    name : 'user',\n    initialState : {\n        current:{},\n        settings: {},\n    },\n    reducers :{\n        \n    }\n})\n\nexport default userSlice.reducer\n"
+        }
+    ]
+}

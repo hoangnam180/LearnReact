@@ -1,0 +1,438 @@
+{
+    "sourceFile": "src/components/Toasts/toast.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 105,
+            "patches": [
+                {
+                    "date": 1643542544076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643542908385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n .toast{\n-    transform: translateX(100%);\n+    // transform: translateX(100%);\n     transition: all .25s;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643542914619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n .toast{\n-    // transform: translateX(100%);\n+    transform: translateX(100%);\n     transition: all .25s;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643610613077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n .toast{\n-    transform: translateX(100%);\n-    transition: all .25s;\n+    position: absolute;\n+    right: 0;\n+    transform: translateX(0%);\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643610628125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n .toast{\n     position: absolute;\n     right: 0;\n-    transform: translateX(0%);\n+    transform: translateX(100%);\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643610690189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n .toast{\n-    position: absolute;\n+    position: absolute !important;\n     right: 0;\n-    transform: translateX(100%);\n+    transform: translateX(-100%);\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643610696979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n .toast{\n-    position: absolute !important;\n+    position: absolute;\n     right: 0;\n     transform: translateX(-100%);\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643610776579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-.toast{\n+.toast-container{\n     position: absolute;\n     right: 0;\n     transform: translateX(-100%);\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643610786698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    transform: translateX(-100%);\n+    transform: translateX(0);\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643610809188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    transform: translateX(0);\n+    transform: translateX(100%);\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643610830669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    transform: translateX(100%);\n+    transform: translateX(0%);\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643610862739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    transform: translateX(0%);\n+    transform: translateX(100%);\n+    transition: all .25s;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643611083587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    transform: translateX(100%);\n+    // transform: translateX(100%);\n     transition: all .25s;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643611238380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    // transform: translateX(100%);\n+    transform: translateX(100%);\n     transition: all .25s;\n\\ No newline at end of file\n-}\n+}\n+.toast-container.open{\n+    transform: translateX(0);\n+}\n"
+                },
+                {
+                    "date": 1643611387053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    transform: translateX(100%);\n+    transform: translateX(-100%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(0);\n\\ No newline at end of file\n-}\n+}\n"
+                },
+                {
+                    "date": 1643611393222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    transform: translateX(-100%);\n+    transform: translateX(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(0);\n\\ No newline at end of file\n-}\n+}\n"
+                },
+                {
+                    "date": 1643611806990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,6 @@\n     transform: translateX(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n-    transform: translateX(0);\n-}\n\\ No newline at end of file\n+    transform: translateX(-10%);\n+}\n"
+                },
+                {
+                    "date": 1643613203399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n     transform: translateX(100%);\n+    transform: translateY(50%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(-10%);\n"
+                },
+                {
+                    "date": 1643613215244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n     transform: translateX(100%);\n-    transform: translateY(50%);\n+    transform: translateY(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(-10%);\n"
+                },
+                {
+                    "date": 1643613230563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    transform: translateX(100%);\n-    transform: translateY(100%);\n+    transform: translate(100%,100%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(-10%);\n"
+                },
+                {
+                    "date": 1643613323338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n+    top: 20%;\n     transform: translate(100%,100%);\n     transition: all .25s;\n }\n .toast-container.open{\n"
+                },
+                {
+                    "date": 1643613367670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    top: 20%;\n-    transform: translate(100%,100%);\n+    // top: 20%;\n+    transform: translate(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(-10%);\n"
+                },
+                {
+                    "date": 1643613373812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n     // top: 20%;\n-    transform: translate(100%);\n+    transform: translateX(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(-10%);\n"
+                },
+                {
+                    "date": 1643613391912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    // top: 20%;\n     transform: translateX(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n-    transform: translateX(-10%);\n+    transform: translateX(10%);\n }\n"
+                },
+                {
+                    "date": 1643613442565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n+    top: 10%;\n     transform: translateX(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n"
+                },
+                {
+                    "date": 1643613460608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n     top: 10%;\n-    transform: translateX(100%);\n+    transform: translate(100%,-10%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(10%);\n"
+                },
+                {
+                    "date": 1643613474825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    top: 10%;\n-    transform: translate(100%,-10%);\n+    top: 5%;\n+    transform: translateX(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(10%);\n"
+                },
+                {
+                    "date": 1643613484983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    top: 5%;\n+    top: 10%;\n     transform: translateX(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n"
+                },
+                {
+                    "date": 1643615067964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,6 @@\n     transform: translateX(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n-    transform: translateX(10%);\n+    transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643630909712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    top: 10%;\n     transform: translateX(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n"
+                },
+                {
+                    "date": 1643630922694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    transform: translateX(100%);\n+    transform: translateX(-00%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(0);\n"
+                },
+                {
+                    "date": 1643630964153,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n-    right: 0;\n-    transform: translateX(-00%);\n+    right: -50%;\n+    transform: translateX(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(0);\n"
+                },
+                {
+                    "date": 1643630970771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     position: absolute;\n-    right: -50%;\n+    right: -100%;\n     transform: translateX(100%);\n     transition: all .25s;\n }\n .toast-container.open{\n"
+                },
+                {
+                    "date": 1643630978053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: -100%;\n-    transform: translateX(100%);\n+    transform: translateX(-100%);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(0);\n"
+                },
+                {
+                    "date": 1643630987375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: -100%;\n-    transform: translateX(-100%);\n+    transform: translateX(0);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(0);\n"
+                },
+                {
+                    "date": 1643630996845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: -100%;\n+    top: 0;\n     transform: translateX(0);\n     transition: all .25s;\n }\n .toast-container.open{\n"
+                },
+                {
+                    "date": 1643631047904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,5 @@\n .toast-container{\n-    position: absolute;\n-    right: -100%;\n-    top: 0;\n-    transform: translateX(0);\n     transition: all .25s;\n }\n .toast-container.open{\n     transform: translateX(0);\n"
+                },
+                {
+                    "date": 1643631065720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n .toast-container{\n     transition: all .25s;\n+    transform: translateX(-100%);\n }\n .toast-container.open{\n     transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643631088613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     transition: all .25s;\n-    transform: translateX(-100%);\n+    transform: translateX(calc(100% + 30px);\n }\n .toast-container.open{\n     transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643631112646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     transition: all .25s;\n-    transform: translateX(calc(100% + 30px);\n+    transform: translateX(calc('100% + 30px'));\n }\n .toast-container.open{\n     transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643631127842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     transition: all .25s;\n-    transform: translateX(calc('100% + 30px'));\n+    transform: translateX(calc('-100% + 30px'));\n }\n .toast-container.open{\n     transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643631155137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     transition: all .25s;\n-    transform: translateX(calc('-100% + 30px'));\n+\n }\n .toast-container.open{\n     transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643631452920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     transition: all .25s;\n-\n+    transform: translateX(-100%);\n }\n .toast-container.open{\n     transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643631471412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n .toast-container{\n     transition: all .25s;\n-    transform: translateX(-100%);\n+    transform: translateX(100%);\n+    position: relative;\n }\n .toast-container.open{\n     transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643631476531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     transition: all .25s;\n     transform: translateX(100%);\n-    position: relative;\n+    position: absolute;\n }\n .toast-container.open{\n     transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643631483171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     transition: all .25s;\n     transform: translateX(100%);\n-    position: absolute;\n+    // position: absolute;\n }\n .toast-container.open{\n     transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643631494227,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     transition: all .25s;\n-    transform: translateX(100%);\n+    // transform: translateX(100%);\n     // position: absolute;\n }\n .toast-container.open{\n     transform: translateX(0);\n"
+                },
+                {
+                    "date": 1643631675479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n .toast-container{\n     transition: all .25s;\n-    // transform: translateX(100%);\n-    // position: absolute;\n+    position: relative;\n }\n .toast-container.open{\n     transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643631713222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,10 @@\n .toast-container{\n     transition: all .25s;\n     position: relative;\n+    .toast{\n+        position: absolute;\n+    }\n }\n .toast-container.open{\n     transform: translateX(0);\n }\n"
+                },
+                {
+                    "date": 1643631718521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .toast-container{\n     transition: all .25s;\n     position: relative;\n     .toast{\n-        position: absolute;\n+        // position: absolute;\n     }\n }\n .toast-container.open{\n     transform: translateX(0);\n"
+                },
+                {
+                    "date": 1643631723836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n     transition: all .25s;\n     position: relative;\n     .toast{\n         // position: absolute;\n+        left: 0;\n     }\n }\n .toast-container.open{\n     transform: translateX(0);\n"
+                },
+                {
+                    "date": 1643631738688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n .toast-container{\n     transition: all .25s;\n-    position: relative;\n+    // position: relative;\n+    left: 0;\n+    position: absolute;\n     .toast{\n-        // position: absolute;\n-        left: 0;\n     }\n }\n .toast-container.open{\n     transform: translateX(0);\n"
+                },
+                {
+                    "date": 1643631787555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .toast-container{\n     transition: all .25s;\n-    // position: relative;\n-    left: 0;\n-    position: absolute;\n+    position: relative;\n+    left: 100%\n+    // position: absolute;\n     .toast{\n     }\n }\n .toast-container.open{\n"
+                },
+                {
+                    "date": 1643631794429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     transition: all .25s;\n     position: relative;\n-    left: 100%\n+    left: 100%;\n     // position: absolute;\n     .toast{\n     }\n }\n"
+                },
+                {
+                    "date": 1643631806363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     transition: all .25s;\n     position: relative;\n-    left: 100%;\n+    left: 200%;\n     // position: absolute;\n     .toast{\n     }\n }\n"
+                },
+                {
+                    "date": 1643631812396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     transition: all .25s;\n     position: relative;\n-    left: 200%;\n+    left: 220%;\n     // position: absolute;\n     .toast{\n     }\n }\n"
+                },
+                {
+                    "date": 1643631829883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,1 @@\n-.toast-container{\n-    transition: all .25s;\n-    position: relative;\n-    left: 220%;\n-    // position: absolute;\n-    .toast{\n-    }\n-}\n-.toast-container.open{\n-    transform: translateX(0);\n-}\n+\n"
+                },
+                {
+                    "date": 1643632470516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,5 @@\n-\n+.toast-container{\n+    position: relative;\n+    right: 100%;\n+    transform: translateX(-100%);\n+}\n"
+                },
+                {
+                    "date": 1643632497244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n .toast-container{\n     position: relative;\n-    right: 100%;\n+    right: 120%;\n     transform: translateX(-100%);\n }\n"
+                },
+                {
+                    "date": 1643632506981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n .toast-container{\n     position: relative;\n-    right: 120%;\n-    transform: translateX(-100%);\n+    right: 100%;\n+    transform: translateX(-120%);\n }\n"
+                },
+                {
+                    "date": 1643632550460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n .toast-container{\n     position: relative;\n     right: 100%;\n     transform: translateX(-120%);\n+    & .open{\n+        transform: translateX(0);\n+    }\n }\n"
+                },
+                {
+                    "date": 1643632653955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: relative;\n     right: 100%;\n     transform: translateX(-120%);\n-    & .open{\n+    && .open{\n         transform: translateX(0);\n     }\n }\n"
+                },
+                {
+                    "date": 1643685675133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n-    position: relative;\n-    right: 100%;\n-    transform: translateX(-120%);\n-    && .open{\n+    // position: relative;\n+    // right: 100%;\n+    // transform: translateX(-120%);\n+    & .open{\n         transform: translateX(0);\n     }\n }\n"
+                },
+                {
+                    "date": 1643686232210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,4 @@\n .toast-container{\n-    // position: relative;\n-    // right: 100%;\n-    // transform: translateX(-120%);\n-    & .open{\n-        transform: translateX(0);\n-    }\n+    position: absolute;\n+    left: 100%;\n }\n"
+                },
+                {
+                    "date": 1643686246922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n .toast-container{\n     position: absolute;\n     left: 100%;\n+    top: 0;\n }\n"
+                },
+                {
+                    "date": 1643686273294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n .toast-container{\n     position: absolute;\n     left: 100%;\n-    top: 0;\n+    bottom: 100%;\n }\n"
+                },
+                {
+                    "date": 1643686286669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n .toast-container{\n     position: absolute;\n-    left: 100%;\n+    left: 50%;\n     bottom: 100%;\n }\n"
+                },
+                {
+                    "date": 1643686297341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n .toast-container{\n     position: absolute;\n     left: 50%;\n+    transform: translateX(-50%);\n     bottom: 100%;\n }\n"
+                },
+                {
+                    "date": 1643686306528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n .toast-container{\n     position: absolute;\n     left: 50%;\n     transform: translateX(-50%);\n+    z-index: 1000;\n     bottom: 100%;\n }\n"
+                },
+                {
+                    "date": 1643686331751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     position: absolute;\n     left: 50%;\n-    transform: translateX(-50%);\n+    transform: translate(-50%,-100%);\n     z-index: 1000;\n     bottom: 100%;\n }\n"
+                },
+                {
+                    "date": 1643686369382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,9 @@\n     left: 50%;\n     transform: translate(-50%,-100%);\n     z-index: 1000;\n     bottom: 100%;\n+    && .open{\n+        transform: translateY(0);\n+    }\n }\n+\n"
+                },
+                {
+                    "date": 1643686374997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     left: 50%;\n     transform: translate(-50%,-100%);\n     z-index: 1000;\n     bottom: 100%;\n-    && .open{\n+    & .open{\n         transform: translateY(0);\n     }\n }\n \n"
+                },
+                {
+                    "date": 1643686506423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     left: 50%;\n-    transform: translate(-50%,-100%);\n+    // transform: translate(-50%,-100%);\n     z-index: 1000;\n     bottom: 100%;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686512555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     position: absolute;\n-    left: 50%;\n+    left: 100%;\n     // transform: translate(-50%,-100%);\n     z-index: 1000;\n     bottom: 100%;\n     & .open{\n"
+                },
+                {
+                    "date": 1643686539443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n     position: absolute;\n     left: 100%;\n     // transform: translate(-50%,-100%);\n     z-index: 1000;\n-    bottom: 100%;\n+    // bottom: 100%;\n     & .open{\n         transform: translateY(0);\n     }\n }\n"
+                },
+                {
+                    "date": 1643686549336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n     position: absolute;\n     left: 100%;\n     // transform: translate(-50%,-100%);\n     z-index: 1000;\n-    // bottom: 100%;\n+    top: 0;\n     & .open{\n         transform: translateY(0);\n     }\n }\n"
+                },
+                {
+                    "date": 1643686578442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     left: 100%;\n-    // transform: translate(-50%,-100%);\n+    transform: translateX(50%)\n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686583698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     left: 100%;\n-    transform: translateX(50%)\n+    transform: translateX(50%);\n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686596501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     left: 100%;\n-    transform: translateX(50%);\n+    transform: translateX(100%);\n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686612232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     left: 100%;\n-    transform: translateX(100%);\n+    transform: translateX(50%);\n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686625622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     left: 100%;\n-    transform: translateX(50%);\n+    transform: translateX(40%);\n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686641399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     left: 100%;\n-    transform: translateX(40%);\n+    transform: translateX(30%);\n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686747107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     left: 100%;\n-    transform: translateX(30%);\n+    \n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686783444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     position: absolute;\n-    left: 100%;\n+    right: -100%;\n     \n     z-index: 1000;\n     top: 0;\n     & .open{\n"
+                },
+                {
+                    "date": 1643686803787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: -100%;\n-    \n+    transform: translateX(100%);\n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686810039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: -100%;\n-    transform: translateX(100%);\n+    transform: translateX(-100%);\n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686817062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: -100%;\n-    transform: translateX(-100%);\n+    transform: translateX(-50%);\n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686831832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: -100%;\n-    transform: translateX(-50%);\n+    // transform: translateX(-50%);\n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686870679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     right: -100%;\n-    // transform: translateX(-50%);\n+    // transform: translateX(-20%);\n     z-index: 1000;\n     top: 0;\n     & .open{\n         transform: translateY(0);\n"
+                },
+                {
+                    "date": 1643686894350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,10 @@\n .toast-container{\n     position: absolute;\n     right: -100%;\n-    // transform: translateX(-20%);\n     z-index: 1000;\n     top: 0;\n     & .open{\n-        transform: translateY(0);\n+        transform: translateX(-20%);\n     }\n }\n \n"
+                },
+                {
+                    "date": 1643686939560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,10 @@\n     position: absolute;\n     right: -100%;\n     z-index: 1000;\n     top: 0;\n-    & .open{\n-        transform: translateX(-20%);\n-    }\n+\n }\n+.toast-container .open{\n+    transform: translateX(-20%);\n+}\n \n"
+                },
+                {
+                    "date": 1643687004469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n     z-index: 1000;\n     top: 0;\n \n }\n-.toast-container .open{\n+.toast-container.open{\n     transform: translateX(-20%);\n }\n \n"
+                },
+                {
+                    "date": 1643687191983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,9 @@\n .toast-container{\n     position: absolute;\n-    right: -100%;\n+    right: -50%;\n     z-index: 1000;\n     top: 0;\n \n }\n-.toast-container.open{\n-    transform: translateX(-20%);\n-}\n \n+\n"
+                },
+                {
+                    "date": 1643687243437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     position: absolute;\n-    right: -50%;\n+    left: 120%;\n     z-index: 1000;\n     top: 0;\n \n }\n"
+                },
+                {
+                    "date": 1643687263890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     position: absolute;\n-    left: 120%;\n+    left: 100%;\n     z-index: 1000;\n     top: 0;\n \n }\n"
+                },
+                {
+                    "date": 1643790083682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n .toast-container{\n-    position: absolute;\n-    left: 100%;\n-    z-index: 1000;\n-    top: 0;\n-\n+    // position: absolute;\n+    // left: 100%;\n+    // z-index: 1000;\n+    // top: 0;\n }\n \n \n"
+                },
+                {
+                    "date": 1643790090978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n .toast-container{\n-    // position: absolute;\n+    position: absolute;\n     // left: 100%;\n     // z-index: 1000;\n     // top: 0;\n }\n"
+                },
+                {
+                    "date": 1643790099583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     position: absolute;\n-    // left: 100%;\n+    left: 0%;\n     // z-index: 1000;\n     // top: 0;\n }\n \n"
+                },
+                {
+                    "date": 1643790106632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .toast-container{\n     position: absolute;\n     left: 0%;\n     // z-index: 1000;\n-    // top: 0;\n+    top: 0;\n }\n \n \n"
+                },
+                {
+                    "date": 1643792750426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .toast-container{\n     position: absolute;\n-    left: 0%;\n+    right: 0;\n     // z-index: 1000;\n     top: 0;\n }\n \n"
+                },
+                {
+                    "date": 1643792780846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n     // z-index: 1000;\n+    padding: 5px;\n     top: 0;\n }\n \n \n"
+                },
+                {
+                    "date": 1643792786882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n .toast-container{\n     position: absolute;\n     right: 0;\n-    // z-index: 1000;\n     padding: 5px;\n     top: 0;\n }\n \n"
+                },
+                {
+                    "date": 1643792992515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,8 @@\n     position: absolute;\n     right: 0;\n     padding: 5px;\n     top: 0;\n+    transform: translateX(-100%);\n }\n \n \n"
+                },
+                {
+                    "date": 1643793031690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,12 @@\n     position: absolute;\n     right: 0;\n     padding: 5px;\n     top: 0;\n-    transform: translateX(-100%);\n+    transform: translateX(100%);\n+    &.open{\n+        transform: translateX(0);\n+    }\n }\n \n \n+\n"
+                },
+                {
+                    "date": 1643793089678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n     right: 0;\n     padding: 5px;\n     top: 0;\n     transform: translateX(100%);\n+    transition: linear .25s;\n     &.open{\n         transform: translateX(0);\n     }\n }\n"
+                },
+                {
+                    "date": 1643793118245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     right: 0;\n     padding: 5px;\n     top: 0;\n     transform: translateX(100%);\n-    transition: linear .25s;\n+    transition: linear .35s;\n     &.open{\n         transform: translateX(0);\n     }\n }\n"
+                }
+            ],
+            "date": 1643542544076,
+            "name": "Commit-0",
+            "content": ".toast{\n    transform: translateX(100%);\n    transition: all .25s;\n}"
+        }
+    ]
+}

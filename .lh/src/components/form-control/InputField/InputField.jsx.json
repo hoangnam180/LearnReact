@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/form-control/InputField/InputField.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1643274000215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643274134483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n const InputField = (props) => {\n     const {register,name,type,defaultValue} = props\n     return (  \n+        <div>\n             <input defaultValue={defaultValue} {...register(name)} name={name} type={type}/>\n+        </div>\n     );\n }\n  \n export default InputField;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643274165464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,8 @@\n const InputField = (props) => {\n     const {register,name,type,defaultValue} = props\n     return (  \n-        <div>\n             <input defaultValue={defaultValue} {...register(name)} name={name} type={type}/>\n-        </div>\n     );\n }\n  \n export default InputField;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643279503896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n const InputField = (props) => {\n-    const {register,name,type,defaultValue} = props\n+    const {register,name,type,defaultValue,id} = props\n     return (  \n-            <input defaultValue={defaultValue} {...register(name)} name={name} type={type}/>\n+            <input id={id} defaultValue={defaultValue} {...register(name)} name={name} type={type}/>\n     );\n }\n  \n export default InputField;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1643274000215,
+            "name": "Commit-0",
+            "content": "const InputField = (props) => {\n    const {register,name,type,defaultValue} = props\n    return (  \n            <input defaultValue={defaultValue} {...register(name)} name={name} type={type}/>\n    );\n}\n \nexport default InputField;"
+        }
+    ]
+}
