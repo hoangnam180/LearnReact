@@ -1,0 +1,32 @@
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0.3rem;
+    outline: 0;
+    left: 50%;
+    transform: translate(-50%);
+    .avatar{
+        text-align: center;
+        i{
+            font-size: 25px;
+            color: rgb(236, 87, 112);
+        }
+        p{
+            font-size: 17px;
+            margin: 0;
+        }
+    }
+    .form-group input {
+        width: 100%;
+    }
+    button{
+       width: 100%;
+       margin-top: 15px;
+    }
+}

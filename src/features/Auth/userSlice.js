@@ -13,6 +13,18 @@ export const register = createAsyncThunk(
     }
   )
 
+export const login = createAsyncThunk(
+    'users/login',
+    async (payload) => {
+      const data = await userAPI.login(payload)
+        //save to localstorage
+     localStorage.setItem('access_token',data.jwt);
+     localStorage.setItem('user',JSON.stringify(data.user))
+    
+      return data.user
+    }
+  )
+
 const userSlice = createSlice({
     name : 'user',
     initialState : {
@@ -25,6 +37,10 @@ const userSlice = createSlice({
     extraReducers: (builder) => {
         // Add reducers for additional action types here, and handle loading state as needed
         builder.addCase(register.fulfilled, (state, action) => {
+          // Add user to the state array
+          state.current = action.payload
+        })
+        builder.addCase(login.fulfilled, (state, action) => {
           // Add user to the state array
           state.current = action.payload
         })

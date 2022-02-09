@@ -1,4 +1,5 @@
 import Toasts from "components/Toasts/Toast";
+import Login from "features/Auth/Login/Login";
 import Register from "features/Auth/Register/Register";
 import { useContext, useState,useEffect } from "react";
 import { NavLink ,Link} from "react-router-dom";
@@ -43,7 +44,7 @@ const Header = ({toastContext}) => {
                 // toggle={toggle}
               >
                 <ModalBody>
-                    <Register toastContext={toastContext} setModal={setModal}/>
+                    <Login toastContext={toastContext} setModal={setModal}/>
                 </ModalBody>
                 
             </Modal>
