@@ -29,4 +29,13 @@
        width: 100%;
        margin-top: 15px;
     }
+    .close{
+        position: absolute;
+        color: #333;
+        top: 5px;
+        z-index: 1000;
+        right: 15px;
+        cursor: pointer;
+        font-size: 20px;
+    }
 }

@@ -35,7 +35,11 @@ const Register = ({setModal,toastContext}) => {
     <>  
         <RegisterForm show={show} onSubmit={handlesubmit}/>
         <input onChange={()=>{setShow(!show)}} id={'show'} name='showpassword' type='checkbox' /> <label htmlFor="show">Show Password</label>
-        <button onClick={()=>{setModal(false)}} className="btn btn-warning">Cancel</button>
+        <div 
+        onClick={()=>{setModal(false)}}
+        className="close" >
+        <i class="fal fa-times"></i>
+        </div>
     </>        
      );
 }

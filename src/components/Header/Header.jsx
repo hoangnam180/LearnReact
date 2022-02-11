@@ -12,9 +12,17 @@ const Header = ({toastContext}) => {
         const [modal, setModal] = useState(false);  
         // Toggle for Modal
         const toggle = () => setModal(true);
-        
+        //Toast
         const toast = useContext(toastContext)
 
+        const MODE = {
+          login : 'login',
+          register : 'register',
+        }
+
+        const [mode,setMode] = useState(MODE.login)
+        console.log(mode)
+        //auto remove toast
         useEffect(() => {    
             const timeToast = setTimeout(() => {
                  toast.setToast(false)
@@ -24,7 +32,8 @@ const Header = ({toastContext}) => {
              clearTimeout(timeToast)
            };
          }, [toast.toast]);
-         console.log(modal)
+
+
     return ( 
 
     <header className="header">
@@ -44,7 +53,19 @@ const Header = ({toastContext}) => {
                 // toggle={toggle}
               >
                 <ModalBody>
+                    {mode === MODE.login && (<>
                     <Login toastContext={toastContext} setModal={setModal}/>
+                    <Button
+                    onClick={()=>{setMode(MODE.register)}}
+                     className="btn-outline-info">Dont have an account. Register here</Button>
+                    </>)}
+
+                    {mode === MODE.register && (<>
+                    <Register toastContext={toastContext} setModal={setModal}/>
+                    <Button
+                    onClick={()=>{setMode(MODE.login)}}
+                     className="btn-outline-info">Already have an account. Login here</Button>
+                    </>)}
                 </ModalBody>
                 
             </Modal>
