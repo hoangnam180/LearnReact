@@ -1,0 +1,11 @@
+.nav_link{
+    color: rgb(71, 71, 71)!important;
+    font-weight: 500;
+    &:hover{
+        color: #0364f5 !important;
+        cursor: pointer;
+    }
+    &.active{
+        color: #0364f5 !important;
+    }
+}

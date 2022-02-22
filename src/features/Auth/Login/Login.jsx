@@ -36,7 +36,7 @@ const Login = ({setModal,toastContext}) => {
         <div 
         onClick={()=>{setModal(false)}}
         className="close" >
-        <i class="fal fa-times"></i>
+        <i className="fal fa-times"></i>
         </div>
     </>        
      );

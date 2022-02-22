@@ -9,15 +9,9 @@ import DetialPage from './features/Todo/pages/DetailPage/DetailPage';
 import './app.scss'
 import CouterFeature from './features/Counter/Counter';
 import Header from 'components/Header/Header';
+import ProductFeature from 'features/Product';
 
 function App() {
-
-  useEffect(() => {
-    const  fetchProducts = async ()=>{
-      const productList = await products.getAll({_limit:10})
-    }
-    fetchProducts()
-  }, [])
   const [messHead,setMessHead] = useState('')
   const [mess,setMess] = useState('') 
   const [background,setBackground] = useState('success')
@@ -40,6 +34,8 @@ function App() {
            </Route>
 
            <Route path="/albums/*" element={<AlbumFeature />}/>
+
+           <Route path="/products/*" element={<ProductFeature />}/>
            
            <Route path="/counter/*" element={<CouterFeature />}/>
            

@@ -5,16 +5,20 @@ header > p > a.active{
     display: flex;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: #DAF0D5;
+    background-color: #3846AD;
     align-items: center;
+    position: relative;
 
     &__category{
         display: flex;
         align-items: center;
         gap: 30px;
-        color: #666;
+        color: #fff;
         a{
-            color:#666;
+            color:#fff;
+        &:hover{
+            color: palevioletred;
+        }
         }
         p{
             margin: 0;
@@ -22,7 +26,10 @@ header > p > a.active{
     }
     &__logo{
     a{
-        color: #333;
+        color: #fff;
+        &:hover{
+            color: palevioletred;
+        }
     }
     padding: 4px;
        i{
@@ -37,5 +44,16 @@ header > p > a.active{
         transform: translate(-50%,50%);
         left: 50%;
         top: 50%;
+    }
+    .btn-secondary {
+        color: #fff !important;
+        background-color: #7f88ca!important;
+        border: none;
+    &:hover {
+        background-color: transparent;
+    }
+    &:active {
+        background-color: transparent;
+    }
     }
 }

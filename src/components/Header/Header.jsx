@@ -1,13 +1,18 @@
 import Toasts from "components/Toasts/Toast";
-import Login from "features/Auth/Login/Login";
 import Register from "features/Auth/Register/Register";
+import Login from "features/Auth/Login/Login";
 import { useContext, useState,useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink ,Link} from "react-router-dom";
-import { Button, Modal, ModalBody } from "reactstrap"
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Modal, ModalBody } from "reactstrap"
 import './Header.scss'
+import { logout } from "features/Auth/userSlice";
 
 
 const Header = ({toastContext}) => {
+        const loggedInUser = useSelector(state => state.user.current);
+        const isLogeedIn = !!loggedInUser.id;
         // Modal open state
         const [modal, setModal] = useState(false);  
         // Toggle for Modal
@@ -20,8 +25,19 @@ const Header = ({toastContext}) => {
           register : 'register',
         }
 
+        const [menu, setMenu] = useState(false)
+
+        const dispatch = useDispatch()
+
+        const handleLogoutClick = () => {
+          const action = logout()
+          dispatch(action)
+          toast.setToast(true)
+          toast.setBackground('success')
+          toast.setMessHead('Logout Success !')
+          toast.setMess('Bạn đã đăng xuất thành công!!')
+       }
         const [mode,setMode] = useState(MODE.login)
-        console.log(mode)
         //auto remove toast
         useEffect(() => {    
             const timeToast = setTimeout(() => {
@@ -32,6 +48,7 @@ const Header = ({toastContext}) => {
              clearTimeout(timeToast)
            };
          }, [toast.toast]);
+
 
 
     return ( 
@@ -47,8 +64,31 @@ const Header = ({toastContext}) => {
         <p><NavLink to="/albums">albums</NavLink></p>
         <p><NavLink to="/counter">Counter</NavLink></p>
         <div className="header__register">
-            <Button style={{backgroundColor:'#A2DFC8',border:'none',color:'#333'}}
-                onClick={toggle}>Register</Button>
+        <div className="header-menu">
+                    <Dropdown isOpen={menu}>
+                    <DropdownToggle caret>
+                    {isLogeedIn && 
+                      <Button
+                      onClick={() => setMenu(!menu)}
+                      style={{outline:'none',backgroundColor:'rgb(162 223 200 / 40%)',borderRadius:'50%',border:'none',color:'#fff'}}>
+                          <i class="fas fa-user-circle"></i>
+                      </Button>
+                    }
+                    {!isLogeedIn && 
+                    (<Button style={{backgroundColor:'#A2DFC8',border:'none',color:'#333'}}
+                    onClick={toggle}>Login</Button> )
+                    }
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem onClick={handleLogoutClick}>
+                        Logout
+                      </DropdownItem>
+                      <DropdownItem>
+                        Register
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+        </div>
             <Modal isOpen={modal}
                 // toggle={toggle}
               >

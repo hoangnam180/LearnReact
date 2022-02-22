@@ -5,6 +5,7 @@
     top: 0;
     transform: translateX(100%);
     transition: linear .35s;
+    z-index: 9999;
     &.open{
         transform: translateX(0);
     }
