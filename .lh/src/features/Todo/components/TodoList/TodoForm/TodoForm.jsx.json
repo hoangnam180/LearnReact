@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1643022049936,
@@ -20,6 +20,10 @@
                 {
                     "date": 1643022120249,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import {useForm} from 'react-hook-form'\n-// import InputField from \"../../../../../components/form-control/InputField/InputField\";\n import InputField from 'components/form-control/InputField/InputField';\n import { yupResolver } from \"@hookform/resolvers/yup\";\n import * as yup from \"yup\";\n \n"
+                },
+                {
+                    "date": 1645710776799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,9 @@\n const schema = yup.object().shape({\n     title: yup\n       .string()\n       .required(\"Vui lòng nhập Công việc\")\n-      .max(50, \"username tối đa 50 ký tự\"),\n-      password: yup.string().required().min(6),\n-      passwordConfirmation: yup.string()\n-     .oneOf([yup.ref('password'), null], 'Passwords must match').min(6)\n+        .min(3, \"Công việc phải có ít nhất 3 ký tự\")\n });\n const TodoForm = (props) => {\n     const {setFocus,register,handleSubmit, reset,formState: { errors } } = \n     useForm({ resolver: yupResolver(schema) })\n@@ -31,14 +28,8 @@\n             <InputField  defaultValue='' name=\"title\" register={register} type=\"text\"/>\n             {errors.title && \n             <p className=\"error\">{errors.title?.message}</p>}\n             <button style={{display:'block'}}>Add</button>\n-            <InputField name=\"password\" register={register} type=\"password\"/>\n-            {errors.password && \n-            <p className=\"error\">{errors.password?.message}</p>}\n-            <InputField name=\"passwordConfirmation\" register={register} type=\"password\"/>\n-            {errors.passwordConfirmation && \n-            <p className=\"error\">{errors.passwordConfirmation?.message}</p>}\n         </form>\n     );\n }\n  \n"
                 }
             ],
             "date": 1643022049936,

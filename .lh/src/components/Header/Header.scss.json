@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 57,
+            "activePatchIndex": 58,
             "patches": [
                 {
                     "date": 1643207370339,
@@ -236,6 +236,10 @@
                 {
                     "date": 1644226399070,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n         }\n     }\n     &__logo{\n     a{\n-        color: #666;\n+        color: #333;\n     }\n     padding: 4px;\n        i{\n            font-size: 50px;\n"
+                },
+                {
+                    "date": 1645710657205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,26 +4,34 @@\n .header{\n     display: flex;\n     justify-content: space-between;\n     padding: 0 1rem;\n-    background-color: #DAF0D5;\n+    background-color: #3846AD;\n     align-items: center;\n+    position: relative;\n+    overflow: hidden;\n \n     &__category{\n         display: flex;\n         align-items: center;\n         gap: 30px;\n-        color: #666;\n+        color: #fff;\n         a{\n-            color:#666;\n+            color:#fff;\n+        &:hover{\n+            color: palevioletred;\n         }\n+        }\n         p{\n             margin: 0;\n         }\n     }\n     &__logo{\n     a{\n-        color: #333;\n+        color: #fff;\n+        &:hover{\n+            color: palevioletred;\n+        }\n     }\n     padding: 4px;\n        i{\n            font-size: 50px;\n@@ -37,5 +45,16 @@\n         transform: translate(-50%,50%);\n         left: 50%;\n         top: 50%;\n     }\n+    .btn-secondary {\n+        color: #fff !important;\n+        background-color: #7f88ca!important;\n+        border: none;\n+    &:hover {\n+        background-color: transparent;\n+    }\n+    &:active {\n+        background-color: transparent;\n+    }\n+    }\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1643207370339,

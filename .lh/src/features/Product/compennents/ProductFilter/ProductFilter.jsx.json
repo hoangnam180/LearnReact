@@ -1,0 +1,86 @@
+{
+    "sourceFile": "src/features/Product/compennents/ProductFilter/ProductFilter.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 17,
+            "patches": [
+                {
+                    "date": 1645709352258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645709368889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n const ProductFilter = () => {\n     return ( \n-        <div className=\"product-filter\">\n+        <>\n             ProductFilter\n-        </div>\n+        </>\n      );\n }\n  \n export default ProductFilter;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1645709622167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n-const ProductFilter = () => {\n+const ProductFilter = (props) => {\n+    const {fillter,handleFilterChange} = props\n+    console.log(fillter,handleFilterChange)\n     return ( \n         <>\n             ProductFilter\n         </>\n"
+                },
+                {
+                    "date": 1645709662124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const ProductFilter = (props) => {\n     const {fillter,handleFilterChange} = props\n-    console.log(fillter,handleFilterChange)\n+    console.log(fillter)\n     return ( \n         <>\n             ProductFilter\n         </>\n"
+                },
+                {
+                    "date": 1645709668767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n const ProductFilter = (props) => {\n     const {fillter,handleFilterChange} = props\n-    console.log(fillter)\n     return ( \n         <>\n             ProductFilter\n         </>\n"
+                },
+                {
+                    "date": 1645713513397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,16 @@\n+import FilterByPrice from \"../FilTers/FilterByPrice\";\n+import FilterByCategory from \"../FilTers/FilTersByCategory\";\n+\n const ProductFilter = (props) => {\n     const {fillter,handleFilterChange} = props\n+    const handleFilter = () => {\n+\n+    }\n     return ( \n         <>\n-            ProductFilter\n+            <FilterByCategory/>\n+            <FilterByPrice/>\n         </>\n      );\n }\n  \n"
+                },
+                {
+                    "date": 1645716064957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,15 +2,18 @@\n import FilterByCategory from \"../FilTers/FilTersByCategory\";\n \n const ProductFilter = (props) => {\n     const {fillter,handleFilterChange} = props\n-    const handleFilter = () => {\n \n+    const handleCategoryChange = (newCategoryId) => {\n+        if(handleFilterChange){\n+            const newFillter = {...fillter, categoryId: newCategoryId};\n+        handleFilterChange(newFillter);\n+        }\n     }\n     return ( \n         <>\n-            <FilterByCategory/>\n-            <FilterByPrice/>\n+            <FilterByCategory onChange={handleCategoryChange}/>\n         </>\n      );\n }\n  \n"
+                },
+                {
+                    "date": 1645716908718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     const {fillter,handleFilterChange} = props\n \n     const handleCategoryChange = (newCategoryId) => {\n         if(handleFilterChange){\n-            const newFillter = {...fillter, categoryId: newCategoryId};\n+            const newFillter = {...fillter, 'category.id': newCategoryId};\n         handleFilterChange(newFillter);\n         }\n     }\n     return ( \n"
+                },
+                {
+                    "date": 1645717069692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import FilterByPrice from \"../FilTers/FilterByPrice\";\n+\n import FilterByCategory from \"../FilTers/FilTersByCategory\";\n \n const ProductFilter = (props) => {\n     const {fillter,handleFilterChange} = props\n"
+                },
+                {
+                    "date": 1645720252215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import FilterByCategory from \"../FilTers/FilTersByCategory\";\n \n const ProductFilter = (props) => {\n     const {fillter,handleFilterChange} = props\n-\n+    console.log(fillter)\n     const handleCategoryChange = (newCategoryId) => {\n         if(handleFilterChange){\n             const newFillter = {...fillter, 'category.id': newCategoryId};\n         handleFilterChange(newFillter);\n"
+                },
+                {
+                    "date": 1645721245665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,12 @@\n import FilterByCategory from \"../FilTers/FilTersByCategory\";\n \n const ProductFilter = (props) => {\n     const {fillter,handleFilterChange} = props\n-    console.log(fillter)\n     const handleCategoryChange = (newCategoryId) => {\n+        if(!handleFilterChange){\n+            return;\n+        }\n         if(handleFilterChange){\n             const newFillter = {...fillter, 'category.id': newCategoryId};\n         handleFilterChange(newFillter);\n         }\n"
+                },
+                {
+                    "date": 1645873001250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n \n+import FilterByPrice from \"../FilTers/FilterByPrice\";\n import FilterByCategory from \"../FilTers/FilTersByCategory\";\n \n const ProductFilter = (props) => {\n     const {fillter,handleFilterChange} = props\n@@ -14,8 +15,9 @@\n     }\n     return ( \n         <>\n             <FilterByCategory onChange={handleCategoryChange}/>\n+            <FilterByPrice/>\n         </>\n      );\n }\n  \n"
+                },
+                {
+                    "date": 1645873404012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,12 +12,16 @@\n             const newFillter = {...fillter, 'category.id': newCategoryId};\n         handleFilterChange(newFillter);\n         }\n     }\n+\n+    const handlePriceChange = (newPrice) => {\n+        console.log(newPrice);\n+    }\n     return ( \n         <>\n             <FilterByCategory onChange={handleCategoryChange}/>\n-            <FilterByPrice/>\n+            <FilterByPrice onChange={handlePriceChange}/>\n         </>\n      );\n }\n  \n"
+                },
+                {
+                    "date": 1645873646349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n \n import FilterByPrice from \"../FilTers/FilterByPrice\";\n import FilterByCategory from \"../FilTers/FilTersByCategory\";\n+import './ProductFilter.scss'\n \n const ProductFilter = (props) => {\n     const {fillter,handleFilterChange} = props\n     const handleCategoryChange = (newCategoryId) => {\n@@ -17,12 +18,12 @@\n     const handlePriceChange = (newPrice) => {\n         console.log(newPrice);\n     }\n     return ( \n-        <>\n+        <div className=\"filter\">\n             <FilterByCategory onChange={handleCategoryChange}/>\n             <FilterByPrice onChange={handlePriceChange}/>\n-        </>\n+        </div>\n      );\n }\n  \n export default ProductFilter;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1645886660604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,12 @@\n         }\n     }\n \n     const handlePriceChange = (newPrice) => {\n-        console.log(newPrice);\n+        if(handleFilterChange){\n+            const newFillter = {...fillter, ...newPrice};\n+            handleFilterChange(newFillter);\n+        }\n     }\n     return ( \n         <div className=\"filter\">\n             <FilterByCategory onChange={handleCategoryChange}/>\n"
+                },
+                {
+                    "date": 1645886739977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,12 +15,13 @@\n         }\n     }\n \n     const handlePriceChange = (newPrice) => {\n-        if(handleFilterChange){\n-            const newFillter = {...fillter, ...newPrice};\n-            handleFilterChange(newFillter);\n-        }\n+        console.log(newPrice);\n+        // if(handleFilterChange){\n+        //     const newFillter = {...fillter, ...newPrice};\n+        //     handleFilterChange(newFillter);\n+        // }\n     }\n     return ( \n         <div className=\"filter\">\n             <FilterByCategory onChange={handleCategoryChange}/>\n"
+                },
+                {
+                    "date": 1645886830031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,13 +15,12 @@\n         }\n     }\n \n     const handlePriceChange = (newPrice) => {\n-        console.log(newPrice);\n-        // if(handleFilterChange){\n-        //     const newFillter = {...fillter, ...newPrice};\n-        //     handleFilterChange(newFillter);\n-        // }\n+        if(handleFilterChange){\n+            const newFillter = {...fillter, ...newPrice};\n+            handleFilterChange(newFillter);\n+        }\n     }\n     return ( \n         <div className=\"filter\">\n             <FilterByCategory onChange={handleCategoryChange}/>\n"
+                },
+                {
+                    "date": 1645938744913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n \n import FilterByPrice from \"../FilTers/FilterByPrice\";\n+import FilterByService from \"../FilTers/FilterByService\";\n import FilterByCategory from \"../FilTers/FilTersByCategory\";\n import './ProductFilter.scss'\n \n const ProductFilter = (props) => {\n@@ -14,18 +15,19 @@\n         handleFilterChange(newFillter);\n         }\n     }\n \n-    const handlePriceChange = (newPrice) => {\n+    const handleChange = (newPrice) => {\n         if(handleFilterChange){\n             const newFillter = {...fillter, ...newPrice};\n             handleFilterChange(newFillter);\n         }\n     }\n     return ( \n         <div className=\"filter\">\n             <FilterByCategory onChange={handleCategoryChange}/>\n-            <FilterByPrice onChange={handlePriceChange}/>\n+            <FilterByPrice onChange={handleChange}/>\n+            <FilterByService fillter={fillter} onChange={handleChange}/>\n         </div>\n      );\n }\n  \n"
+                }
+            ],
+            "date": 1645709352258,
+            "name": "Commit-0",
+            "content": "const ProductFilter = () => {\n    return ( \n        <div className=\"product-filter\">\n            ProductFilter\n        </div>\n     );\n}\n \nexport default ProductFilter;"
+        }
+    ]
+}

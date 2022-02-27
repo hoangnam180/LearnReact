@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/features/Product/pages/ListPage.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1645709333335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645709574104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,8 +47,13 @@\n             return {...prevState, _sort: newValue};\n         });\n     }\n     \n+    const handleFilterChange = (newFillter) => {\n+        setFillter((prevState) => {\n+            return {...prevState, ...newFillter};\n+        });\n+    }\n     const handleCount = () => {\n         if(pagination.total && pagination.limit){\n             return Math.ceil(pagination.total/pagination.limit);\n         }\n@@ -56,9 +61,9 @@\n     const count = handleCount() || 1;\n \n     return (  \n             <Row>\n-                <Col className=\"left_product\"><ProductFilter/></Col>\n+                <Col className=\"left_product\"><ProductFilter fillter={fillter} handleFilterChange={handleFilterChange}/></Col>\n                 <Col className=\"right_product\">\n                     <h3 style={{paddingLeft:'20px'}}>Sắp Xếp Theo</h3>\n                     <Tabs currentSort={fillter._sort} onChange={handleSortChange}/>\n                     {loading ?  <ProductSkeletonList /> : <ProductList productsList={productsList}  />} \n"
+                },
+                {
+                    "date": 1645720305472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n             return Math.ceil(pagination.total/pagination.limit);\n         }\n     }\n     const count = handleCount() || 1;\n-\n+    console.log(productsList);\n     return (  \n             <Row>\n                 <Col className=\"left_product\"><ProductFilter fillter={fillter} handleFilterChange={handleFilterChange}/></Col>\n                 <Col className=\"right_product\">\n"
+                },
+                {
+                    "date": 1645886799487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,8 @@\n             return Math.ceil(pagination.total/pagination.limit);\n         }\n     }\n     const count = handleCount() || 1;\n-    console.log(productsList);\n     return (  \n             <Row>\n                 <Col className=\"left_product\"><ProductFilter fillter={fillter} handleFilterChange={handleFilterChange}/></Col>\n                 <Col className=\"right_product\">\n"
+                },
+                {
+                    "date": 1645887908705,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n import ProductList from '../compennents/ProductList/ProductList';\n import ProductSkeletonList from \"../compennents/ProductSkeletonLists/ProductSkeletonList\";\n import './ListPage.scss';\n import Pagination from \"../compennents/Pagination/Pagination\";\n-import Tabss from \"../compennents/Tabs/Tabs\";\n import Tabs from \"../compennents/Tabs/Tabs\";\n import ProductFilter from \"../compennents/ProductFilter/ProductFilter\";\n \n const ListPage = () => {\n"
+                }
+            ],
+            "date": 1645709333335,
+            "name": "Commit-0",
+            "content": "import { Col, Row } from \"reactstrap\";\nimport {useEffect, useRef, useState} from 'react';\nimport products from '../../../API/products';\nimport ProductList from '../compennents/ProductList/ProductList';\nimport ProductSkeletonList from \"../compennents/ProductSkeletonLists/ProductSkeletonList\";\nimport './ListPage.scss';\nimport Pagination from \"../compennents/Pagination/Pagination\";\nimport Tabss from \"../compennents/Tabs/Tabs\";\nimport Tabs from \"../compennents/Tabs/Tabs\";\nimport ProductFilter from \"../compennents/ProductFilter/ProductFilter\";\n\nconst ListPage = () => {\n    const [productsList, setProductsList] = useState([]);\n    const [loading, setLoading] = useState(true);\n    const [fillter, setFillter] = useState({_page:1, _limit:20, _sort:\"salePrice:ASC\"});\n    const [pagination, setPagination] = useState({\n        page:1,\n        limit:20,\n        total:0,\n    });\n    useEffect(() => {\n        (async () => {\n            try{\n                const response = await products.getAll(fillter);\n                setProductsList(response.data);\n                setPagination(response.pagination);\n            }catch(error){\n                console.log('Fail to get products', error);\n            }\n            setLoading(false);\n        })();\n    },[fillter]);\n\n    const handlePageChange = (page) => {\n            window.scrollTo({\n                top: 0,\n                left: 0,\n                behavior: \"smooth\"\n              });\n        setFillter((prevState) => {\n            return {...prevState, _page: page};\n        });\n    }\n\n    const handleSortChange = (newValue) => {\n        setFillter((prevState) => {\n            return {...prevState, _sort: newValue};\n        });\n    }\n    \n    const handleCount = () => {\n        if(pagination.total && pagination.limit){\n            return Math.ceil(pagination.total/pagination.limit);\n        }\n    }\n    const count = handleCount() || 1;\n\n    return (  \n            <Row>\n                <Col className=\"left_product\"><ProductFilter/></Col>\n                <Col className=\"right_product\">\n                    <h3 style={{paddingLeft:'20px'}}>Sắp Xếp Theo</h3>\n                    <Tabs currentSort={fillter._sort} onChange={handleSortChange}/>\n                    {loading ?  <ProductSkeletonList /> : <ProductList productsList={productsList}  />} \n                    <Pagination count={count} page={pagination.page} onPageChange={handlePageChange}\n                    />\n                </Col>\n            </Row>           \n    );\n}\n \nexport default ListPage;"
+        }
+    ]
+}

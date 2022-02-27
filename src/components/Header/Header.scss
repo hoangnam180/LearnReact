@@ -8,6 +8,7 @@ header > p > a.active{
     background-color: #3846AD;
     align-items: center;
     position: relative;
+    overflow: hidden;
 
     &__category{
         display: flex;

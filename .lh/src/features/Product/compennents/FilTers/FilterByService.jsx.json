@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/features/Product/compennents/FilTers/FilterByService.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1645938728363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1645938728363,
+            "name": "Commit-0",
+            "content": "import { useState } from \"react\";\n\nconst FilterByService = ({onChange}) => {\n\n    const [value, setValue] = useState({\n        salePrice_gte:null,\n        salePrice_lte:null\n    });\n\n\n    const handleChange = (event) => {\n        setValue((prevState) => {\n            return {...prevState, [event.target.name]: event.target.value};\n        });\n    }\n    const handlesubmit = () => {\n        if(onChange){\n            onChange(value);\n        }\n    }\n    return (  \n        <>\n            <h5>Dịch vụ</h5>   \n        </>\n    );\n}\n \nexport default FilterByService;"
+        }
+    ]
+}

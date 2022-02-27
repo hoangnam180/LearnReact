@@ -1,0 +1,62 @@
+{
+    "sourceFile": "src/features/Product/compennents/FilTers/FilTersByCategory.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1645713431740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645716077068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const FilterByCategory = () => {\n     return ( \n-        <>FilterByCategory</>\n+        <>DANH MỤC SẢN PHẨM</>\n      );\n }\n  \n export default FilterByCategory;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1645716345511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,25 @@\n-const FilterByCategory = () => {\n+import categoryApi from \"API/category\";\n+import { useEffect, useState } from \"react\";\n+\n+const FilterByCategory = ({onChange}) => {\n+    const [category, setCategory] = useState([]);\n+\n+    useEffect(() => {   \n+        (\n+            async () => {\n+                try {\n+                    const response = await categoryApi.getAll;\n+                    console.log(response);\n+                } catch (error) {\n+                    console.log('Fail to get category', error);\n+                }\n+            }\n+        )()\n     return ( \n-        <>DANH MỤC SẢN PHẨM</>\n+        <><h3>DANH MỤC SẢN PHẨM</h3>\n+        \n+        </>\n      );\n }\n  \n export default FilterByCategory;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1645716412478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,10 @@\n                 } catch (error) {\n                     console.log('Fail to get category', error);\n                 }\n             }\n-        )()\n+        )()}, []);\n+        \n     return ( \n         <><h3>DANH MỤC SẢN PHẨM</h3>\n         \n         </>\n"
+                },
+                {
+                    "date": 1645716448161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,11 @@\n                     console.log('Fail to get category', error);\n                 }\n             }\n         )()}, []);\n-        \n+\n     return ( \n-        <><h3>DANH MỤC SẢN PHẨM</h3>\n+        <><p>DANH MỤC SẢN PHẨM</p>\n         \n         </>\n      );\n }\n"
+                },
+                {
+                    "date": 1645716475464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,18 +7,18 @@\n     useEffect(() => {   \n         (\n             async () => {\n                 try {\n-                    const response = await categoryApi.getAll;\n+                    const response = await categoryApi.getAll()\n                     console.log(response);\n                 } catch (error) {\n                     console.log('Fail to get category', error);\n                 }\n             }\n         )()}, []);\n \n     return ( \n-        <><p>DANH MỤC SẢN PHẨM</p>\n+        <><h5>DANH MỤC SẢN PHẨM</h5>\n         \n         </>\n      );\n }\n"
+                },
+                {
+                    "date": 1645716707813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,14 +8,20 @@\n         (\n             async () => {\n                 try {\n                     const response = await categoryApi.getAll()\n-                    console.log(response);\n+                    setCategory(response.map((x)=>{\n+                        return {\n+                            id: x.id,\n+                            name: x.name\n+                        }\n+                    }));\n                 } catch (error) {\n                     console.log('Fail to get category', error);\n                 }\n             }\n         )()}, []);\n+        console.log(category);\n \n     return ( \n         <><h5>DANH MỤC SẢN PHẨM</h5>\n         \n"
+                },
+                {
+                    "date": 1645716765843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,13 +19,17 @@\n                     console.log('Fail to get category', error);\n                 }\n             }\n         )()}, []);\n-        console.log(category);\n \n     return ( \n         <><h5>DANH MỤC SẢN PHẨM</h5>\n-        \n+            <ul>\n+                {category.map((category)=>{\n+                    return <li key={category.id} onClick={()=>{onChange(category.id)}}>{category.name}</li>\n+                }\n+                )}\n+            </ul>\n         </>\n      );\n }\n  \n"
+                },
+                {
+                    "date": 1645720182084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n                     console.log('Fail to get category', error);\n                 }\n             }\n         )()}, []);\n-\n+console.log(category);\n     return ( \n         <><h5>DANH MỤC SẢN PHẨM</h5>\n             <ul>\n                 {category.map((category)=>{\n"
+                },
+                {
+                    "date": 1645720984105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState } from \"react\";\n-\n+import './Fillters.scss'\n const FilterByCategory = ({onChange}) => {\n     const [category, setCategory] = useState([]);\n \n     useEffect(() => {   \n@@ -19,14 +19,13 @@\n                     console.log('Fail to get category', error);\n                 }\n             }\n         )()}, []);\n-console.log(category);\n     return ( \n         <><h5>DANH MỤC SẢN PHẨM</h5>\n-            <ul>\n+            <ul className=\"category_list\">\n                 {category.map((category)=>{\n-                    return <li key={category.id} onClick={()=>{onChange(category.id)}}>{category.name}</li>\n+                    return <li className=\"category_item\" key={category.id} onClick={()=>{onChange(category.id)}}>{category.name}</li>\n                 }\n                 )}\n             </ul>\n         </>\n"
+                },
+                {
+                    "date": 1645721003023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState } from \"react\";\n-import './Fillters.scss'\n+import './Filters.scss'\n const FilterByCategory = ({onChange}) => {\n     const [category, setCategory] = useState([]);\n \n     useEffect(() => {   \n"
+                },
+                {
+                    "date": 1645721041314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,16 +20,16 @@\n                 }\n             }\n         )()}, []);\n     return ( \n-        <><h5>DANH MỤC SẢN PHẨM</h5>\n+        <div className=\"category\"><h5>DANH MỤC SẢN PHẨM</h5>\n             <ul className=\"category_list\">\n                 {category.map((category)=>{\n                     return <li className=\"category_item\" key={category.id} onClick={()=>{onChange(category.id)}}>{category.name}</li>\n                 }\n                 )}\n             </ul>\n-        </>\n+        </div>\n      );\n }\n  \n export default FilterByCategory;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1645713431740,
+            "name": "Commit-0",
+            "content": "const FilterByCategory = () => {\n    return ( \n        <>FilterByCategory</>\n     );\n}\n \nexport default FilterByCategory;"
+        }
+    ]
+}

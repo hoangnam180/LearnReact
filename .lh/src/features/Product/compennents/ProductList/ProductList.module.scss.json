@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/features/Product/compennents/ProductList/ProductList.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1645720578718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645720681419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,12 +4,11 @@\n     margin-bottom: 4em;\n     padding: 0 ;\n   }\n .card_title{\n-  clip-path: inset(100%);\n-  clip: rect(1px, 1px, 1px, 1px);\n-  height: 1px;\n-  overflow: hidden;\n-  position: absolute;\n-  white-space: nowrap;\n-  width: 1px;\n+  text-overflow: clip;\n+  text-overflow: ellipsis;\n+  text-overflow: \"…\";\n+  text-overflow: fade;\n+  text-overflow: fade(10px);\n+  text-overflow: fade(5%);\n }\n"
+                },
+                {
+                    "date": 1645720746314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,9 @@\n     margin-bottom: 4em;\n     padding: 0 ;\n   }\n .card_title{\n-  text-overflow: clip;\n-  text-overflow: ellipsis;\n-  text-overflow: \"…\";\n-  text-overflow: fade;\n-  text-overflow: fade(10px);\n-  text-overflow: fade(5%);\n+  -webkit-line-clamp: 1;\n+  -webkit-box-orient: vertical;\n+  overflow: hidden;\n+  display: -webkit-box;\n }\n"
+                }
+            ],
+            "date": 1645720578718,
+            "name": "Commit-0",
+            "content": "// Codepen presentation\n.container {\n    margin-top: 4em;\n    margin-bottom: 4em;\n    padding: 0 ;\n  }\n.card_title{\n  clip-path: inset(100%);\n  clip: rect(1px, 1px, 1px, 1px);\n  height: 1px;\n  overflow: hidden;\n  position: absolute;\n  white-space: nowrap;\n  width: 1px;\n}\n"
+        }
+    ]
+}

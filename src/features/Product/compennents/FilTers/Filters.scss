@@ -1,0 +1,15 @@
+
+.category{
+    &_list{
+        margin: 0;
+        padding: 0;
+    }
+    &_item{
+        margin-bottom: 0;
+        padding: 3px 0;
+        &:hover{
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+    }
+}

@@ -16,7 +16,7 @@ const ProductList = (productsList) => {
                   <div className="card p-3">
                   <img width={'100%'} src={urlThumnail(index)} className="card-img-top" alt="" />
                   <div className="card-body">
-                      <h5 className="card-title">{item.name}</h5>
+                      <h5 className={`card-title ${styles.card_title}`}>{item.name}</h5>
                       <p className='card-price'>
                       <span style={{fontWeight:600,fontSize:'16px',marginRight:'5px'}}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.salePrice)}</span> 
                       <span>{item.promotionPercent > 0 ? `-${item.promotionPercent}%` : ''}</span>

@@ -1,0 +1,126 @@
+{
+    "sourceFile": "src/features/Product/compennents/FilTers/FilterByPrice.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 27,
+            "patches": [
+                {
+                    "date": 1645713453527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645873433067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n-const FilterByPrice = () => {\n+const FilterByPrice = ({onchange}) => {\n+    console.log(onchange);\n     return (  \n         <>FilterByPrice</>\n     );\n }\n"
+                },
+                {
+                    "date": 1645873463628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-const FilterByPrice = ({onchange}) => {\n-    console.log(onchange);\n+const FilterByPrice = ({onChange}) => {\n+    console.log(onChange);\n     return (  \n         <>FilterByPrice</>\n     );\n }\n"
+                },
+                {
+                    "date": 1645873469178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const FilterByPrice = ({onChange}) => {\n-    console.log(onChange);\n+\n     return (  \n         <>FilterByPrice</>\n     );\n }\n"
+                },
+                {
+                    "date": 1645873716894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n const FilterByPrice = ({onChange}) => {\n \n     return (  \n-        <>FilterByPrice</>\n+        <>\n+            <h4>Giá</h4>   \n+        </>\n     );\n }\n  \n export default FilterByPrice;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1645873731676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n const FilterByPrice = ({onChange}) => {\n \n     return (  \n         <>\n-            <h4>Giá</h4>   \n+            <h5>Giá</h5>   \n         </>\n     );\n }\n  \n"
+                },
+                {
+                    "date": 1645873820477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n     return (  \n         <>\n             <h5>Giá</h5>   \n+            <input type={'text'}/>\n         </>\n     );\n }\n  \n"
+                },
+                {
+                    "date": 1645873883172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,11 @@\n \n     return (  \n         <>\n             <h5>Giá</h5>   \n-            <input type={'text'}/>\n+            <input type={'text'} name={'salePrice_gte'}/>\n+            <span>-</span>\n+            <input type={'text'} name={'salePrice_lte'}/>\n         </>\n     );\n }\n  \n"
+                },
+                {
+                    "date": 1645874013961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,17 @@\n \n     return (  \n         <>\n             <h5>Giá</h5>   \n-            <input type={'text'} name={'salePrice_gte'}/>\n-            <span>-</span>\n-            <input type={'text'} name={'salePrice_lte'}/>\n+           <div className=\"row\">\n+                <div className=\"col-md-6\">\n+                <input type={'text'} name={'salePrice_gte'}/>\n+                </div>\n+                <span>-</span>\n+                <div className=\"col-md-6\">\n+                <input type={'text'} name={'salePrice_lte'}/>\n+                </div>\n+           </div>\n         </>\n     );\n }\n  \n"
+                },
+                {
+                    "date": 1645874037615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,13 @@\n     return (  \n         <>\n             <h5>Giá</h5>   \n            <div className=\"row\">\n-                <div className=\"col-md-6\">\n+                <div className=\"col-md-3\">\n                 <input type={'text'} name={'salePrice_gte'}/>\n                 </div>\n                 <span>-</span>\n-                <div className=\"col-md-6\">\n+                <div className=\"col-md-3\">\n                 <input type={'text'} name={'salePrice_lte'}/>\n                 </div>\n            </div>\n         </>\n"
+                },
+                {
+                    "date": 1645874055398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,13 @@\n     return (  \n         <>\n             <h5>Giá</h5>   \n            <div className=\"row\">\n-                <div className=\"col-md-3\">\n+                <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_gte'}/>\n                 </div>\n                 <span>-</span>\n-                <div className=\"col-md-3\">\n+                <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'}/>\n                 </div>\n            </div>\n         </>\n"
+                },
+                {
+                    "date": 1645874259664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,28 @@\n+import { useState } from \"react\";\n+\n const FilterByPrice = ({onChange}) => {\n \n+    const [value, setValue] = useState({\n+        salePrice_gte:0,\n+        salePrice_lte:0\n+    });\n+\n+    const handlesubmit = (e) => {\n+\n+    }\n     return (  \n         <>\n             <h5>Giá</h5>   \n            <div className=\"row\">\n                 <div className=\"col-md-6\">\n-                <input type={'text'} name={'salePrice_gte'}/>\n+                <input type={'text'} name={'salePrice_gte'} value={value.salePrice_gte}/>\n                 </div>\n                 <span>-</span>\n                 <div className=\"col-md-6\">\n-                <input type={'text'} name={'salePrice_lte'}/>\n+                <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n+                <button>Áp Dụng</button>\n            </div>\n         </>\n     );\n }\n"
+                },
+                {
+                    "date": 1645874290148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,11 @@\n                 <span>-</span>\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n+                <div className=\"col-md-6\">\n                 <button>Áp Dụng</button>\n+                </div>\n            </div>\n         </>\n     );\n }\n"
+                },
+                {
+                    "date": 1645874297155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n                 <span>-</span>\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n-                <div className=\"col-md-6\">\n+                <div className=\"col-md-12\">\n                 <button>Áp Dụng</button>\n                 </div>\n            </div>\n         </>\n"
+                },
+                {
+                    "date": 1645874304874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n                 <span>-</span>\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n-                <div className=\"col-md-12\">\n+                <div className=\"col-md-12 mt-2\">\n                 <button>Áp Dụng</button>\n                 </div>\n            </div>\n         </>\n"
+                },
+                {
+                    "date": 1645874313551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n                 <span>-</span>\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n-                <div className=\"col-md-12 mt-2\">\n+                <div className=\"col-md-12 mt-2 primary\">\n                 <button>Áp Dụng</button>\n                 </div>\n            </div>\n         </>\n"
+                },
+                {
+                    "date": 1645874320918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n                 <span>-</span>\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n-                <div className=\"col-md-12 mt-2 primary\">\n+                <div className=\"col-md-12 mt-2 btn\">\n                 <button>Áp Dụng</button>\n                 </div>\n            </div>\n         </>\n"
+                },
+                {
+                    "date": 1645874332634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n                 <span>-</span>\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n-                <div className=\"col-md-12 mt-2 btn\">\n+                <div className=\"col-md-12 mt-2 primary\">\n                 <button>Áp Dụng</button>\n                 </div>\n            </div>\n         </>\n"
+                },
+                {
+                    "date": 1645874351753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n                 <span>-</span>\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n-                <div className=\"col-md-12 mt-2 primary\">\n+                <div className=\"col-md-12 mt-2 btn-primary\">\n                 <button>Áp Dụng</button>\n                 </div>\n            </div>\n         </>\n"
+                },
+                {
+                    "date": 1645874372591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,10 @@\n                 <span>-</span>\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n-                <div className=\"col-md-12 mt-2 btn-primary\">\n-                <button>Áp Dụng</button>\n+                <div className=\"col-md-12 mt-2\">\n+                <button className=\"btn-primary\">Áp Dụng</button>\n                 </div>\n            </div>\n         </>\n     );\n"
+                },
+                {
+                    "date": 1645874385424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n                 <div className=\"col-md-12 mt-2\">\n-                <button className=\"btn-primary\">Áp Dụng</button>\n+                <button className=\"btn-primary p-2\">Áp Dụng</button>\n                 </div>\n            </div>\n         </>\n     );\n"
+                },
+                {
+                    "date": 1645874392944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n                 <div className=\"col-md-12 mt-2\">\n-                <button className=\"btn-primary p-2\">Áp Dụng</button>\n+                <button className=\"btn-primary p-1\">Áp Dụng</button>\n                 </div>\n            </div>\n         </>\n     );\n"
+                },
+                {
+                    "date": 1645874439280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,11 @@\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n                 </div>\n                 <div className=\"col-md-12 mt-2\">\n-                <button className=\"btn-primary p-1\">Áp Dụng</button>\n+                <button className=\"btn-primary p-1\"\n+                onClick={handlesubmit}\n+                >Áp Dụng</button>\n                 </div>\n            </div>\n         </>\n     );\n"
+                },
+                {
+                    "date": 1645874501044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,21 +6,25 @@\n         salePrice_gte:0,\n         salePrice_lte:0\n     });\n \n+\n+    const handleChange = (event) => {\n+\n+    }\n     const handlesubmit = (e) => {\n \n     }\n     return (  \n         <>\n             <h5>Giá</h5>   \n            <div className=\"row\">\n                 <div className=\"col-md-6\">\n-                <input type={'text'} name={'salePrice_gte'} value={value.salePrice_gte}/>\n+                <input type={'text'} name={'salePrice_gte'} value={value.salePrice_gte} onChange={handleChange}/>\n                 </div>\n                 <span>-</span>\n                 <div className=\"col-md-6\">\n-                <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte}/>\n+                <input type={'text'} name={'salePrice_lte'} value={value.salePrice_lte} onChange={handleChange}/>\n                 </div>\n                 <div className=\"col-md-12 mt-2\">\n                 <button className=\"btn-primary p-1\"\n                 onClick={handlesubmit}\n"
+                },
+                {
+                    "date": 1645874606563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,13 @@\n     });\n \n \n     const handleChange = (event) => {\n-\n+        setValue((prevState) => {\n+            return {...prevState, [event.target.name]: event.target.value};\n+        });\n     }\n+    console.log(value);\n     const handlesubmit = (e) => {\n \n     }\n     return (  \n"
+                },
+                {
+                    "date": 1645886773671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,12 @@\n         setValue((prevState) => {\n             return {...prevState, [event.target.name]: event.target.value};\n         });\n     }\n-    console.log(value);\n-    const handlesubmit = (e) => {\n-\n+    const handlesubmit = () => {\n+        if(onChange){\n+            onChange(value);\n+        }\n     }\n     return (  \n         <>\n             <h5>Giá</h5>   \n"
+                },
+                {
+                    "date": 1645887066948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n \n const FilterByPrice = ({onChange}) => {\n \n     const [value, setValue] = useState({\n-        salePrice_gte:0,\n-        salePrice_lte:0\n+        salePrice_gte:null,\n+        salePrice_lte:null\n     });\n \n \n     const handleChange = (event) => {\n"
+                },
+                {
+                    "date": 1645887212136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n         }\n     }\n     return (  \n         <>\n-            <h5>Giá</h5>   \n+            <h5>Chọn khoảng giá</h5>   \n            <div className=\"row\">\n                 <div className=\"col-md-6\">\n                 <input type={'text'} name={'salePrice_gte'} value={value.salePrice_gte} onChange={handleChange}/>\n                 </div>\n"
+                }
+            ],
+            "date": 1645713453527,
+            "name": "Commit-0",
+            "content": "const FilterByPrice = () => {\n    return (  \n        <>FilterByPrice</>\n    );\n}\n \nexport default FilterByPrice;"
+        }
+    ]
+}

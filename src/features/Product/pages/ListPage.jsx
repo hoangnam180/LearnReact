@@ -5,8 +5,8 @@ import ProductList from '../compennents/ProductList/ProductList';
 import ProductSkeletonList from "../compennents/ProductSkeletonLists/ProductSkeletonList";
 import './ListPage.scss';
 import Pagination from "../compennents/Pagination/Pagination";
-import Tabss from "../compennents/Tabs/Tabs";
 import Tabs from "../compennents/Tabs/Tabs";
+import ProductFilter from "../compennents/ProductFilter/ProductFilter";
 
 const ListPage = () => {
     const [productsList, setProductsList] = useState([]);
@@ -47,16 +47,20 @@ const ListPage = () => {
         });
     }
     
+    const handleFilterChange = (newFillter) => {
+        setFillter((prevState) => {
+            return {...prevState, ...newFillter};
+        });
+    }
     const handleCount = () => {
         if(pagination.total && pagination.limit){
             return Math.ceil(pagination.total/pagination.limit);
         }
     }
     const count = handleCount() || 1;
-
     return (  
             <Row>
-                <Col className="left_product">tesst</Col>
+                <Col className="left_product"><ProductFilter fillter={fillter} handleFilterChange={handleFilterChange}/></Col>
                 <Col className="right_product">
                     <h3 style={{paddingLeft:'20px'}}>Sắp Xếp Theo</h3>
                     <Tabs currentSort={fillter._sort} onChange={handleSortChange}/>

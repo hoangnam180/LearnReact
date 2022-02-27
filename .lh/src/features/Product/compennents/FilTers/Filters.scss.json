@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/features/Product/compennents/FilTers/Filters.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1645720958020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645721101007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,7 @@\n-.category_list{\n-    margin: 0;\n-    padding: 0;\n+.category{\n+    padding: 10px;\n+    &_list{\n+        margin: 0;\n+        padding: 0;\n+    }\n }\n"
+                },
+                {
+                    "date": 1645721122709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,12 @@\n     &_list{\n         margin: 0;\n         padding: 0;\n     }\n+    &_item{\n+        margin: 0;\n+        padding: 0;\n+        &:hover{\n+            background-color: #f5f5f5;\n+        }\n+    }\n }\n"
+                },
+                {
+                    "date": 1645721131331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,8 @@\n         margin: 0;\n         padding: 0;\n         &:hover{\n             background-color: #f5f5f5;\n+            cursor: pointer;\n         }\n     }\n }\n"
+                },
+                {
+                    "date": 1645721147050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n         margin: 0;\n         padding: 0;\n     }\n     &_item{\n-        margin: 0;\n+        margin-bottom: 10px;\n         padding: 0;\n         &:hover{\n             background-color: #f5f5f5;\n             cursor: pointer;\n"
+                },
+                {
+                    "date": 1645721165611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n         padding: 0;\n     }\n     &_item{\n         margin-bottom: 10px;\n-        padding: 0;\n+        padding: 3px 0;\n         &:hover{\n             background-color: #f5f5f5;\n             cursor: pointer;\n         }\n"
+                },
+                {
+                    "date": 1645721175384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n         margin: 0;\n         padding: 0;\n     }\n     &_item{\n-        margin-bottom: 10px;\n+        margin-bottom: 0;\n         padding: 3px 0;\n         &:hover{\n             background-color: #f5f5f5;\n             cursor: pointer;\n"
+                },
+                {
+                    "date": 1645873516926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n .category{\n-    padding: 10px;\n     &_list{\n         margin: 0;\n         padding: 0;\n     }\n"
+                },
+                {
+                    "date": 1645873559423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,7 @@\n+.filter{\n+    padding: 10px;\n+}\n .category{\n     &_list{\n         margin: 0;\n         padding: 0;\n"
+                },
+                {
+                    "date": 1645938160815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,5 @@\n-.filter{\n-    padding: 10px;\n-}\n+\n .category{\n     &_list{\n         margin: 0;\n         padding: 0;\n"
+                }
+            ],
+            "date": 1645720958020,
+            "name": "Commit-0",
+            "content": ".category_list{\n    margin: 0;\n    padding: 0;\n}\n"
+        }
+    ]
+}

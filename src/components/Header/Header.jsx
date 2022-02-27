@@ -63,6 +63,7 @@ const Header = ({toastContext}) => {
         <p><NavLink to="/todos">Todo List</NavLink></p>
         <p><NavLink to="/albums">albums</NavLink></p>
         <p><NavLink to="/counter">Counter</NavLink></p>
+        <p><NavLink to="/products">Products</NavLink></p>
         <div className="header__register">
         <div className="header-menu">
                     <Dropdown isOpen={menu}>
