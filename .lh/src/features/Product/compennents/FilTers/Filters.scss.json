@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1645720958020,
@@ -44,6 +44,30 @@
                 {
                     "date": 1645938160815,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,5 @@\n-.filter{\n-    padding: 10px;\n-}\n+\n .category{\n     &_list{\n         margin: 0;\n         padding: 0;\n"
+                },
+                {
+                    "date": 1645958725356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,19 @@\n-\n-.category{\n-    &_list{\n-        margin: 0;\n-        padding: 0;\n-    }\n-    &_item{\n-        margin-bottom: 0;\n-        padding: 3px 0;\n-        &:hover{\n-            background-color: #f5f5f5;\n-            cursor: pointer;\n-        }\n-    }\n-}\n+\r\n+.category{\r\n+    &_list{\r\n+        margin: 0;\r\n+        padding: 0;\r\n+    }\r\n+    &_item{\r\n+        margin-bottom: 0;\r\n+        padding: 3px 0;\r\n+        &:hover{\r\n+            background-color: #f5f5f5;\r\n+            cursor: pointer;\r\n+        }\r\n+    }\r\n+}\r\n+.service_list{\r\n+    padding: 0;\r\n+    margin: 0;\r\n+}\r\n"
+                },
+                {
+                    "date": 1645958765956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,6 @@\n }\r\n .service_list{\r\n     padding: 0;\r\n     margin: 0;\r\n+    list-style: none;\r\n }\r\n"
+                },
+                {
+                    "date": 1645958824000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,5 +16,13 @@\n .service_list{\r\n     padding: 0;\r\n     margin: 0;\r\n     list-style: none;\r\n+    & li{\r\n+        padding: 3px 0;\r\n+        margin-bottom: 0;\r\n+        &:hover{\r\n+            background-color: #f5f5f5;\r\n+            cursor: pointer;\r\n+        }\r\n+    }\r\n }\r\n"
+                },
+                {
+                    "date": 1645958871916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,6 +23,9 @@\n         &:hover{\r\n             background-color: #f5f5f5;\r\n             cursor: pointer;\r\n         }\r\n+        & label{\r\n+            margin-right: 3px;\r\n+        }\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1645958893430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,6 @@\n         &:hover{\r\n             background-color: #f5f5f5;\r\n             cursor: pointer;\r\n         }\r\n-        & label{\r\n-            margin-right: 3px;\r\n-        }\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1645958973150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,6 +23,9 @@\n         &:hover{\r\n             background-color: #f5f5f5;\r\n             cursor: pointer;\r\n         }\r\n+        & label{\r\n+            margin-left: 3px;\r\n+        }\r\n     }\r\n }\r\n"
                 }
             ],
             "date": 1645720958020,

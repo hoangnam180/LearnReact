@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/features/Product/compennents/FilTers/FilterViewer.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1645972229068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645972238047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n const FilterViewer = () => {\r\n     return ( \r\n-        <div className=\"filter-viewer\"></div>\r\n+        <div className=\"filter-viewer\">\r\n+            filter viewer\r\n+        </div>\r\n     );\r\n }\r\n  \r\n export default FilterViewer;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1645972229068,
+            "name": "Commit-0",
+            "content": "const FilterViewer = () => {\r\n    return ( \r\n        <div className=\"filter-viewer\"></div>\r\n    );\r\n}\r\n \r\nexport default FilterViewer;"
+        }
+    ]
+}

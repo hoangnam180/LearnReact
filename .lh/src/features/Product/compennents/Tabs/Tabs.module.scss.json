@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/features/Product/compennents/Tabs/Tabs.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1645973597290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645973621936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n .nav_tabs{\r\n-    border-bottom: transparent;\r\n+    border-bottom: transparent !important;\r\n }\r\n .nav_link{\r\n     color: rgb(71, 71, 71)!important;\r\n     font-weight: 500;\r\n"
+                }
+            ],
+            "date": 1645973597289,
+            "name": "Commit-0",
+            "content": ".nav_tabs{\r\n    border-bottom: transparent;\r\n}\r\n.nav_link{\r\n    color: rgb(71, 71, 71)!important;\r\n    font-weight: 500;\r\n    &:hover{\r\n        color: #0364f5 !important;\r\n        cursor: pointer;\r\n    }\r\n    &.active{\r\n        color: #0364f5 !important;\r\n    }\r\n}\r\n"
+        }
+    ]
+}

@@ -13,7 +13,7 @@ const Tabs = (props) => {
         onChange(tabs[index].value);
     }
     return (  
-        <ul className="nav nav-tabs">
+        <ul className={`nav nav-tabs ${styles.nav_tabs}`}>
             {tabs.map((tab, index) => (
                 <li 
                 onClick={() => handleChange(index)}

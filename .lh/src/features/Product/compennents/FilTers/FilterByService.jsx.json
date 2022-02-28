@@ -3,11 +3,75 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1645938728363,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645958037282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,28 +1,24 @@\n-import { useState } from \"react\";\n-\n-const FilterByService = ({onChange}) => {\n-\n-    const [value, setValue] = useState({\n-        salePrice_gte:null,\n-        salePrice_lte:null\n-    });\n-\n-\n-    const handleChange = (event) => {\n-        setValue((prevState) => {\n-            return {...prevState, [event.target.name]: event.target.value};\n-        });\n-    }\n-    const handlesubmit = () => {\n-        if(onChange){\n-            onChange(value);\n-        }\n-    }\n-    return (  \n-        <>\n-            <h5>Dịch vụ</h5>   \n-        </>\n-    );\n-}\n- \n+import { useState } from \"react\";\r\n+\r\n+const FilterByService = ({onChange}) => {\r\n+\r\n+    const handleChange = (event) => {\r\n+        if(onChange){\r\n+            onChange({[event.target.name]: event.target.checked});\r\n+        }\r\n+    }\r\n+    return (  \r\n+        <>\r\n+            <h5>Dịch vụ</h5>   \r\n+            <ul>\r\n+                {['isPromotion','isFreeShip'].map(service =>(\r\n+                    <li key={service}>\r\n+                        <input checked={value[service]} type=\"checkbox\" name={service} onChange={handleChange}/>\r\n+                    </li>\r\n+                ))}\r\n+            </ul>\r\n+        </>\r\n+    );\r\n+}\r\n+ \r\n export default FilterByService;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1645958137708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { useState } from \"react\";\r\n \r\n-const FilterByService = ({onChange}) => {\r\n+const FilterByService = ({fillter,onChange}) => {\r\n \r\n     const handleChange = (event) => {\r\n         if(onChange){\r\n             onChange({[event.target.name]: event.target.checked});\r\n@@ -12,9 +12,9 @@\n             <h5>Dịch vụ</h5>   \r\n             <ul>\r\n                 {['isPromotion','isFreeShip'].map(service =>(\r\n                     <li key={service}>\r\n-                        <input checked={value[service]} type=\"checkbox\" name={service} onChange={handleChange}/>\r\n+                        <input checked={fillter[service]} type=\"checkbox\" name={service} onChange={handleChange}/>\r\n                     </li>\r\n                 ))}\r\n             </ul>\r\n         </>\r\n"
+                },
+                {
+                    "date": 1645958588113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,12 @@\n     return (  \r\n         <>\r\n             <h5>Dịch vụ</h5>   \r\n             <ul>\r\n-                {['isPromotion','isFreeShip'].map(service =>(\r\n-                    <li key={service}>\r\n-                        <input checked={fillter[service]} type=\"checkbox\" name={service} onChange={handleChange}/>\r\n+                {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n+                    <li key={service.value}>\r\n+                        <label>{service.label}</label>\r\n+                        <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n                     </li>\r\n                 ))}\r\n             </ul>\r\n         </>\r\n"
+                },
+                {
+                    "date": 1645958646220,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n             onChange({[event.target.name]: event.target.checked});\r\n         }\r\n     }\r\n     return (  \r\n-        <>\r\n+        <div className='service'>\r\n             <h5>Dịch vụ</h5>   \r\n             <ul>\r\n                 {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n                     <li key={service.value}>\r\n@@ -17,9 +17,9 @@\n                         <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n                     </li>\r\n                 ))}\r\n             </ul>\r\n-        </>\r\n+        </div>\r\n     );\r\n }\r\n  \r\n export default FilterByService;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1645958675482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n             onChange({[event.target.name]: event.target.checked});\r\n         }\r\n     }\r\n     return (  \r\n-        <div className='service'>\r\n+        <div className='service' style={{marginTop:'5px'}}>\r\n             <h5>Dịch vụ</h5>   \r\n             <ul>\r\n                 {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n                     <li key={service.value}>\r\n"
+                },
+                {
+                    "date": 1645958700063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,11 @@\n             onChange({[event.target.name]: event.target.checked});\r\n         }\r\n     }\r\n     return (  \r\n-        <div className='service' style={{marginTop:'5px'}}>\r\n+        <div className='service' style={{marginTop:'10px'}}>\r\n             <h5>Dịch vụ</h5>   \r\n-            <ul>\r\n+            <ul className='service_list'>\r\n                 {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n                     <li key={service.value}>\r\n                         <label>{service.label}</label>\r\n                         <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n"
+                },
+                {
+                    "date": 1645958743908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n-import { useState } from \"react\";\r\n-\r\n+import './FilTersByCategory.scss'\r\n const FilterByService = ({fillter,onChange}) => {\r\n \r\n     const handleChange = (event) => {\r\n         if(onChange){\r\n"
+                },
+                {
+                    "date": 1645958752439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import './FilTersByCategory.scss'\r\n+import './Filter.scss'\r\n const FilterByService = ({fillter,onChange}) => {\r\n \r\n     const handleChange = (event) => {\r\n         if(onChange){\r\n"
+                },
+                {
+                    "date": 1645958796718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import './Filter.scss'\r\n+import './Filters.scss'\r\n const FilterByService = ({fillter,onChange}) => {\r\n \r\n     const handleChange = (event) => {\r\n         if(onChange){\r\n@@ -11,10 +11,10 @@\n             <h5>Dịch vụ</h5>   \r\n             <ul className='service_list'>\r\n                 {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n                     <li key={service.value}>\r\n+                        <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n                         <label>{service.label}</label>\r\n-                        <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n                     </li>\r\n                 ))}\r\n             </ul>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1645958913352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n             <ul className='service_list'>\r\n                 {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n                     <li key={service.value}>\r\n                         <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n-                        <label>{service.label}</label>\r\n+                        <label style={{marginRight:'4px'}}>{service.label}</label>\r\n                     </li>\r\n                 ))}\r\n             </ul>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1645958952287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n             <ul className='service_list'>\r\n                 {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n                     <li key={service.value}>\r\n                         <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n-                        <label style={{marginRight:'4px'}}>{service.label}</label>\r\n+                        <label>{service.label}</label>\r\n                     </li>\r\n                 ))}\r\n             </ul>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1645959022500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n             <ul className='service_list'>\r\n                 {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n                     <li key={service.value}>\r\n                         <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n-                        <label>{service.label}</label>\r\n+                        <label htmlFor={service.value}>{service.label}</label>\r\n                     </li>\r\n                 ))}\r\n             </ul>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1645959231888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n             <h5>Dịch vụ</h5>   \r\n             <ul className='service_list'>\r\n                 {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n                     <li key={service.value}>\r\n+                        <label htmlFor={service.value}>{service.label}</label>\r\n                         <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n-                        <label htmlFor={service.value}>{service.label}</label>\r\n                     </li>\r\n                 ))}\r\n             </ul>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1645959237665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n             <h5>Dịch vụ</h5>   \r\n             <ul className='service_list'>\r\n                 {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n                     <li key={service.value}>\r\n+                        <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n                         <label htmlFor={service.value}>{service.label}</label>\r\n-                        <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n                     </li>\r\n                 ))}\r\n             </ul>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1645959268848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n             <h5>Dịch vụ</h5>   \r\n             <ul className='service_list'>\r\n                 {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n                     <li key={service.value}>\r\n-                        <input checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n+                        <input id={service.value} checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n                         <label htmlFor={service.value}>{service.label}</label>\r\n                     </li>\r\n                 ))}\r\n             </ul>\r\n"
+                },
+                {
+                    "date": 1645959620274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n             <h5>Dịch vụ</h5>   \r\n             <ul className='service_list'>\r\n                 {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(\r\n                     <li key={service.value}>\r\n-                        <input id={service.value} checked={fillter[service.value]} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n+                        <input id={service.value} checked={Boolean(fillter[service.value])} type=\"checkbox\" name={service.value} onChange={handleChange}/>\r\n                         <label htmlFor={service.value}>{service.label}</label>\r\n                     </li>\r\n                 ))}\r\n             </ul>\r\n"
                 }
             ],
             "date": 1645938728363,

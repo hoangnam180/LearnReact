@@ -1,27 +1,23 @@
-import { useState } from "react";
-
-const FilterByService = ({onChange}) => {
-
-    const [value, setValue] = useState({
-        salePrice_gte:null,
-        salePrice_lte:null
-    });
-
+import './Filters.scss'
+const FilterByService = ({fillter,onChange}) => {
 
     const handleChange = (event) => {
-        setValue((prevState) => {
-            return {...prevState, [event.target.name]: event.target.value};
-        });
-    }
-    const handlesubmit = () => {
         if(onChange){
-            onChange(value);
+            onChange({[event.target.name]: event.target.checked});
         }
     }
     return (  
-        <>
+        <div className='service' style={{marginTop:'10px'}}>
             <h5>Dịch vụ</h5>   
-        </>
+            <ul className='service_list'>
+                {[{value:'isPromotion',label:'Có khuyến mãi'},{value:'isFreeShip',label:'Vận chuyện miễn phí'}].map(service =>(
+                    <li key={service.value}>
+                        <input id={service.value} checked={Boolean(fillter[service.value])} type="checkbox" name={service.value} onChange={handleChange}/>
+                        <label htmlFor={service.value}>{service.label}</label>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 }
  

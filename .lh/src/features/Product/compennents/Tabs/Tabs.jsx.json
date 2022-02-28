@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/features/Product/compennents/Tabs/Tabs.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1645973466587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1645973652658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n         setType(tabs[index].name);\r\n         onChange(tabs[index].value);\r\n     }\r\n     return (  \r\n-        <ul className=\"nav nav-tabs\" styles={{border:'none'}}>\r\n+        <ul className={`nav nav-tabs ${styles.nav_tabs}`}>\r\n             {tabs.map((tab, index) => (\r\n                 <li \r\n                 onClick={() => handleChange(index)}\r\n                 key={index} className=\"nav-item nav_items\">\r\n"
+                }
+            ],
+            "date": 1645973466587,
+            "name": "Commit-0",
+            "content": "import { useState } from 'react';\r\nimport styles from './Tabs.module.scss';\r\nconst Tabs = (props) => {\r\n    const {currentSort,onChange} = props;\r\n    const tabs = [\r\n    {name:'Giá Từ Cao Đến Thấp',value:'salePrice:ASC'},\r\n    {name:'Giá Từ Thấp Đến Cao',value:'salePrice:DESC'}\r\n];\r\n    const [type,setType] = useState(tabs[0].name);\r\n\r\n    const handleChange = (index) => {\r\n        setType(tabs[index].name);\r\n        onChange(tabs[index].value);\r\n    }\r\n    return (  \r\n        <ul className=\"nav nav-tabs\" styles={{border:'none'}}>\r\n            {tabs.map((tab, index) => (\r\n                <li \r\n                onClick={() => handleChange(index)}\r\n                key={index} className=\"nav-item nav_items\">\r\n                    <a className={`nav-link  ${styles.nav_link} ${type === tab.name ? styles.active : ''}`}>{tab.name}</a>\r\n                </li>\r\n            ))}\r\n        </ul>\r\n    );\r\n}\r\n \r\nexport default Tabs;"
+        }
+    ]
+}
