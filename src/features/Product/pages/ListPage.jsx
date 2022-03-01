@@ -7,6 +7,7 @@ import './ListPage.scss';
 import Pagination from "../compennents/Pagination/Pagination";
 import Tabs from "../compennents/Tabs/Tabs";
 import ProductFilter from "../compennents/ProductFilter/ProductFilter";
+import FilterViewer from "../compennents/FilTers/FilterViewer";
 
 const ListPage = () => {
     const [productsList, setProductsList] = useState([]);
@@ -17,6 +18,7 @@ const ListPage = () => {
         limit:20,
         total:0,
     });
+
     useEffect(() => {
         (async () => {
             try{
@@ -60,10 +62,11 @@ const ListPage = () => {
     const count = handleCount() || 1;
     return (  
             <Row>
-                <Col className="left_product"><ProductFilter fillter={fillter} handleFilterChange={handleFilterChange}/></Col>
+                <Col className="left_product"><ProductFilter  fillter={fillter} handleFilterChange={handleFilterChange}/></Col>
                 <Col className="right_product">
                     <h3 style={{paddingLeft:'20px'}}>Sắp Xếp Theo</h3>
                     <Tabs currentSort={fillter._sort} onChange={handleSortChange}/>
+                    <FilterViewer filters={fillter} onChange={setFillter}/>
                     {loading ?  <ProductSkeletonList /> : <ProductList productsList={productsList}  />} 
                     <Pagination count={count} page={pagination.page} onPageChange={handlePageChange}
                     />
