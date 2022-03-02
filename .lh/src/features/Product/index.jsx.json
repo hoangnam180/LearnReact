@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/features/Product/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1646237795967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1646237854733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import { Container } from \"reactstrap\";\n-import ListPage from \"./pages/ListPage\";\n import './index.scss';\n import { Outlet } from \"react-router-dom\";\n const ProductFeature = () => {\n     return ( \n"
+                },
+                {
+                    "date": 1646238426327,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n import { Container } from \"reactstrap\";\n import './index.scss';\n+import Listpage from './ListPage/ListPage';\n import { Outlet } from \"react-router-dom\";\n const ProductFeature = () => {\n     return ( \n         <div className=\"Container_fluit\">\n         <Container className=\"pt-3\">\n+            <Listpage/>\n             <Outlet/>\n         </Container>\n         </div>\n      );\n"
+                },
+                {
+                    "date": 1646238482773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { Container } from \"reactstrap\";\n import './index.scss';\n-import Listpage from './ListPage/ListPage';\n+import Listpage from './pages/ListPage/ListPage';\n import { Outlet } from \"react-router-dom\";\n const ProductFeature = () => {\n     return ( \n         <div className=\"Container_fluit\">\n"
+                },
+                {
+                    "date": 1646239000442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,17 @@\n import { Container } from \"reactstrap\";\n import './index.scss';\n import Listpage from './pages/ListPage/ListPage';\n-import { Outlet } from \"react-router-dom\";\n+import { Route, Routes } from \"react-router-dom\";\n+import DetailPage from \"./pages/DetailPage/DetailPage\";\n const ProductFeature = () => {\n     return ( \n         <div className=\"Container_fluit\">\n         <Container className=\"pt-3\">\n             <Listpage/>\n-            <Outlet/>\n+        <Routes>\n+             <Route path=\"Id:\" element={<DetailPage />} />\n+        </Routes>\n         </Container>\n         </div>\n      );\n }\n"
+                },
+                {
+                    "date": 1646239182728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <div className=\"Container_fluit\">\n         <Container className=\"pt-3\">\n             <Listpage/>\n         <Routes>\n-             <Route path=\"Id:\" element={<DetailPage />} />\n+             <Route path=\"id:\" element={<DetailPage />} />\n         </Routes>\n         </Container>\n         </div>\n      );\n"
+                },
+                {
+                    "date": 1646239318125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,13 @@\n import { Container } from \"reactstrap\";\n import './index.scss';\n import Listpage from './pages/ListPage/ListPage';\n-import { Route, Routes } from \"react-router-dom\";\n-import DetailPage from \"./pages/DetailPage/DetailPage\";\n+import { Outlet} from \"react-router-dom\";\n const ProductFeature = () => {\n     return ( \n         <div className=\"Container_fluit\">\n         <Container className=\"pt-3\">\n-            <Listpage/>\n-        <Routes>\n-             <Route path=\"id:\" element={<DetailPage />} />\n-        </Routes>\n+            <Outlet/>\n         </Container>\n         </div>\n      );\n }\n"
+                }
+            ],
+            "date": 1646237795967,
+            "name": "Commit-0",
+            "content": "import { Container } from \"reactstrap\";\nimport ListPage from \"./pages/ListPage\";\nimport './index.scss';\nimport { Outlet } from \"react-router-dom\";\nconst ProductFeature = () => {\n    return ( \n        <div className=\"Container_fluit\">\n        <Container className=\"pt-3\">\n            <Outlet/>\n        </Container>\n        </div>\n     );\n}\n \nexport default ProductFeature;"
+        }
+    ]
+}

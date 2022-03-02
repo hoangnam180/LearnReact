@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/features/Product/pages/DetailPage.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1646234093771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1646234099745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,7 +7,7 @@\n \n .left_detailPage{\n     background-color: #fff;\n     height: 100%;\n-    max-width: 250px !important;\n+    max-width: 400px !important;\n     border-right: 1px solid #ccc;\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1646234093771,
+            "name": "Commit-0",
+            "content": ".right_detailPage{\n    flex: 1 1 0;\n    background-color: #fff;\n    height: 100%;\n    padding: 0 !important;\n}\n\n.left_detailPage{\n    background-color: #fff;\n    height: 100%;\n    max-width: 250px !important;\n    border-right: 1px solid #ccc;\n}"
+        }
+    ]
+}

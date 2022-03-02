@@ -1,6 +1,5 @@
 import {Route,Routes} from 'react-router-dom'
-import { createContext, useEffect, useState } from 'react';
-import products from './API/products';
+import { createContext, useState } from 'react';
 import TodoFeature from "./features/Todo/pages";
 import AlbumFeature from "./features/Album/pages";
 import NotFound from './components/NotFound/NotFound';
@@ -10,6 +9,8 @@ import './app.scss'
 import CouterFeature from './features/Counter/Counter';
 import Header from 'components/Header/Header';
 import ProductFeature from 'features/Product';
+import Listpage from 'features/Product/pages/ListPage/ListPage';
+import DetailPage from 'features/Product/pages/DetailPage/DetailPage';
 
 function App() {
   const [messHead,setMessHead] = useState('')
@@ -35,7 +36,10 @@ function App() {
 
            <Route path="/albums/*" element={<AlbumFeature />}/>
 
-           <Route path="/products/*" element={<ProductFeature />}/>
+           <Route path="/products/*" element={<ProductFeature />}>
+              <Route path="*" element={<Listpage/>}/>
+              <Route path=":productid" element={<DetailPage/>}/>
+           </Route>
            
            <Route path="/counter/*" element={<CouterFeature />}/>
            

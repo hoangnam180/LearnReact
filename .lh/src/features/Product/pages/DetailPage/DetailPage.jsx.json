@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/features/Product/pages/DetailPage/DetailPage.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1646239551214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1646239551214,
+            "name": "Commit-0",
+            "content": "import { Col, Row } from \"reactstrap\";\nimport './DetailPage.scss';\nconst DetailPage = () => {\n    return ( \n            <Row>\n                <Col className=\"left_detailPage\">left_detailPage</Col>\n                <Col className=\"right_detailPage\">right_detailPage</Col>\n            </Row>       \n     );\n}\n \nexport default DetailPage;"
+        }
+    ]
+}

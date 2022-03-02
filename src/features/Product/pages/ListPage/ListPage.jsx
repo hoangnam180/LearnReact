@@ -1,25 +1,33 @@
 import { Col, Row } from "reactstrap";
 import {useEffect, useMemo, useState} from 'react';
 import queryString from 'query-string';
-import products from '../../../API/products';
-import ProductList from '../compennents/ProductList/ProductList';
-import ProductSkeletonList from "../compennents/ProductSkeletonLists/ProductSkeletonList";
+import products from '../../../../API/products';
+import ProductList from '../../compennents/ProductList/ProductList';
+import ProductSkeletonList from "../../compennents/ProductSkeletonLists/ProductSkeletonList";
 import './ListPage.scss';
-import Pagination from "../compennents/Pagination/Pagination";
-import Tabs from "../compennents/Tabs/Tabs";
-import ProductFilter from "../compennents/ProductFilter/ProductFilter";
-import FilterViewer from "../compennents/FilTers/FilterViewer";
+import Pagination from "../../compennents/Pagination/Pagination";
+import Tabs from "../../compennents/Tabs/Tabs";
+import ProductFilter from "../../compennents/ProductFilter/ProductFilter";
+import FilterViewer from "../../compennents/FilTers/FilterViewer";
 import { useLocation, useNavigate } from "react-router-dom";
 
 
-const ListPage = () => {
+const Listpage = () => {
     const [productsList, setProductsList] = useState([]);
     const [loading, setLoading] = useState(true);
     const navagation =  useNavigate()
     const location = useLocation();
     const queryParams = useMemo(()=>{
         const params = queryString.parse(location.search);
-        return params;
+        console.log(params);
+        return {
+            ...params,
+            _sort:params._sort || 'salePrice:ASC',
+            _page:parseInt(params._page) || 1,
+            _limit:parseInt(params._limit) || 16,
+            isPromotion:params.isPromotion === 'true',
+            isFreeShip:params.isFreeShip === 'true'
+        };
     },[location.search]) 
 
     const [pagination, setPagination] = useState({
@@ -76,7 +84,6 @@ const ListPage = () => {
             return Math.ceil(pagination.total/pagination.limit);
         }
     }
-
     const setnewFillter = (newFillter) => {
         navagation(`/products?${queryString.stringify(newFillter)}`);
     }
@@ -106,4 +113,4 @@ const ListPage = () => {
     );
 }
  
-export default ListPage;
+export default Listpage;

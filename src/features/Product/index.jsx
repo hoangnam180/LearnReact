@@ -1,11 +1,12 @@
 import { Container } from "reactstrap";
-import ListPage from "./pages/ListPage";
 import './index.scss';
+import Listpage from './pages/ListPage/ListPage';
+import { Outlet} from "react-router-dom";
 const ProductFeature = () => {
     return ( 
         <div className="Container_fluit">
         <Container className="pt-3">
-            <ListPage/>
+            <Outlet/>
         </Container>
         </div>
      );

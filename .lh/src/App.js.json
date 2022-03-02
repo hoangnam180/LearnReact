@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 39,
+            "activePatchIndex": 48,
             "patches": [
                 {
                     "date": 1643207291528,
@@ -164,6 +164,42 @@
                 {
                     "date": 1643792263539,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   const [messHead,setMessHead] = useState('')\n   const [mess,setMess] = useState('') \n   const [background,setBackground] = useState('success')\n   const [toast,setToast] = useState(false);\n-  const value = {toast,setToast,background,setBackground,mess,setMess}\n+  const value = {toast,setToast,background,setBackground,mess,setMess,messHead,setMessHead}\n \n    const toastContext = createContext()\n   return (\n \n"
+                },
+                {
+                    "date": 1646237878092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,17 +8,12 @@\n import DetialPage from './features/Todo/pages/DetailPage/DetailPage';\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n+import ProductFeature from 'features/Product';\n+import DetailPage from 'features/Product/pages/DetailPage';\n \n function App() {\n-\n-  useEffect(() => {\n-    const  fetchProducts = async ()=>{\n-      const productList = await products.getAll({_limit:10})\n-    }\n-    fetchProducts()\n-  }, [])\n   const [messHead,setMessHead] = useState('')\n   const [mess,setMess] = useState('') \n   const [background,setBackground] = useState('success')\n   const [toast,setToast] = useState(false);\n@@ -39,8 +34,12 @@\n               <Route path=\":todoid\" element={<DetialPage/>}/>\n            </Route>\n \n            <Route path=\"/albums/*\" element={<AlbumFeature />}/>\n+\n+           <Route path=\"/products/*\" element={<ProductFeature />}>\n+              <Route path=\":productid\" element={<DetailPage/>}/>\n+           </Route>\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n"
+                },
+                {
+                    "date": 1646237884741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,8 @@\n \n            <Route path=\"/albums/*\" element={<AlbumFeature />}/>\n \n            <Route path=\"/products/*\" element={<ProductFeature />}>\n-              <Route path=\":productid\" element={<DetailPage/>}/>\n            </Route>\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n"
+                },
+                {
+                    "date": 1646238366551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,10 @@\n import './app.scss'\n import CouterFeature from './features/Counter/Counter';\n import Header from 'components/Header/Header';\n import ProductFeature from 'features/Product';\n-import DetailPage from 'features/Product/pages/DetailPage';\n+import Listpage from 'features/Product/pages/ListPage/ListPage';\n+import DetailPage from 'features/Product/pages/DetailPage/DetailPage';\n \n function App() {\n   const [messHead,setMessHead] = useState('')\n   const [mess,setMess] = useState('') \n@@ -36,8 +37,10 @@\n \n            <Route path=\"/albums/*\" element={<AlbumFeature />}/>\n \n            <Route path=\"/products/*\" element={<ProductFeature />}>\n+              <Route path=\"products\" element={<Listpage/>}/>\n+              <Route path=\":productId\" element={<DetailPage/>}/>\n            </Route>\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n"
+                },
+                {
+                    "date": 1646238394176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,8 @@\n \n            <Route path=\"/albums/*\" element={<AlbumFeature />}/>\n \n            <Route path=\"/products/*\" element={<ProductFeature />}>\n-              <Route path=\"products\" element={<Listpage/>}/>\n               <Route path=\":productId\" element={<DetailPage/>}/>\n            </Route>\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n"
+                },
+                {
+                    "date": 1646238775299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n            </Route>\n \n            <Route path=\"/albums/*\" element={<AlbumFeature />}/>\n \n-           <Route path=\"/products/*\" element={<ProductFeature />}>\n+           <Route path=\"/products\" element={<ProductFeature />}>\n               <Route path=\":productId\" element={<DetailPage/>}/>\n            </Route>\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n"
+                },
+                {
+                    "date": 1646238853641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,11 +36,9 @@\n            </Route>\n \n            <Route path=\"/albums/*\" element={<AlbumFeature />}/>\n \n-           <Route path=\"/products\" element={<ProductFeature />}>\n-              <Route path=\":productId\" element={<DetailPage/>}/>\n-           </Route>\n+           <Route path=\"/products/*\" element={<ProductFeature />}/>\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n"
+                },
+                {
+                    "date": 1646239283760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,12 @@\n            </Route>\n \n            <Route path=\"/albums/*\" element={<AlbumFeature />}/>\n \n-           <Route path=\"/products/*\" element={<ProductFeature />}/>\n+           <Route path=\"/products/*\" element={<ProductFeature />}>\n+              <Route path=\"products\" element={<Listpage/>}/>\n+              <Route path=\":productid\" element={<DetailPage/>}/>\n+           </Route>\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n            \n           <Route path=\"*\" element={<NotFound />} />\n"
+                },
+                {
+                    "date": 1646239401252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \n            <Route path=\"/albums/*\" element={<AlbumFeature />}/>\n \n            <Route path=\"/products/*\" element={<ProductFeature />}>\n-              <Route path=\"products\" element={<Listpage/>}/>\n+              <Route path=\"*\" element={<Listpage/>}/>\n               <Route path=\":productid\" element={<DetailPage/>}/>\n            </Route>\n            \n            <Route path=\"/counter/*\" element={<CouterFeature />}/>\n"
+                },
+                {
+                    "date": 1646239473778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import {Route,Routes} from 'react-router-dom'\n-import { createContext, useEffect, useState } from 'react';\n-import products from './API/products';\n+import { createContext, useState } from 'react';\n import TodoFeature from \"./features/Todo/pages\";\n import AlbumFeature from \"./features/Album/pages\";\n import NotFound from './components/NotFound/NotFound';\n import ListPage from './features/Todo/pages/ListPage/ListPage';\n"
                 }
             ],
             "date": 1643207291528,
