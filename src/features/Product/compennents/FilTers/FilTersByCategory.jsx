@@ -1,7 +1,7 @@
 import categoryApi from "API/category";
 import { useEffect, useState } from "react";
 import './Filters.scss'
-const FilterByCategory = ({onChange}) => {
+const FilterByCategory = ({onChange,getLabelCategories}) => {
     const [category, setCategory] = useState([]);
 
     useEffect(() => {   
@@ -20,11 +20,15 @@ const FilterByCategory = ({onChange}) => {
                 }
             }
         )()}, []);
+        getLabelCategories(category);
     return ( 
         <div className="category"><h5>DANH MỤC SẢN PHẨM</h5>
             <ul className="category_list">
                 {category.map((category)=>{
-                    return <li className="category_item" key={category.id} onClick={()=>{onChange(category.id)}}>{category.name}</li>
+                    return <li className="category_item" key={category.id} 
+                    onClick={()=>{
+                        onChange(category.id)}}
+                    >{category.name}</li>
                 }
                 )}
             </ul>

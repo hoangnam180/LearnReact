@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 17,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1645709352258,
@@ -76,6 +76,18 @@
                 {
                     "date": 1645938744913,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n \n import FilterByPrice from \"../FilTers/FilterByPrice\";\n+import FilterByService from \"../FilTers/FilterByService\";\n import FilterByCategory from \"../FilTers/FilTersByCategory\";\n import './ProductFilter.scss'\n \n const ProductFilter = (props) => {\n@@ -14,18 +15,19 @@\n         handleFilterChange(newFillter);\n         }\n     }\n \n-    const handlePriceChange = (newPrice) => {\n+    const handleChange = (newPrice) => {\n         if(handleFilterChange){\n             const newFillter = {...fillter, ...newPrice};\n             handleFilterChange(newFillter);\n         }\n     }\n     return ( \n         <div className=\"filter\">\n             <FilterByCategory onChange={handleCategoryChange}/>\n-            <FilterByPrice onChange={handlePriceChange}/>\n+            <FilterByPrice onChange={handleChange}/>\n+            <FilterByService fillter={fillter} onChange={handleChange}/>\n         </div>\n      );\n }\n  \n"
+                },
+                {
+                    "date": 1646157643427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,14 @@\n             const newFillter = {...fillter, ...newPrice};\n             handleFilterChange(newFillter);\n         }\n     }\n+    const getLabelCategories = (filters) => {\n+      \n+    }\n     return ( \n         <div className=\"filter\">\n-            <FilterByCategory onChange={handleCategoryChange}/>\n+            <FilterByCategory getLabelCategories={getLabelCategories} onChange={handleCategoryChange}/>\n             <FilterByPrice onChange={handleChange}/>\n             <FilterByService fillter={fillter} onChange={handleChange}/>\n         </div>\n      );\n"
+                },
+                {
+                    "date": 1646157758675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,10 @@\n             const newFillter = {...fillter, ...newPrice};\n             handleFilterChange(newFillter);\n         }\n     }\n-    const getLabelCategories = (filters) => {\n-      \n+    const getLabelCategories = (category) => {\n+        console.log(category);\n     }\n     return ( \n         <div className=\"filter\">\n             <FilterByCategory getLabelCategories={getLabelCategories} onChange={handleCategoryChange}/>\n"
+                },
+                {
+                    "date": 1646157889542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import FilterByCategory from \"../FilTers/FilTersByCategory\";\n import './ProductFilter.scss'\n \n const ProductFilter = (props) => {\n-    const {fillter,handleFilterChange} = props\n+    const {fillter,handleFilterChange,getCategory} = props\n     const handleCategoryChange = (newCategoryId) => {\n         if(!handleFilterChange){\n             return;\n         }\n@@ -22,9 +22,9 @@\n             handleFilterChange(newFillter);\n         }\n     }\n     const getLabelCategories = (category) => {\n-        console.log(category);\n+        getCategory(category);\n     }\n     return ( \n         <div className=\"filter\">\n             <FilterByCategory getLabelCategories={getLabelCategories} onChange={handleCategoryChange}/>\n"
                 }
             ],
             "date": 1645709352258,

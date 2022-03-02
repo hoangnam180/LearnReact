@@ -5,7 +5,7 @@ import FilterByCategory from "../FilTers/FilTersByCategory";
 import './ProductFilter.scss'
 
 const ProductFilter = (props) => {
-    const {fillter,handleFilterChange} = props
+    const {fillter,handleFilterChange,getCategory} = props
     const handleCategoryChange = (newCategoryId) => {
         if(!handleFilterChange){
             return;
@@ -22,9 +22,12 @@ const ProductFilter = (props) => {
             handleFilterChange(newFillter);
         }
     }
+    const getLabelCategories = (category) => {
+        getCategory(category);
+    }
     return ( 
         <div className="filter">
-            <FilterByCategory onChange={handleCategoryChange}/>
+            <FilterByCategory getLabelCategories={getLabelCategories} onChange={handleCategoryChange}/>
             <FilterByPrice onChange={handleChange}/>
             <FilterByService fillter={fillter} onChange={handleChange}/>
         </div>

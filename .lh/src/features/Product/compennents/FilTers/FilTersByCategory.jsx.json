@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 11,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1645713431740,
@@ -52,6 +52,18 @@
                 {
                     "date": 1645721041314,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,16 +20,16 @@\n                 }\n             }\n         )()}, []);\n     return ( \n-        <><h5>DANH MỤC SẢN PHẨM</h5>\n+        <div className=\"category\"><h5>DANH MỤC SẢN PHẨM</h5>\n             <ul className=\"category_list\">\n                 {category.map((category)=>{\n                     return <li className=\"category_item\" key={category.id} onClick={()=>{onChange(category.id)}}>{category.name}</li>\n                 }\n                 )}\n             </ul>\n-        </>\n+        </div>\n      );\n }\n  \n export default FilterByCategory;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1646157704409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState } from \"react\";\n import './Filters.scss'\n-const FilterByCategory = ({onChange}) => {\n+const FilterByCategory = ({onChange,getLabelCategories}) => {\n     const [category, setCategory] = useState([]);\n \n     useEffect(() => {   \n         (\n@@ -23,9 +23,13 @@\n     return ( \n         <div className=\"category\"><h5>DANH MỤC SẢN PHẨM</h5>\n             <ul className=\"category_list\">\n                 {category.map((category)=>{\n-                    return <li className=\"category_item\" key={category.id} onClick={()=>{onChange(category.id)}}>{category.name}</li>\n+                    return <li className=\"category_item\" key={category.id} \n+                    onClick={()=>{\n+                        getLabelCategories(category);\n+                        onChange(category.id)}}\n+                    >{category.name}</li>\n                 }\n                 )}\n             </ul>\n         </div>\n"
+                },
+                {
+                    "date": 1646193379072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import './Filters.scss'\n const FilterByCategory = ({onChange,getLabelCategories}) => {\n     const [category, setCategory] = useState([]);\n \n+    console.log('category', category);\n     useEffect(() => {   \n         (\n             async () => {\n                 try {\n"
+                },
+                {
+                    "date": 1646193578991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n import './Filters.scss'\n const FilterByCategory = ({onChange,getLabelCategories}) => {\n     const [category, setCategory] = useState([]);\n \n-    console.log('category', category);\n     useEffect(() => {   \n         (\n             async () => {\n                 try {\n@@ -20,15 +19,15 @@\n                     console.log('Fail to get category', error);\n                 }\n             }\n         )()}, []);\n+        getLabelCategories(category);\n     return ( \n         <div className=\"category\"><h5>DANH MỤC SẢN PHẨM</h5>\n             <ul className=\"category_list\">\n                 {category.map((category)=>{\n                     return <li className=\"category_item\" key={category.id} \n                     onClick={()=>{\n-                        getLabelCategories(category);\n                         onChange(category.id)}}\n                     >{category.name}</li>\n                 }\n                 )}\n"
                 }
             ],
             "date": 1645713431740,

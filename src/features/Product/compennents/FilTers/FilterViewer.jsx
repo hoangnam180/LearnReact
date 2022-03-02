@@ -1,5 +1,7 @@
-const FilterViewer = ({filters={},onChange=null}) => {
+import { useMemo} from "react";
 
+const FilterViewer = ({filters={},onChange=null,category = []}) => {
+   
     const FILTER_LIST = [
         {id : 1,
         getLabel (filters) {
@@ -72,30 +74,45 @@ const FilterViewer = ({filters={},onChange=null}) => {
         },
         },
 
-        // {id : 4,
-        // getLabel (filters) {
-        //     return 'Danh mục';
-        // },
-        // isActive  (filters) {
-        //     return true
-        // },
-        // isVisible (filters){
-        //     return true
-        // },
-        // isRemovable :true,
-        // onRemove  (filters) {
-        //     return '';
-        // },
-        // onToggle  (filters) {
-        //     return '';
-        // },
-        // },
+        {id : 4,
+        getLabel (filters) {
+            if(!filters['category.id']){
+                return;
+            }
+            if(filters['category.id'] && category[filters['category.id'] - 1]){
+                const label = category[filters['category.id'] - 1].name;
+                return label
+            }
+        },
+        isActive  (filters) {
+            return true
+        },
+        isVisible (filters){
+            return Object.keys(filters).includes('category.id');
+        },
+        isRemovable :true,
+        onRemove  (filters) {
+            const newFillter = {...filters};
+            if(newFillter['category.id']){
+                delete newFillter['category.id'];
+            }
+            return newFillter;
+        },
+        onToggle  (filters) {
+        
+        },
+        },
         
     ]
+    const visibleFilters = useMemo(()=>{
+        return FILTER_LIST.filter((x)=>x.isVisible(filters));
+    },[filters])
+
+
     return ( 
         <div className="filter_viewer">
             <ul className='viewer_list'>
-               {FILTER_LIST.filter((x)=>x.isVisible(filters)).map((filter)=>{
+               {visibleFilters.map((filter)=>{
                     return (
                         <li 
                         key={filter.id} className={filter.isActive(filters) ? 'bg-primary text-white' : ''}

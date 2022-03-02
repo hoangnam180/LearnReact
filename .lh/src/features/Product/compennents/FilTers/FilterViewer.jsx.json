@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 75,
             "patches": [
                 {
                     "date": 1645972229068,
@@ -12,6 +12,302 @@
                 {
                     "date": 1645972238047,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n const FilterViewer = () => {\r\n     return ( \r\n-        <div className=\"filter-viewer\"></div>\r\n+        <div className=\"filter-viewer\">\r\n+            filter viewer\r\n+        </div>\r\n     );\r\n }\r\n  \r\n export default FilterViewer;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1646148266726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,121 @@\n-const FilterViewer = () => {\r\n-    return ( \r\n-        <div className=\"filter-viewer\">\r\n-            filter viewer\r\n-        </div>\r\n-    );\r\n-}\r\n- \r\n-export default FilterViewer;\n\\ No newline at end of file\n+const FilterViewer = ({filters={},onChange=null}) => {\n+\n+    const FILTER_LIST = [\n+        {id : 1,\n+        getLabel (filters) {\n+            return 'Giao Hàng Miễn Phí';\n+        },\n+        isActive  (filters) {\n+            return filters.isFreeShip;\n+        },\n+        isVisible (filters){\n+            return true\n+        },\n+        isRemovable :false,\n+        onRemove  (filters) {\n+        },\n+        onToggle  (filters) {\n+            const newFillter = {...filters};\n+            if(newFillter.isFreeShip){\n+                delete newFillter.isFreeShip;\n+            }else{\n+                newFillter.isFreeShip = true;\n+            }\n+            return newFillter;\n+        },\n+        },\n+\n+        {id : 2,\n+        getLabel () {\n+            return 'Có Khuyến Mãi';\n+        },\n+        isActive  (filters) {\n+            return true;\n+        },\n+        isVisible (filters){\n+            return Object.keys(filters).includes('isPromotion') && filters.isPromotion;\n+        },\n+        isRemovable :true,\n+        onRemove (filters) {\n+            const newFillter = {...filters};\n+            if(newFillter.isPromotion){\n+                delete newFillter.isPromotion;\n+            }\n+            return newFillter;\n+        },\n+        onToggle  (filters) {\n+    \n+        },\n+        },\n+\n+        {id : 3,\n+        getLabel (filters) {\n+            return 'Giá Từ ' + filters.salePrice_gte + ' đến ' + filters.salePrice_lte + ' đồng';\n+        },\n+        isActive  (filters) {\n+            return true\n+        },\n+        isVisible (filters){\n+            return Object.keys(filters).includes('salePrice_lte') || Object.keys(filters).includes('salePrice_gte' || filters.salePrice_gte !== filters.salePrice_lte);\n+        },\n+        isRemovable :true,\n+        onRemove  (filters) {\n+            const newFillter = {...filters};\n+            if(newFillter.salePrice_lte && newFillter.salePrice_gte){\n+                delete newFillter.salePrice_lte;\n+                delete newFillter.salePrice_gte;\n+            }\n+            return newFillter;\n+        },\n+        onToggle  (filters) {\n+        \n+        },\n+        },\n+\n+        {id : 4,\n+        getLabel (filters) {\n+            return 'Danh mục';\n+        },\n+        isActive  (filters) {\n+            return true\n+        },\n+        isVisible (filters){\n+            return true\n+        },\n+        isRemovable :true,\n+        onRemove  (filters) {\n+            return '';\n+        },\n+        onToggle  (filters) {\n+            return '';\n+        },\n+        },\n+        \n+    ]\n+    return ( \n+        <div className=\"filter_viewer\">\n+            <ul className='viewer_list'>\n+               {FILTER_LIST.filter((x)=>x.isVisible(filters)).map((filter)=>{\n+                    return (\n+                        <li \n+                        key={filter.id} className={filter.isActive(filters) ? 'bg-primary text-white' : ''}\n+                        onClick={filter.isRemovable ? null : ()=>{\n+                            const newFillter = filter.onToggle(filters);\n+                            onChange(newFillter);\n+                        }}\n+                        >\n+                        <label>{filter.getLabel(filters)}</label>\n+                        {filter.isRemovable && <span className=\"remove\" \n+                        onClick={()=>{\n+                            const newFillter = filter.onRemove(filters);\n+                            onChange(newFillter);\n+                        }}>x</span>}\n+                        </li>\n+                    )\n+               })}\n+            </ul>\n+        </div>\n+    );\n+}\n+ \n+export default FilterViewer;\n"
+                },
+                {
+                    "date": 1646148391576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,9 +73,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return 'Danh mục';\n+            return filters.categoryId ? 'Danh Mục ' + filters.categoryId : 'Tất Cả';\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646148429323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,9 +73,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return filters.categoryId ? 'Danh Mục ' + filters.categoryId : 'Tất Cả';\n+            return filters.categoryId ?  filters.name : 'Tất Cả';\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646148542790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,9 +73,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return filters.categoryId ?  filters.name : 'Tất Cả';\n+            return filters.categoryId ? 'Danh Mục ' + filters.categoryId : 'Tất Cả';\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646148564401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,8 +73,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n+            console.log(filters);\n             return filters.categoryId ? 'Danh Mục ' + filters.categoryId : 'Tất Cả';\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646148592794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n \n         {id : 4,\n         getLabel (filters) {\n             console.log(filters);\n-            return filters.categoryId ? 'Danh Mục ' + filters.categoryId : 'Tất Cả';\n+            return filters.category.id ? 'Danh Mục ' + filters.category.id : 'Tất Cả';\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646148600822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n \n         {id : 4,\n         getLabel (filters) {\n             console.log(filters);\n-            return filters.category.id ? 'Danh Mục ' + filters.category.id : 'Tất Cả';\n+            return filters.category ? 'Danh Mục ' + filters.categoryId : 'Tất Cả';\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646148640694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n \n         {id : 4,\n         getLabel (filters) {\n             console.log(filters);\n-            return filters.category ? 'Danh Mục ' + filters.categoryId : 'Tất Cả';\n+            return filters.category.id? 'Danh Mục ' + filters.categoryId : 'Tất Cả';\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646148646307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n \n         {id : 4,\n         getLabel (filters) {\n             console.log(filters);\n-            return filters.category.id? 'Danh Mục ' + filters.categoryId : 'Tất Cả';\n+            return filters.categoryId ? 'Danh Mục ' + filters.categoryId : 'Tất Cả';\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646148665581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n \n         {id : 4,\n         getLabel (filters) {\n             console.log(filters);\n-            return filters.categoryId ? 'Danh Mục ' + filters.categoryId : 'Tất Cả';\n+            return filters.categoryId ? 'Danh Mục ' + filters.categoryId : '';\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646148683068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n \n         {id : 4,\n         getLabel (filters) {\n             console.log(filters);\n-            return filters.categoryId ? 'Danh Mục ' + filters.categoryId : '';\n+            return filters.categoryId ? 'Danh Mục ' + filters.categoryId : null;\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646148708789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n \n         {id : 4,\n         getLabel (filters) {\n             console.log(filters);\n-            return filters.categoryId ? 'Danh Mục ' + filters.categoryId : null;\n+            return filters.categoryId + ' ' + filters.categoryName;\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646148740476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n \n         {id : 4,\n         getLabel (filters) {\n             console.log(filters);\n-            return filters.categoryId + ' ' + filters.categoryName;\n+            return filters['category.id'];\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646149216891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,28 @@\n+import categoryApi from \"API/category\";\n+import { useEffect, useState } from \"react\";\n+\n const FilterViewer = ({filters={},onChange=null}) => {\n \n+    const [category, setCategory] = useState([]);\n+\n+    useEffect(() => {   \n+        (\n+            async () => {\n+                try {\n+                    const response = await categoryApi.getAll()\n+                    setCategory(response.map((x)=>{\n+                        return {\n+                            id: x.id,\n+                            name: x.name\n+                        }\n+                    }));\n+                } catch (error) {\n+                    console.log('Fail to get category', error);\n+                }\n+            }\n+        )()}, []);\n+\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n@@ -73,10 +95,10 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            console.log(filters);\n-            return filters['category.id'];\n+            const label = filters['category.id'] === category[0].id ? 'Tất Cả' : category.find((x)=>x.id === filters['category.id']).name;\n+            return \n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646149249995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,10 +95,10 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = filters['category.id'] === category[0].id ? 'Tất Cả' : category.find((x)=>x.id === filters['category.id']).name;\n-            return \n+            const label = filters['category.id'] ? category.find((x)=>x.id === filters['category.id']).name : 'Tất cả';\n+            return label;\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646149307215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,9 +95,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = filters['category.id'] ? category.find((x)=>x.id === filters['category.id']).name : 'Tất cả';\n+            const label =  category.find((x)=>x.id === filters['category.id']);\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646149321118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,9 +95,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label =  category.find((x)=>x.id === filters['category.id']);\n+            const label =  category.find((x)=>x.id === filters['category.id']).name ;\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646149331788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,9 +95,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label =  category.find((x)=>x.id === filters['category.id']).name ;\n+            const label = filters['category.id'] ? category.find((x)=>x.id === filters['category.id']).name : 'Tất cả';\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646149402656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,9 +95,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = filters['category.id'] ? category.find((x)=>x.id === filters['category.id']).name : 'Tất cả';\n+            const label = filters['category.id'] && category.find((x)=>x.id === filters['category.id']).name ;\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646149432105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,9 +95,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = filters['category.id'] && category.find((x)=>x.id === filters['category.id']).name ;\n+            const label = filters['category.id'] ? category.find((x)=>x.id === filters['category.id']).name : 'Tất cả';\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646149448382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,9 +102,9 @@\n         isActive  (filters) {\n             return true\n         },\n         isVisible (filters){\n-            return true\n+            return Object.keys(filters).includes('category.id');\n         },\n         isRemovable :true,\n         onRemove  (filters) {\n             return '';\n"
+                },
+                {
+                    "date": 1646149509866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,12 +106,17 @@\n             return Object.keys(filters).includes('category.id');\n         },\n         isRemovable :true,\n         onRemove  (filters) {\n-            return '';\n+            const newFillter = {...filters};\n+            if(newFillter.salePrice_lte && newFillter.salePrice_gte){\n+                delete newFillter.salePrice_lte;\n+                delete newFillter.salePrice_gte;\n+            }\n+            return newFillter;\n         },\n         onToggle  (filters) {\n-            return '';\n+        \n         },\n         },\n         \n     ]\n"
+                },
+                {
+                    "date": 1646149544835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,11 +107,10 @@\n         },\n         isRemovable :true,\n         onRemove  (filters) {\n             const newFillter = {...filters};\n-            if(newFillter.salePrice_lte && newFillter.salePrice_gte){\n-                delete newFillter.salePrice_lte;\n-                delete newFillter.salePrice_gte;\n+            if(newFillter['category.id']){\n+                delete newFillter['category.id'];\n             }\n             return newFillter;\n         },\n         onToggle  (filters) {\n"
+                },
+                {
+                    "date": 1646151746525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n import categoryApi from \"API/category\";\n-import { useEffect, useState } from \"react\";\n+import { useEffect, useState ,useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null}) => {\n \n+    const visibleFilters = useMemo(()=>{\n+        return FILTER_LIST.filter((x)=>x.isVisible(filters));\n+    })\n     const [category, setCategory] = useState([]);\n \n     useEffect(() => {   \n         (\n@@ -121,9 +124,9 @@\n     ]\n     return ( \n         <div className=\"filter_viewer\">\n             <ul className='viewer_list'>\n-               {FILTER_LIST.filter((x)=>x.isVisible(filters)).map((filter)=>{\n+               {visibleFilters.map((filter)=>{\n                     return (\n                         <li \n                         key={filter.id} className={filter.isActive(filters) ? 'bg-primary text-white' : ''}\n                         onClick={filter.isRemovable ? null : ()=>{\n"
+                },
+                {
+                    "date": 1646151773709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,8 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState ,useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null}) => {\n-\n-    const visibleFilters = useMemo(()=>{\n-        return FILTER_LIST.filter((x)=>x.isVisible(filters));\n-    })\n     const [category, setCategory] = useState([]);\n \n     useEffect(() => {   \n         (\n@@ -121,8 +117,11 @@\n         },\n         },\n         \n     ]\n+    const visibleFilters = useMemo(()=>{\n+        return FILTER_LIST.filter((x)=>x.isVisible(filters));\n+    })\n     return ( \n         <div className=\"filter_viewer\">\n             <ul className='viewer_list'>\n                {visibleFilters.map((filter)=>{\n"
+                },
+                {
+                    "date": 1646151803298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -119,9 +119,10 @@\n         \n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n-    })\n+    },[filters])\n+\n     return ( \n         <div className=\"filter_viewer\">\n             <ul className='viewer_list'>\n                {visibleFilters.map((filter)=>{\n"
+                },
+                {
+                    "date": 1646156299084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -92,31 +92,31 @@\n         \n         },\n         },\n \n-        {id : 4,\n-        getLabel (filters) {\n-            const label = filters['category.id'] ? category.find((x)=>x.id === filters['category.id']).name : 'Tất cả';\n-            return label;\n-        },\n-        isActive  (filters) {\n-            return true\n-        },\n-        isVisible (filters){\n-            return Object.keys(filters).includes('category.id');\n-        },\n-        isRemovable :true,\n-        onRemove  (filters) {\n-            const newFillter = {...filters};\n-            if(newFillter['category.id']){\n-                delete newFillter['category.id'];\n-            }\n-            return newFillter;\n-        },\n-        onToggle  (filters) {\n+        // {id : 4,\n+        // getLabel (filters) {\n+        //     const label = filters['category.id'] ? category.find((x)=>x.id === filters['category.id']).name : 'Tất cả';\n+        //     return label;\n+        // },\n+        // isActive  (filters) {\n+        //     return true\n+        // },\n+        // isVisible (filters){\n+        //     return Object.keys(filters).includes('category.id');\n+        // },\n+        // isRemovable :true,\n+        // onRemove  (filters) {\n+        //     const newFillter = {...filters};\n+        //     if(newFillter['category.id']){\n+        //         delete newFillter['category.id'];\n+        //     }\n+        //     return newFillter;\n+        // },\n+        // onToggle  (filters) {\n         \n-        },\n-        },\n+        // },\n+        // },\n         \n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n"
+                },
+                {
+                    "date": 1646156389964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -92,31 +92,31 @@\n         \n         },\n         },\n \n-        // {id : 4,\n-        // getLabel (filters) {\n-        //     const label = filters['category.id'] ? category.find((x)=>x.id === filters['category.id']).name : 'Tất cả';\n-        //     return label;\n-        // },\n-        // isActive  (filters) {\n-        //     return true\n-        // },\n-        // isVisible (filters){\n-        //     return Object.keys(filters).includes('category.id');\n-        // },\n-        // isRemovable :true,\n-        // onRemove  (filters) {\n-        //     const newFillter = {...filters};\n-        //     if(newFillter['category.id']){\n-        //         delete newFillter['category.id'];\n-        //     }\n-        //     return newFillter;\n-        // },\n-        // onToggle  (filters) {\n+        {id : 4,\n+        getLabel (filters) {\n+            const label = category.find((x)=>x.id === filters['category.id']).name ;\n+            return label;\n+        },\n+        isActive  (filters) {\n+            return true\n+        },\n+        isVisible (filters){\n+            return Object.keys(filters).includes('category.id');\n+        },\n+        isRemovable :true,\n+        onRemove  (filters) {\n+            const newFillter = {...filters};\n+            if(newFillter['category.id']){\n+                delete newFillter['category.id'];\n+            }\n+            return newFillter;\n+        },\n+        onToggle  (filters) {\n         \n-        // },\n-        // },\n+        },\n+        },\n         \n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n"
+                },
+                {
+                    "date": 1646156533975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,27 +1,9 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState ,useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null}) => {\n-    const [category, setCategory] = useState([]);\n \n-    useEffect(() => {   \n-        (\n-            async () => {\n-                try {\n-                    const response = await categoryApi.getAll()\n-                    setCategory(response.map((x)=>{\n-                        return {\n-                            id: x.id,\n-                            name: x.name\n-                        }\n-                    }));\n-                } catch (error) {\n-                    console.log('Fail to get category', error);\n-                }\n-            }\n-        )()}, []);\n-\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n@@ -94,9 +76,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = category.find((x)=>x.id === filters['category.id']).name ;\n+            const label =  filters.category.name || 'Tất cả';\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646156563983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,31 +74,31 @@\n         \n         },\n         },\n \n-        {id : 4,\n-        getLabel (filters) {\n-            const label =  filters.category.name || 'Tất cả';\n-            return label;\n-        },\n-        isActive  (filters) {\n-            return true\n-        },\n-        isVisible (filters){\n-            return Object.keys(filters).includes('category.id');\n-        },\n-        isRemovable :true,\n-        onRemove  (filters) {\n-            const newFillter = {...filters};\n-            if(newFillter['category.id']){\n-                delete newFillter['category.id'];\n-            }\n-            return newFillter;\n-        },\n-        onToggle  (filters) {\n+        // {id : 4,\n+        // getLabel (filters) {\n+        //     const label =  filters.category.name || 'Tất cả';\n+        //     return label;\n+        // },\n+        // isActive  (filters) {\n+        //     return true\n+        // },\n+        // isVisible (filters){\n+        //     return Object.keys(filters).includes('category.id');\n+        // },\n+        // isRemovable :true,\n+        // onRemove  (filters) {\n+        //     const newFillter = {...filters};\n+        //     if(newFillter['category.id']){\n+        //         delete newFillter['category.id'];\n+        //     }\n+        //     return newFillter;\n+        // },\n+        // onToggle  (filters) {\n         \n-        },\n-        },\n+        // },\n+        // },\n         \n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n"
+                },
+                {
+                    "date": 1646156616656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,31 +74,30 @@\n         \n         },\n         },\n \n-        // {id : 4,\n-        // getLabel (filters) {\n-        //     const label =  filters.category.name || 'Tất cả';\n-        //     return label;\n-        // },\n-        // isActive  (filters) {\n-        //     return true\n-        // },\n-        // isVisible (filters){\n-        //     return Object.keys(filters).includes('category.id');\n-        // },\n-        // isRemovable :true,\n-        // onRemove  (filters) {\n-        //     const newFillter = {...filters};\n-        //     if(newFillter['category.id']){\n-        //         delete newFillter['category.id'];\n-        //     }\n-        //     return newFillter;\n-        // },\n-        // onToggle  (filters) {\n+        {id : 4,\n+        getLabel (filters) {\n+            return 'Tất cả';\n+        },\n+        isActive  (filters) {\n+            return true\n+        },\n+        isVisible (filters){\n+            return Object.keys(filters).includes('category.id');\n+        },\n+        isRemovable :true,\n+        onRemove  (filters) {\n+            const newFillter = {...filters};\n+            if(newFillter['category.id']){\n+                delete newFillter['category.id'];\n+            }\n+            return newFillter;\n+        },\n+        onToggle  (filters) {\n         \n-        // },\n-        // },\n+        },\n+        },\n         \n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n"
+                },
+                {
+                    "date": 1646156684294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return 'Tất cả';\n+            return 'Loại ' + filters['category.id'];\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646157014730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return 'Loại ' + filters['category.id'];\n+            return 'Loại ' + filters['category.id'] ;\n         },\n         isActive  (filters) {\n             return true\n         },\n@@ -101,9 +101,9 @@\n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n     },[filters])\n-\n+    console.log(filters)\n     return ( \n         <div className=\"filter_viewer\">\n             <ul className='viewer_list'>\n                {visibleFilters.map((filter)=>{\n"
+                },
+                {
+                    "date": 1646157101467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,27 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState ,useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null}) => {\n+    const [category, setCategory] = useState([]);\n \n+    useEffect(() => {   \n+        (\n+            async () => {\n+                try {\n+                    const response = await categoryApi.getAll()\n+                    setCategory(response.map((x)=>{\n+                        return {\n+                            id: x.id,\n+                            name: x.name\n+                        }\n+                    }));\n+                } catch (error) {\n+                    console.log('Fail to get category', error);\n+                }\n+            }\n+        )()}, []);\n+\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n@@ -76,9 +94,10 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return 'Loại ' + filters['category.id'] ;\n+            const label = category.find((x)=>x.id === filters['category.id']).name ;\n+            return label;\n         },\n         isActive  (filters) {\n             return true\n         },\n@@ -101,9 +120,9 @@\n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n     },[filters])\n-    console.log(filters)\n+\n     return ( \n         <div className=\"filter_viewer\">\n             <ul className='viewer_list'>\n                {visibleFilters.map((filter)=>{\n"
+                },
+                {
+                    "date": 1646157207364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,9 +94,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = category.find((x)=>x.id === filters['category.id']).name ;\n+            const label = Number.isInteger(filters['category.id']) ? category.find((x)=>x.id === Number.isInteger(filters['category.id']).name ): 'Tất cả';\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646157236400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,9 +94,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = Number.isInteger(filters['category.id']) ? category.find((x)=>x.id === Number.isInteger(filters['category.id']).name ): 'Tất cả';\n+            const label = Number.parseInt(filters['category.id']) ? category.find((x)=>x.id === Number.isInteger(filters['category.id']).name ): 'Tất cả';\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646157263464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,9 +94,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = Number.parseInt(filters['category.id']) ? category.find((x)=>x.id === Number.isInteger(filters['category.id']).name ): 'Tất cả';\n+            const label = filters['category.id'] ? category.find((x)=>x.id === Number.parseInt(filters['category.id'])).name : 'Tất cả';\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646157289372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,9 +94,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = filters['category.id'] ? category.find((x)=>x.id === Number.parseInt(filters['category.id'])).name : 'Tất cả';\n+            const label = Number.parseInt(filters['category.id'])? category.find((x)=>x.id === Number.parseInt(filters['category.id'])).name : 'Tất cả';\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646157299083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,9 +94,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = Number.parseInt(filters['category.id'])? category.find((x)=>x.id === Number.parseInt(filters['category.id'])).name : 'Tất cả';\n+            const label = Number.parseInt(filters['category.id']) ? category.find((x)=>x.id === Number.parseInt(filters['category.id'])).name : 'Tất cả';\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646157369620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,27 +1,9 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState ,useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null}) => {\n-    const [category, setCategory] = useState([]);\n \n-    useEffect(() => {   \n-        (\n-            async () => {\n-                try {\n-                    const response = await categoryApi.getAll()\n-                    setCategory(response.map((x)=>{\n-                        return {\n-                            id: x.id,\n-                            name: x.name\n-                        }\n-                    }));\n-                } catch (error) {\n-                    console.log('Fail to get category', error);\n-                }\n-            }\n-        )()}, []);\n-\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n@@ -94,10 +76,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = Number.parseInt(filters['category.id']) ? category.find((x)=>x.id === Number.parseInt(filters['category.id'])).name : 'Tất cả';\n-            return label;\n+            return 'Từ ' + filters.price_gte + ' đến ' + filters.price_lte + ' đồng';\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646158305451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState ,useMemo} from \"react\";\n \n-const FilterViewer = ({filters={},onChange=null}) => {\n-\n+const FilterViewer = ({filters={},onChange=null},category = {}) => {\n+console.log(category);\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n"
+                },
+                {
+                    "date": 1646158347630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState ,useMemo} from \"react\";\n \n-const FilterViewer = ({filters={},onChange=null},category = {}) => {\n-console.log(category);\n+const FilterViewer = ({filters={},onChange=null,category = {}}) => {\n+\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n"
+                },
+                {
+                    "date": 1646158357550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState ,useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null,category = {}}) => {\n-\n+    console.log(category);\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n"
+                },
+                {
+                    "date": 1646158362855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState ,useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null,category = {}}) => {\n-    console.log(category);\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n"
+                },
+                {
+                    "date": 1646158400601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,10 @@\n         },\n \n         {id : 3,\n         getLabel (filters) {\n-            return 'Giá Từ ' + filters.salePrice_gte + ' đến ' + filters.salePrice_lte + ' đồng';\n+           const label = category.name;\n+           return label;\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646158462195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import categoryApi from \"API/category\";\n import { useEffect, useState ,useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null,category = {}}) => {\n+\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n@@ -51,10 +52,9 @@\n         },\n \n         {id : 3,\n         getLabel (filters) {\n-           const label = category.name;\n-           return label;\n+            return 'Giá Từ ' + filters.salePrice_gte + ' đến ' + filters.salePrice_lte + ' đồng';\n         },\n         isActive  (filters) {\n             return true\n         },\n@@ -76,9 +76,10 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return 'Từ ' + filters.price_gte + ' đến ' + filters.price_lte + ' đồng';\n+            const label = category.name || 'Tất cả';\n+            return label;\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646158481236,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = category.name || 'Tất cả';\n+            const label = category.name;\n             return label;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646158563042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,10 +76,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = category.name;\n-            return label;\n+            return category.name;;\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646158590172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n-import categoryApi from \"API/category\";\n-import { useEffect, useState ,useMemo} from \"react\";\n+import { useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null,category = {}}) => {\n \n     const FILTER_LIST = [\n"
+                },
+                {
+                    "date": 1646158731912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return category.name;;\n+            return filters['category.id'] ? 'Danh Mục ' + category.name : 'Tất Cả Danh Mục';\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646158808936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return filters['category.id'] ? 'Danh Mục ' + category.name : 'Tất Cả Danh Mục';\n+            return filters['category.id'] === category.id ? category.name : 'Tất cả';\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646158878491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return filters['category.id'] === category.id ? category.name : 'Tất cả';\n+            return filters['category.id'] === category.id && category.name;\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646159093330,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,8 +75,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n+            localStorage.setItem('category.id',filters['category.id']);\n             return filters['category.id'] === category.id && category.name;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646159133453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,8 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            localStorage.setItem('category.id',filters['category.id']);\n             return filters['category.id'] === category.id && category.name;\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646159189336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return filters['category.id'] === category.id && category.name;\n+            return filters['category.id'] === category.id ? category.name : filters['category.id'];\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646159209197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return filters['category.id'] === category.id ? category.name : filters['category.id'];\n+            return filters['category.id'] === category.id ? category.name : filters['category.id'] + ' - ' + category.name;\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646159339951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return filters['category.id'] === category.id ? category.name : filters['category.id'] + ' - ' + category.name;\n+            return filters['category.id'] === category.id ? category.name : filters['category.id'];\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646193629739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null,category = {}}) => {\n-\n+    console.log('category',category);\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n"
+                },
+                {
+                    "date": 1646193707551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n import { useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null,category = {}}) => {\n-    console.log('category',category);\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n@@ -75,9 +74,10 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            return filters['category.id'] === category.id ? category.name : filters['category.id'];\n+            const label = category.name;\n+            return label\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646193743311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = category.name;\n+            const label = filters['category.id'] ? category[filters['category.id']].name : 'Tất cả';\n             return label\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646193771441,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,10 +74,10 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = filters['category.id'] ? category[filters['category.id']].name : 'Tất cả';\n-            return label\n+            // const label = filters['category.id'] ? category[filters['category.id']].name : 'Tất cả';\n+            // return label\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646193814206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,10 +74,10 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            // const label = filters['category.id'] ? category[filters['category.id']].name : 'Tất cả';\n-            // return label\n+            const label = filters['category.id'] ? category[filters['category.id']].name : 'Tất cả';\n+            return label\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646193829482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = filters['category.id'] ? category[filters['category.id']].name : 'Tất cả';\n+            const label = filters['category.id'] ? category[filters['category.id'] - 1].name : 'Tất cả';\n             return label\n         },\n         isActive  (filters) {\n             return true\n"
+                },
+                {
+                    "date": 1646193981762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,10 +74,15 @@\n         },\n \n         {id : 4,\n         getLabel (filters) {\n-            const label = filters['category.id'] ? category[filters['category.id'] - 1].name : 'Tất cả';\n-            return label\n+            if(!filters['category.id']){\n+                return;\n+            }\n+            if(filters['category.id'] && category.id && category.name){\n+                const label = filters['category.id'] ? category[filters['category.id'] - 1].name : 'Tất cả';\n+                return label\n+            }\n         },\n         isActive  (filters) {\n             return true\n         },\n"
+                },
+                {
+                    "date": 1646194028160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -105,9 +105,9 @@\n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n     },[filters])\n-\n+    console.log(filters['category.id'],category.id,category.name);\n     return ( \n         <div className=\"filter_viewer\">\n             <ul className='viewer_list'>\n                {visibleFilters.map((filter)=>{\n"
+                },
+                {
+                    "date": 1646194134643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -105,9 +105,9 @@\n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n     },[filters])\n-    console.log(filters['category.id'],category.id,category.name);\n+    console.log(filters['category.id'],category[filters['category.id' - 1]].name);\n     return ( \n         <div className=\"filter_viewer\">\n             <ul className='viewer_list'>\n                {visibleFilters.map((filter)=>{\n"
+                },
+                {
+                    "date": 1646194154940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -105,9 +105,9 @@\n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n     },[filters])\n-    console.log(filters['category.id'],category[filters['category.id' - 1]].name);\n+    console.log(category[filters['category.id' - 1]]);\n     return ( \n         <div className=\"filter_viewer\">\n             <ul className='viewer_list'>\n                {visibleFilters.map((filter)=>{\n"
+                },
+                {
+                    "date": 1646194194306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -105,9 +105,9 @@\n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n     },[filters])\n-    console.log(category[filters['category.id' - 1]]);\n+    console.log(category)\n     return ( \n         <div className=\"filter_viewer\">\n             <ul className='viewer_list'>\n                {visibleFilters.map((filter)=>{\n"
+                },
+                {
+                    "date": 1646194217410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -105,9 +105,10 @@\n     ]\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n     },[filters])\n-    console.log(category)\n+\n+    console.log(category[filters['category.id'] - 1].name)\n     return ( \n         <div className=\"filter_viewer\">\n             <ul className='viewer_list'>\n                {visibleFilters.map((filter)=>{\n"
+                },
+                {
+                    "date": 1646194241913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,9 +77,9 @@\n         getLabel (filters) {\n             if(!filters['category.id']){\n                 return;\n             }\n-            if(filters['category.id'] && category.id && category.name){\n+            if(filters['category.id'] && category[filters['category.id'] - 1]){\n                 const label = filters['category.id'] ? category[filters['category.id'] - 1].name : 'Tất cả';\n                 return label\n             }\n         },\n@@ -106,9 +106,9 @@\n     const visibleFilters = useMemo(()=>{\n         return FILTER_LIST.filter((x)=>x.isVisible(filters));\n     },[filters])\n \n-    console.log(category[filters['category.id'] - 1].name)\n+\n     return ( \n         <div className=\"filter_viewer\">\n             <ul className='viewer_list'>\n                {visibleFilters.map((filter)=>{\n"
+                },
+                {
+                    "date": 1646194272776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,9 +78,9 @@\n             if(!filters['category.id']){\n                 return;\n             }\n             if(filters['category.id'] && category[filters['category.id'] - 1]){\n-                const label = filters['category.id'] ? category[filters['category.id'] - 1].name : 'Tất cả';\n+                const label = category[filters['category.id'] - 1].name;\n                 return label\n             }\n         },\n         isActive  (filters) {\n"
+                },
+                {
+                    "date": 1646194321689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { useMemo} from \"react\";\n \n-const FilterViewer = ({filters={},onChange=null,category = {}}) => {\n+const FilterViewer = ({filters={},onChange=null,category = []}) => {\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n"
+                },
+                {
+                    "date": 1646194359338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import { useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null,category = []}) => {\n+    console.log(category)\n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n"
+                },
+                {
+                    "date": 1646195838105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { useMemo} from \"react\";\n \n const FilterViewer = ({filters={},onChange=null,category = []}) => {\n-    console.log(category)\n+   \n     const FILTER_LIST = [\n         {id : 1,\n         getLabel (filters) {\n             return 'Giao Hàng Miễn Phí';\n"
                 }
             ],
             "date": 1645972229068,
