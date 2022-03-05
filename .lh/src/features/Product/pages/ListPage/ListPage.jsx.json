@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1646238286017,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1646290431629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n         const params = queryString.parse(location.search);\n         console.log(params);\n         return {\n             ...params,\n-            _sort:params._sort || 'salePrice:ASC',\n             _page:parseInt(params._page) || 1,\n             _limit:parseInt(params._limit) || 16,\n+            _sort:params._sort || 'salePrice:ASC',\n             isPromotion:params.isPromotion === 'true',\n             isFreeShip:params.isFreeShip === 'true'\n         };\n     },[location.search]) \n"
+                },
+                {
+                    "date": 1646484060810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,8 @@\n     const navagation =  useNavigate()\n     const location = useLocation();\n     const queryParams = useMemo(()=>{\n         const params = queryString.parse(location.search);\n-        console.log(params);\n         return {\n             ...params,\n             _page:parseInt(params._page) || 1,\n             _limit:parseInt(params._limit) || 16,\n"
                 }
             ],
             "date": 1646238286017,

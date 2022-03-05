@@ -1,6 +1,5 @@
 import { Container } from "reactstrap";
 import './index.scss';
-import Listpage from './pages/ListPage/ListPage';
 import { Outlet} from "react-router-dom";
 const ProductFeature = () => {
     return ( 

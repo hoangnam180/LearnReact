@@ -19,12 +19,11 @@ const Listpage = () => {
     const location = useLocation();
     const queryParams = useMemo(()=>{
         const params = queryString.parse(location.search);
-        console.log(params);
         return {
             ...params,
-            _sort:params._sort || 'salePrice:ASC',
             _page:parseInt(params._page) || 1,
             _limit:parseInt(params._limit) || 16,
+            _sort:params._sort || 'salePrice:ASC',
             isPromotion:params.isPromotion === 'true',
             isFreeShip:params.isFreeShip === 'true'
         };

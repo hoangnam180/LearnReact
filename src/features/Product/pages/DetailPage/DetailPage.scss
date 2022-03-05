@@ -1,12 +1,10 @@
 .right_detailPage{
     flex: 1 1 0;
-    background-color: #fff;
-    height: 100%;
+    height: 100% !important;
     padding: 0 !important;
 }
 
 .left_detailPage{
-    background-color: #fff;
     height: 100%;
     max-width: 400px !important;
     border-right: 1px solid #ccc;

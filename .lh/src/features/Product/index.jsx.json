@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1646237795967,
@@ -32,6 +32,10 @@
                 {
                     "date": 1646239318125,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,13 @@\n import { Container } from \"reactstrap\";\n import './index.scss';\n import Listpage from './pages/ListPage/ListPage';\n-import { Route, Routes } from \"react-router-dom\";\n-import DetailPage from \"./pages/DetailPage/DetailPage\";\n+import { Outlet} from \"react-router-dom\";\n const ProductFeature = () => {\n     return ( \n         <div className=\"Container_fluit\">\n         <Container className=\"pt-3\">\n-            <Listpage/>\n-        <Routes>\n-             <Route path=\"id:\" element={<DetailPage />} />\n-        </Routes>\n+            <Outlet/>\n         </Container>\n         </div>\n      );\n }\n"
+                },
+                {
+                    "date": 1646239703641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import { Container } from \"reactstrap\";\n import './index.scss';\n-import Listpage from './pages/ListPage/ListPage';\n import { Outlet} from \"react-router-dom\";\n const ProductFeature = () => {\n     return ( \n         <div className=\"Container_fluit\">\n"
                 }
             ],
             "date": 1646237795967,

@@ -61,7 +61,7 @@ const Header = ({toastContext}) => {
         <div className="header__category">
         <p><NavLink to="/">Home</NavLink></p>
         <p><NavLink to="/todos">Todo List</NavLink></p>
-        <p><NavLink to="/albums">albums</NavLink></p>
+        <p><NavLink to="/albums">Albums</NavLink></p>
         <p><NavLink to="/counter">Counter</NavLink></p>
         <p><NavLink to="/products">Products</NavLink></p>
         <div className="header__register">
@@ -72,7 +72,7 @@ const Header = ({toastContext}) => {
                       <Button
                       onClick={() => setMenu(!menu)}
                       style={{outline:'none',backgroundColor:'rgb(162 223 200 / 40%)',borderRadius:'50%',border:'none',color:'#fff'}}>
-                          <i class="fas fa-user-circle"></i>
+                          <i className="fas fa-user-circle"></i>
                       </Button>
                     }
                     {!isLogeedIn && 

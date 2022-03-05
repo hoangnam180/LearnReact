@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 18,
             "patches": [
                 {
                     "date": 1645720385988,
@@ -20,6 +20,66 @@
                 {
                     "date": 1645720645790,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n                   <div key={item.id} className=\"col-sm-12 col-md-4 col-lg-3 mb-4\">\n                   <div className=\"card p-3\">\n                   <img width={'100%'} src={urlThumnail(index)} className=\"card-img-top\" alt=\"\" />\n                   <div className=\"card-body\">\n-                      <h5 className=\"card-title card_title\">{item.name}</h5>\n+                      <h5 className={`card-title ${styles.card_title}`}>{item.name}</h5>\n                       <p className='card-price'>\n                       <span style={{fontWeight:600,fontSize:'16px',marginRight:'5px'}}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.salePrice)}</span> \n                       <span>{item.promotionPercent > 0 ? `-${item.promotionPercent}%` : ''}</span>\n                       </p>\n"
+                },
+                {
+                    "date": 1646481892519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n import { THUMBMAIL_PLACEHOLDER } from 'constants';\n import { STATIC_HOST } from 'constants';\n import React from 'react';\n import styles from  './ProductList.module.scss';\n-const ProductList = (productsList) => {\n-    const data =  productsList.productsList;\n+const ProductList = ({productsList}) => {\n+    const data =  productsList;\n     const urlThumnail = (index)=>{\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n     \n"
+                },
+                {
+                    "date": 1646482872720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,14 +6,18 @@\n     const data =  productsList;\n     const urlThumnail = (index)=>{\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n-    \n+    const handleClickBox = ()=>{\n+        console.log('click box');\n+    }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n             {data.map((item, index) => (\n-                  <div key={item.id} className=\"col-sm-12 col-md-4 col-lg-3 mb-4\">\n+                  <div key={item.id} \n+                  onClick={handleClickBox}\n+                  className=\"col-sm-12 col-md-4 col-lg-3 mb-4\">\n                   <div className=\"card p-3\">\n                   <img width={'100%'} src={urlThumnail(index)} className=\"card-img-top\" alt=\"\" />\n                   <div className=\"card-body\">\n                       <h5 className={`card-title ${styles.card_title}`}>{item.name}</h5>\n"
+                },
+                {
+                    "date": 1646483031568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,17 @@\n import { THUMBMAIL_PLACEHOLDER } from 'constants';\n import { STATIC_HOST } from 'constants';\n import React from 'react';\n+import { useNavigate } from 'react-router-dom';\n import styles from  './ProductList.module.scss';\n const ProductList = ({productsList}) => {\n     const data =  productsList;\n     const urlThumnail = (index)=>{\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n+    const navigate = useNavigate();\n     const handleClickBox = ()=>{\n-        console.log('click box');\n+        navigate(`products/${data.id}`);\n     }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n"
+                },
+                {
+                    "date": 1646483067169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n     const navigate = useNavigate();\n     const handleClickBox = ()=>{\n-        navigate(`products/${data.id}`);\n+        navigate(`/${data.id}`);\n     }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n"
+                },
+                {
+                    "date": 1646483077079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n     const navigate = useNavigate();\n     const handleClickBox = ()=>{\n-        navigate(`/${data.id}`);\n+        navigate(`products/${data.id}`);\n     }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n"
+                },
+                {
+                    "date": 1646483138963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,17 +8,17 @@\n     const urlThumnail = (index)=>{\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n     const navigate = useNavigate();\n-    const handleClickBox = ()=>{\n-        navigate(`products/${data.id}`);\n+    const handleClickBox = (index)=>{\n+        navigate(`products//${data[index].id}`);\n     }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n             {data.map((item, index) => (\n                   <div key={item.id} \n-                  onClick={handleClickBox}\n+                  onClick={()=>handleClickBox(index)}\n                   className=\"col-sm-12 col-md-4 col-lg-3 mb-4\">\n                   <div className=\"card p-3\">\n                   <img width={'100%'} src={urlThumnail(index)} className=\"card-img-top\" alt=\"\" />\n                   <div className=\"card-body\">\n"
+                },
+                {
+                    "date": 1646483194229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n     const navigate = useNavigate();\n     const handleClickBox = (index)=>{\n-        navigate(`products//${data[index].id}`);\n+        navigate(`products/${data[index].id}`);\n     }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n"
+                },
+                {
+                    "date": 1646483285213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,18 @@\n import { THUMBMAIL_PLACEHOLDER } from 'constants';\n import { STATIC_HOST } from 'constants';\n import React from 'react';\n-import { useNavigate } from 'react-router-dom';\n+import { useLocation, useNavigate } from 'react-router-dom';\n import styles from  './ProductList.module.scss';\n const ProductList = ({productsList}) => {\n     const data =  productsList;\n     const urlThumnail = (index)=>{\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n+    const location = useLocation();\n     const navigate = useNavigate();\n     const handleClickBox = (index)=>{\n-        navigate(`products/${data[index].id}`);\n+        navigate(`${location}/${data[index].id}`);\n     }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n"
+                },
+                {
+                    "date": 1646483411216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { THUMBMAIL_PLACEHOLDER } from 'constants';\n+import queryString from 'query-string';\n import { STATIC_HOST } from 'constants';\n import React from 'react';\n import { useLocation, useNavigate } from 'react-router-dom';\n import styles from  './ProductList.module.scss';\n@@ -10,9 +11,10 @@\n     }\n     const location = useLocation();\n     const navigate = useNavigate();\n     const handleClickBox = (index)=>{\n-        navigate(`${location}/${data[index].id}`);\n+        const params = queryString.parse(location.search);\n+        navigate(`${params}/${data[index].id}`);\n     }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n"
+                },
+                {
+                    "date": 1646483448681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n     }\n     const location = useLocation();\n     const navigate = useNavigate();\n     const handleClickBox = (index)=>{\n-        const params = queryString.parse(location.search);\n-        navigate(`${params}/${data[index].id}`);\n+\n+        navigate(`${location.search}/${data[index].id}`);\n     }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n"
+                },
+                {
+                    "date": 1646483541519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,13 +8,12 @@\n     const data =  productsList;\n     const urlThumnail = (index)=>{\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n-    const location = useLocation();\n     const navigate = useNavigate();\n     const handleClickBox = (index)=>{\n \n-        navigate(`${location.search}/${data[index].id}`);\n+        navigate(`/products/${data[index].id}`);\n     }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n"
+                },
+                {
+                    "date": 1646483565038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     }\n     const navigate = useNavigate();\n     const handleClickBox = (index)=>{\n \n-        navigate(`/products/${data[index].id}`);\n+        navigate(`products/${data[index].id}`);\n     }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n"
+                },
+                {
+                    "date": 1646483570872,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     }\n     const navigate = useNavigate();\n     const handleClickBox = (index)=>{\n \n-        navigate(`products/${data[index].id}`);\n+        navigate(`/products/${data[index].id}`);\n     }\n     return (\n         <div className={styles.contaner}>\n             <div className=\"row g-0\">\n"
+                },
+                {
+                    "date": 1646483622665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import { THUMBMAIL_PLACEHOLDER } from 'constants';\n-import queryString from 'query-string';\n import { STATIC_HOST } from 'constants';\n import React from 'react';\n-import { useLocation, useNavigate } from 'react-router-dom';\n+import { useNavigate } from 'react-router-dom';\n import styles from  './ProductList.module.scss';\n const ProductList = ({productsList}) => {\n     const data =  productsList;\n     const urlThumnail = (index)=>{\n"
+                },
+                {
+                    "date": 1646496932912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { THUMBMAIL_PLACEHOLDER } from 'constants';\n import { STATIC_HOST } from 'constants';\n import React from 'react';\n import { useNavigate } from 'react-router-dom';\n+import { formatPrice } from 'utils';\n import styles from  './ProductList.module.scss';\n const ProductList = ({productsList}) => {\n     const data =  productsList;\n     const urlThumnail = (index)=>{\n@@ -24,9 +25,9 @@\n                   <img width={'100%'} src={urlThumnail(index)} className=\"card-img-top\" alt=\"\" />\n                   <div className=\"card-body\">\n                       <h5 className={`card-title ${styles.card_title}`}>{item.name}</h5>\n                       <p className='card-price'>\n-                      <span style={{fontWeight:600,fontSize:'16px',marginRight:'5px'}}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.salePrice)}</span> \n+                      <span style={{fontWeight:600,fontSize:'16px',marginRight:'5px'}}>{formatPrice(item.salePrice)}</span> \n                       <span>{item.promotionPercent > 0 ? `-${item.promotionPercent}%` : ''}</span>\n                       </p>\n                       {/* <p className=\"card-text\">{item.description}</p> */}\n                       <a href=\"#\" className=\"btn btn-primary\">Go somewhere</a>\n"
                 }
             ],
             "date": 1645720385988,

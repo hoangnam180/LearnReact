@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 101,
+            "activePatchIndex": 103,
             "patches": [
                 {
                     "date": 1643207259225,
@@ -412,6 +412,14 @@
                 {
                     "date": 1646237966343,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,8 +62,9 @@\n         <p><NavLink to=\"/\">Home</NavLink></p>\n         <p><NavLink to=\"/todos\">Todo List</NavLink></p>\n         <p><NavLink to=\"/albums\">albums</NavLink></p>\n         <p><NavLink to=\"/counter\">Counter</NavLink></p>\n+        <p><NavLink to=\"/products\">Products</NavLink></p>\n         <div className=\"header__register\">\n         <div className=\"header-menu\">\n                     <Dropdown isOpen={menu}>\n                     <DropdownToggle caret>\n"
+                },
+                {
+                    "date": 1646490656491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -71,9 +71,9 @@\n                     {isLogeedIn && \n                       <Button\n                       onClick={() => setMenu(!menu)}\n                       style={{outline:'none',backgroundColor:'rgb(162 223 200 / 40%)',borderRadius:'50%',border:'none',color:'#fff'}}>\n-                          <i class=\"fas fa-user-circle\"></i>\n+                          <i className=\"fas fa-user-circle\"></i>\n                       </Button>\n                     }\n                     {!isLogeedIn && \n                     (<Button style={{backgroundColor:'#A2DFC8',border:'none',color:'#333'}}\n"
+                },
+                {
+                    "date": 1646491138485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n         </div>\n         <div className=\"header__category\">\n         <p><NavLink to=\"/\">Home</NavLink></p>\n         <p><NavLink to=\"/todos\">Todo List</NavLink></p>\n-        <p><NavLink to=\"/albums\">albums</NavLink></p>\n+        <p><NavLink to=\"/albums\">Albums</NavLink></p>\n         <p><NavLink to=\"/counter\">Counter</NavLink></p>\n         <p><NavLink to=\"/products\">Products</NavLink></p>\n         <div className=\"header__register\">\n         <div className=\"header-menu\">\n"
                 }
             ],
             "date": 1643207259225,

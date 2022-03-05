@@ -3,11 +3,103 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 23,
             "patches": [
                 {
                     "date": 1646239551214,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1646482056853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,18 @@\n+import { THUMBMAIL_PLACEHOLDER } from \"constants/index\";\n+import { STATIC_HOST } from \"constants/index\";\n import { Col, Row } from \"reactstrap\";\n import './DetailPage.scss';\n-const DetailPage = () => {\n+const DetailPage = ({product}) => {\n+    const data =  product;\n+    const urlThumnail = (index)=>{\n+        return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n+    }\n     return ( \n             <Row>\n-                <Col className=\"left_detailPage\">left_detailPage</Col>\n+                <Col className=\"left_detailPage\">\n+                    <img src={product.image} alt=\"\"/>\n+                </Col>\n                 <Col className=\"right_detailPage\">right_detailPage</Col>\n             </Row>       \n      );\n }\n"
+                },
+                {
+                    "date": 1646482130174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     }\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n-                    <img src={product.image} alt=\"\"/>\n+                    <img src={THUMBMAIL_PLACEHOLDER} alt=\"\"/>\n                 </Col>\n                 <Col className=\"right_detailPage\">right_detailPage</Col>\n             </Row>       \n      );\n"
+                },
+                {
+                    "date": 1646482151969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     }\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n-                    <img src={THUMBMAIL_PLACEHOLDER} alt=\"\"/>\n+                    <img width=\"100%\"  src={THUMBMAIL_PLACEHOLDER} alt=\"\"/>\n                 </Col>\n                 <Col className=\"right_detailPage\">right_detailPage</Col>\n             </Row>       \n      );\n"
+                },
+                {
+                    "date": 1646484032318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,16 @@\n import { THUMBMAIL_PLACEHOLDER } from \"constants/index\";\n import { STATIC_HOST } from \"constants/index\";\n+import { useParams } from \"react-router-dom\";\n import { Col, Row } from \"reactstrap\";\n import './DetailPage.scss';\n const DetailPage = ({product}) => {\n     const data =  product;\n     const urlThumnail = (index)=>{\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n+    const params = useParams()\n+    console.log(params)\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n                     <img width=\"100%\"  src={THUMBMAIL_PLACEHOLDER} alt=\"\"/>\n"
+                },
+                {
+                    "date": 1646484156528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,10 @@\n     const urlThumnail = (index)=>{\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n     const params = useParams()\n+    const {productid} = params;\n+    console.log(productid)\n     console.log(params)\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n"
+                },
+                {
+                    "date": 1646484176280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,8 @@\n     }\n     const params = useParams()\n     const {productid} = params;\n     console.log(productid)\n-    console.log(params)\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n                     <img width=\"100%\"  src={THUMBMAIL_PLACEHOLDER} alt=\"\"/>\n"
+                },
+                {
+                    "date": 1646484212362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,10 @@\n     const urlThumnail = (index)=>{\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n     const params = useParams()\n+    parseInt(productid);\n     const {productid} = params;\n-    console.log(productid)\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n                     <img width=\"100%\"  src={THUMBMAIL_PLACEHOLDER} alt=\"\"/>\n"
+                },
+                {
+                    "date": 1646484270488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,9 @@\n     const urlThumnail = (index)=>{\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n     const params = useParams()\n-    parseInt(productid);\n-    const {productid} = params;\n+    const productId= params.productid;\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n                     <img width=\"100%\"  src={THUMBMAIL_PLACEHOLDER} alt=\"\"/>\n"
+                },
+                {
+                    "date": 1646484297799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,10 @@\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n     const params = useParams()\n     const productId= params.productid;\n+    parseInt(productId);\n+    console.log(productId);\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n                     <img width=\"100%\"  src={THUMBMAIL_PLACEHOLDER} alt=\"\"/>\n"
+                },
+                {
+                    "date": 1646484319360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,8 @@\n         return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     }\n     const params = useParams()\n     const productId= params.productid;\n-    parseInt(productId);\n-    console.log(productId);\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n                     <img width=\"100%\"  src={THUMBMAIL_PLACEHOLDER} alt=\"\"/>\n"
+                },
+                {
+                    "date": 1646485105612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,18 @@\n import { THUMBMAIL_PLACEHOLDER } from \"constants/index\";\n import { STATIC_HOST } from \"constants/index\";\n+import useProductDetail from \"features/Product/hooks/useProductDetail\";\n import { useParams } from \"react-router-dom\";\n import { Col, Row } from \"reactstrap\";\n import './DetailPage.scss';\n-const DetailPage = ({product}) => {\n-    const data =  product;\n-    const urlThumnail = (index)=>{\n-        return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n-    }\n+const DetailPage = ({products}) => {\n+    // const data =  products;\n+    // const urlThumnail = (index)=>{\n+    //     return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n+    // }\n     const params = useParams()\n     const productId= params.productid;\n+    const {product,loading} = useProductDetail(productId);\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n                     <img width=\"100%\"  src={THUMBMAIL_PLACEHOLDER} alt=\"\"/>\n"
+                },
+                {
+                    "date": 1646485445464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,19 +4,18 @@\n import { useParams } from \"react-router-dom\";\n import { Col, Row } from \"reactstrap\";\n import './DetailPage.scss';\n const DetailPage = ({products}) => {\n-    // const data =  products;\n-    // const urlThumnail = (index)=>{\n-    //     return data[index].thumbnail ? `${STATIC_HOST}${data[index].thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n-    // }\n     const params = useParams()\n     const productId= params.productid;\n     const {product,loading} = useProductDetail(productId);\n+    const urlThumnail = product.thumbnail ? `${STATIC_HOST}${product.thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n+\n+\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n-                    <img width=\"100%\"  src={THUMBMAIL_PLACEHOLDER} alt=\"\"/>\n+                    <img width=\"100%\"  src={urlThumnail} alt=\"\"/>\n                 </Col>\n                 <Col className=\"right_detailPage\">right_detailPage</Col>\n             </Row>       \n      );\n"
+                },
+                {
+                    "date": 1646485610931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,15 +3,20 @@\n import useProductDetail from \"features/Product/hooks/useProductDetail\";\n import { useParams } from \"react-router-dom\";\n import { Col, Row } from \"reactstrap\";\n import './DetailPage.scss';\n-const DetailPage = ({products}) => {\n+const DetailPage = (props) => {\n     const params = useParams()\n     const productId= params.productid;\n     const {product,loading} = useProductDetail(productId);\n     const urlThumnail = product.thumbnail ? `${STATIC_HOST}${product.thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n-\n-\n+    if(loading){\n+        return (\n+            <div className=\"loading\">\n+                Loading...\n+            </div>\n+        )\n+    }\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n                     <img width=\"100%\"  src={urlThumnail} alt=\"\"/>\n"
+                },
+                {
+                    "date": 1646485794797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,13 @@\n-import { THUMBMAIL_PLACEHOLDER } from \"constants/index\";\n-import { STATIC_HOST } from \"constants/index\";\n+import ProductThumnail from \"features/Product/compennents/ProductThumnail/ProductThumnail\";\n import useProductDetail from \"features/Product/hooks/useProductDetail\";\n import { useParams } from \"react-router-dom\";\n import { Col, Row } from \"reactstrap\";\n import './DetailPage.scss';\n const DetailPage = (props) => {\n     const params = useParams()\n     const productId= params.productid;\n     const {product,loading} = useProductDetail(productId);\n-    const urlThumnail = product.thumbnail ? `${STATIC_HOST}${product.thumbnail?.url}` : THUMBMAIL_PLACEHOLDER;\n     if(loading){\n         return (\n             <div className=\"loading\">\n                 Loading...\n@@ -18,9 +16,9 @@\n     }\n     return ( \n             <Row>\n                 <Col className=\"left_detailPage\">\n-                    <img width=\"100%\"  src={urlThumnail} alt=\"\"/>\n+                    <ProductThumnail product={product}/>\n                 </Col>\n                 <Col className=\"right_detailPage\">right_detailPage</Col>\n             </Row>       \n      );\n"
+                },
+                {
+                    "date": 1646485936720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+import Loading from \"components/Loading/Loading\";\n import ProductThumnail from \"features/Product/compennents/ProductThumnail/ProductThumnail\";\n import useProductDetail from \"features/Product/hooks/useProductDetail\";\n import { useParams } from \"react-router-dom\";\n import { Col, Row } from \"reactstrap\";\n@@ -9,9 +10,9 @@\n     const {product,loading} = useProductDetail(productId);\n     if(loading){\n         return (\n             <div className=\"loading\">\n-                Loading...\n+                <Loading/>\n             </div>\n         )\n     }\n     return ( \n"
+                },
+                {
+                    "date": 1646486068864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     const productId= params.productid;\n     const {product,loading} = useProductDetail(productId);\n     if(loading){\n         return (\n-            <div className=\"loading\">\n+            <div className=\"d-flex justify-content-center\">\n                 <Loading/>\n             </div>\n         )\n     }\n"
+                },
+                {
+                    "date": 1646486167068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     const productId= params.productid;\n     const {product,loading} = useProductDetail(productId);\n     if(loading){\n         return (\n-            <div className=\"d-flex justify-content-center\">\n+            <div className=\"d-flex justify-content-center align-items-center\">\n                 <Loading/>\n             </div>\n         )\n     }\n"
+                },
+                {
+                    "date": 1646486232891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     const productId= params.productid;\n     const {product,loading} = useProductDetail(productId);\n     if(loading){\n         return (\n-            <div className=\"d-flex justify-content-center align-items-center\">\n+            <div className=\"d-flex align-items-center justify-content-center\">\n                 <Loading/>\n             </div>\n         )\n     }\n"
+                },
+                {
+                    "date": 1646493606219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,11 @@\n             <Row>\n                 <Col className=\"left_detailPage\">\n                     <ProductThumnail product={product}/>\n                 </Col>\n-                <Col className=\"right_detailPage\">right_detailPage</Col>\n+                <Col className=\"right_detailPage\">\n+                    \n+                </Col>\n             </Row>       \n      );\n }\n  \n"
+                },
+                {
+                    "date": 1646493802309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import Loading from \"components/Loading/Loading\";\n+import ProductInfo from \"features/Product/compennents/ProductInfo/ProductInfo\";\n import ProductThumnail from \"features/Product/compennents/ProductThumnail/ProductThumnail\";\n import useProductDetail from \"features/Product/hooks/useProductDetail\";\n import { useParams } from \"react-router-dom\";\n import { Col, Row } from \"reactstrap\";\n@@ -20,9 +21,9 @@\n                 <Col className=\"left_detailPage\">\n                     <ProductThumnail product={product}/>\n                 </Col>\n                 <Col className=\"right_detailPage\">\n-                    \n+                    <ProductInfo product={product}/>\n                 </Col>\n             </Row>       \n      );\n }\n"
+                },
+                {
+                    "date": 1646494195706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n const DetailPage = (props) => {\n     const params = useParams()\n     const productId= params.productid;\n     const {product,loading} = useProductDetail(productId);\n+    console.log(product);\n     if(loading){\n         return (\n             <div className=\"d-flex align-items-center justify-content-center\">\n                 <Loading/>\n"
+                },
+                {
+                    "date": 1646494765904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             </div>\n         )\n     }\n     return ( \n-            <Row>\n+            <Row className=\"bg white\">\n                 <Col className=\"left_detailPage\">\n                     <ProductThumnail product={product}/>\n                 </Col>\n                 <Col className=\"right_detailPage\">\n"
+                },
+                {
+                    "date": 1646494825234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             </div>\n         )\n     }\n     return ( \n-            <Row className=\"bg white\">\n+            <Row className=\"bg-white\">\n                 <Col className=\"left_detailPage\">\n                     <ProductThumnail product={product}/>\n                 </Col>\n                 <Col className=\"right_detailPage\">\n"
                 }
             ],
             "date": 1646239551214,
